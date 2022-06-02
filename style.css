@@ -778,7 +778,7 @@ section::after {
     z-index: 1;
     text-align: center;
     position: relative;
-    background: url(images/code2.png) no-repeat center center scroll; 
+    background: url(../images/code2.png) no-repeat center center scroll; 
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
