@@ -71,3 +71,12 @@ h1{
 .img3:hover ~ .p3{
 	display: block;
 }
+
+.image-wrapper {
+	width: 100%;
+}
+
+.image {
+	max-width:100%;
+	height: auto;
+}
