@@ -741,7 +741,7 @@ pre {
   color: #292b2c;
 }
 
-pre code {
+pre {
   padding: 0;
   font-size: inherit;
   color: inherit;
