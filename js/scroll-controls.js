@@ -1,4 +1,0 @@
-(function(){var scrollControls=document.getElementsByClassName('scroll-controls')[0];var scrollTop=document.getElementsByClassName('scroll-top')[0];var scrollBottom=document.getElementsByClassName('scroll-bottom')[0];var rootElement=document.documentElement;function scrollToTop(){rootElement.scrollTo({top:0,behavior:'smooth',});}
-function scrollToBottom(){rootElement.scrollTo({top:rootElement.scrollHeight,behavior:'smooth',});}
-function displayScrollControls(){if(rootElement.scrollTop>rootElement.clientHeight){scrollControls.classList.add('visible');}else{scrollControls.classList.remove('visible');}}
-document.addEventListener('scroll',displayScrollControls);scrollTop.addEventListener('click',scrollToTop);scrollBottom.addEventListener('click',scrollToBottom);})();

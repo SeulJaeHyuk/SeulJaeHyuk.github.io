@@ -1,7 +1,0 @@
-(function(){function isDarkMode(){return(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches);}
-var colorMode=isDarkMode()?'dark':'light';var colorModeButton=document.getElementsByClassName('color-mode-button')[0];function switchMapboxStyle(colorMode){if(window.mapbox){if(colorMode==='light'){window.mapbox.setStyle('mapbox://styles/mapbox/streets-v11');}else{window.mapbox.setStyle('mapbox://styles/mapbox/dark-v10');}}}
-function toggleColorModeButton(colorMode){if(colorMode==='light'){colorModeButton.firstElementChild.className='bi bi-moon-fill';}else{colorModeButton.firstElementChild.className='bi bi-sun-fill';}}
-function toggleColorMode(){if(colorMode==='light'){colorMode='dark';}else{colorMode='light';}
-document.documentElement.dataset.colorMode=colorMode;document.cookie='color-mode='+colorMode;toggleColorModeButton(colorMode);switchMapboxStyle(colorMode);}
-toggleColorModeButton(colorMode);colorModeButton.addEventListener('click',toggleColorMode);var colorModeMatches=document.cookie.match(/color-mode=([^&]*)/);if(colorModeMatches){colorMode=colorModeMatches[1].split(';')[0];document.documentElement.dataset.colorMode=colorMode;document.cookie='color-mode='+colorMode;toggleColorModeButton(colorMode);switchMapboxStyle(colorMode);}else{switchMapboxStyle(colorMode);}
-window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change',function(e){if(document.documentElement.dataset.colorMode==='auto'){colorMode=e.matches?'dark':'light';toggleColorModeButton(colorMode);switchMapboxStyle(colorMode);}});})();
