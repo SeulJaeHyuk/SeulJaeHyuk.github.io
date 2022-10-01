@@ -56,17 +56,3 @@
   justify-content: space-between;
   padding: 1rem 2rem;
 }
-
-.btn {
- display: block;
- border-width: 3px 3px 0 0;
- cursor: pointer;
-}
-
-.prevDay {
-  transform: rotate(-135deg);
-}
-
-.nextDay {
-  transform: rotate(45deg);
-}
