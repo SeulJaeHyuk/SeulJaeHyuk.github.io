@@ -1,0 +1,148 @@
+@media (max-width: 768px) {
+    /* Main */
+    main {
+      padding: 2rem !important;
+    }
+  
+    /* Header */
+    .header > .container {
+      padding: 0;
+    }
+  
+    .header-group {
+      flex-direction: column;
+      padding: 0 2rem;
+    }
+  
+    .header-group:last-child {
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      padding: 0;
+      height: 3.75rem;
+    }
+  
+    .header-space {
+      height: 7.25rem;
+    }
+  
+    .header-text {
+      padding: 0;
+      font-size: 1rem;
+    }
+  
+    /* Map */
+    .map-wrapper > div {
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+  
+    /* Profile Picture */
+    .profile-picture-wrapper {
+      left: 50%;
+      top: 0;
+      height: 0;
+      transform: translate(-50%, -100px);
+    }
+  
+    /* Link Group */
+    .link-group {
+      margin: 0;
+    }
+  
+    /* Color Mode Button */
+    .color-mode-button {
+      position: absolute;
+      top: -1.875rem;
+      right: 2rem;
+    }
+  
+    /* Navbar & Menu */
+    .updated-at {
+      display: none;
+    }
+  
+    /* Section */
+    .section {
+      padding: 2.5rem 0;
+    }
+  
+    /* Table */
+    .table-custom {
+      display: flex;
+      flex-direction: column;
+    }
+  
+    .table-custom > :first-child {
+      border-top-width: 0;
+    }
+  
+    .table-row {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      padding: 2rem 0;
+      border-top: 0.5px solid var(--entry-border-color);
+    }
+  
+    .table-cell {
+      display: block;
+      padding: 0;
+      border: 0;
+    }
+  
+    /* List */
+    .list-item {
+      padding: 1.7rem 0;
+    }
+  
+    .list-title {
+      display: block;
+    }
+  
+    /* Skill */
+    .tool-img {
+      margin: 0;
+    }
+  
+    .tool-name {
+      min-width: auto;
+    }
+  
+    /* Project */
+    .project-tag,
+    .project-link {
+      float: left;
+      margin-right: 0.2rem;
+      margin-bottom: 0.275rem;
+    }
+  
+    /* Text Container */
+    .text-container {
+      word-break: break-all;
+      padding: 0 0.5rem;
+      font-size: 1.2rem;
+    }
+  
+    /* Expected Salary */
+    .expected-salary {
+      gap: 0.35rem;
+    }
+  
+    .amount {
+      font-size: 2.25rem;
+      letter-spacing: -0.15rem;
+    }
+  
+    .unit {
+      font-size: 1.5rem;
+      letter-spacing: -0.05rem;
+    }
+  
+    .dash {
+      top: 0.1rem;
+      font-size: 1.25rem;
+      letter-spacing: -0.1rem;
+    }
+  }
+  

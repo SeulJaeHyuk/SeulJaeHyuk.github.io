@@ -1,0 +1,347 @@
+﻿<!DOCTYPE HTML>
+<html>
+
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width" />
+	<title>동의과학대학교 컴퓨터소프트웨어과</title>
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css"/>
+	<link rel="stylesheet" href="css/slide.css" />
+	<link rel="stylesheet" href="css/font.css">
+	<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+	<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+	<style>
+		* {box-sizing: border-box;}
+		body {font-family: Verdana, sans-serif;}
+		.mySlides {display: none;}
+		img {vertical-align: middle;}
+		
+		/* Slideshow container */
+		.slideshow-container {
+		  max-width: 1000px;
+		  position: relative;
+		  margin: auto;
+		}
+		
+		/* Caption text */
+		.text {
+		  color: #f2f2f2;
+		  font-size: 15px;
+		  padding: 8px 12px;
+		  position: absolute;
+		  bottom: 8px;
+		  width: 100%;
+		  text-align: center;
+		  font-family: Pretendard;
+		}
+		
+		/* Number text (1/3 etc) */
+		.numbertext {
+		  color: #f2f2f2;
+		  font-size: 12px;
+		  padding: 8px 12px;
+		  position: absolute;
+		  top: 0;
+		}
+		
+		/* The dots/bullets/indicators */
+		.dot {
+		  height: 15px;
+		  width: 15px;
+		  margin: 0 2px;
+		  background-color: #bbb;
+		  border-radius: 50%;
+		  display: inline-block;
+		  transition: background-color 0.6s ease;
+		}
+		
+		.active {
+		  background-color: #717171;
+		}
+		
+		/* Fading animation */
+		.fade {
+		  -webkit-animation-name: fade;
+		  -webkit-animation-duration: 1.5s;
+		  animation-name: fade;
+		  animation-duration: 1.5s;
+		}
+		
+		@-webkit-keyframes fade {
+		  from {opacity: .4} 
+		  to {opacity: 1}
+		}
+		
+		@keyframes fade {
+		  from {opacity: .4} 
+		  to {opacity: 1}
+		}
+		
+		/* On smaller screens, decrease text size */
+		@media only screen and (max-width: 300px) {
+		  .text {font-size: 11px}
+		}
+		</style>
+</head>
+
+<body>
+	<div data-theme="b">
+		<div data-role="page" id="home">
+			<div data-role="header" data-theme="b">
+				<h1>동의과학대학교 <br> 컴퓨터소프트웨어과</h1>
+			</div>
+			<div data-role="content" style="text-align:center">
+				<a href="https://www.dit.ac.kr/cs/"><img src="./image/ditcsw.png" width="100" height="100"></a>
+				<h5>실무중심 SWㆍAI 교육의 선두주자</h5>
+				<h3>동의과학대학교 컴퓨터소프트웨어과</h3>
+				<ul data-role="listview" data-inset="true">
+					<li><a href="#intro">학과 소개</a></li>
+					<li><a href="#movie" data-rel="dialog">학과 소개 영상</a></li>
+					<li><a href="#wizard3-1" data-rel="dialog">학과 전공 동아리</a></li>
+					<li><a href="#gallery">학과 사진</a></li>
+					<li><a href="https://www.dit.ac.kr/cs/index.php?pCode=MN4000036" target="_blank">졸업 후 진로</a></li>
+					<li><a href="https://www.dit.ac.kr/cs/index.php?pCode=MN9000040" target="_blank">입학 상담</a></li>
+				</ul>
+			</div>
+			<div data-role="footer" data-position="fixed" data-theme="b">
+				<h1>동의과학대학교 컴퓨터소프트웨어과</h1>
+			</div>
+		</div>
+
+		<div data-role="page" id="intro" data-theme="b">
+			<div data-role="header" data-theme="b">
+				<a href="#home" data-icon="arrow-l" data-direction="reverse">처음</a>
+				<h1>학과 소개</h1>
+			</div>
+			<div data-role="content">
+				<div style="text-align:center">
+					<a href="https://www.dit.ac.kr/cs/"><img src="./image/ditcsw.png" width="100" height="100"></a>
+				</div>
+				<div data-role="collapsible-set" data-theme="b" data-content-theme="e">
+					<div data-role="collapsible" data-collapsed="false">
+						<h3>학과 역사</h3>
+						<p>1983년 3월 모집정원 132명을 시작으로 하여 오늘에 이르고 있으며, 30여년이 넘는 시간동안 수 많은 IT 분야의 인재들을 길러냈고, 급격하는 IT 관련 사회
+							변화에 적극적으로 대응하여 첨단 기술을 선도적으로 교과과정에 도입함으로써 현장 실무에 투입되어도 손색이 없는 인재를 배출해왔다고 자부합니다. </p>
+					</div>
+					<div data-role="collapsible">
+						<h3>학과 소개</h3>
+						<p>저희 컴퓨터소프트웨어과는 웹ㆍ모바일앱ㆍ데이터베이스ㆍ인공지능ㆍ사물인터넷ㆍ클라우드컴퓨팅 등 스마트 IT 산업 분야의 실력있는 소프트웨어 개발 전문가 양성을 목표로 하고
+							있으며 학생들은 정규교육과정 이외에도 전공 동아리 활동, 캡스톤디자인프로젝트, 각종 대외 소프트웨어 개발 공모전, 전국 대학생 해커톤 대회 등에 출전하여 출중한
+							결과를 내고 있습니다.</p>
+					</div>
+					<div data-role="collapsible">
+						<h3>학과 위치</h3>
+						<p>저희 컴퓨터소프트웨어과는 부산광역시 부산진구 양지로 54 동의과학대학교 미래관 5층 501호에 위치해있습니다.</p>
+					</div>
+					<div data-role="collapsible">
+						<h3>학과 시설</h3>
+						<p>저희 컴퓨터소프트웨어과는 여섯 개의 컴퓨터 실습실, 두 개의 프로젝트실, 강의실, 학과 서버실, 학과 회의실, 학과 사무실, 두 개의 동아리실입니다. <br>
+							<br>모든 시설은 무료 와이파이와 냉ㆍ난방 시설이 갖추어져 있고 전망이 좋은 쾌적한 시설입니다.
+						</p>
+					</div>
+					<div data-role="collapsible">
+						<a href="https://www.dit.ac.kr/cs/" target="_blank"><h3>학과 홈페이지</h3></a>
+						</p>
+					</div>
+				</div>
+			</div>
+			<div data-role="footer" data-position="fixed" data-theme="b">
+				<h1>동의과학대학교 컴퓨터소프트웨어과</h1>
+			</div>
+		</div>
+
+		<div data-role="page" id="movie" data-theme="b">
+			<div data-role="header" data-position="fixed" data-theme="b">
+				<a href="#home" data-icon="arrow-l" data-direction="reverse">처음</a>
+				<h1>학과 소개 영상</h1>
+			</div>
+			<div data-role="content">
+				<div class="ui-bar ui-bar-a">컴퓨터소프트웨어과 소개 동영상</div><br />
+				<li><iframe width="100%" height="240" src="https://www.youtube.com/embed/pOP6scBvlOU"
+						title="YouTube video player"></iframe></li><br />
+				<div class="ui-bar ui-bar-a">컴퓨터소프트웨어과 소개 동영상 2</div><br />
+				<li><iframe width="100%" height="240" src="https://www.youtube.com/embed/EBgSqV6JfOQ"
+						title="YouTube video player"></iframe></li><br />
+
+			</div>
+			<div data-role="footer" data-theme="b">
+			</div>
+		</div>
+
+		<div data-role="page" id="wizard3-1">
+			<div data-role="header">
+				<h1>AI 코딩클럽</h1>
+			</div>
+			<div data-role="content">
+				<div class="ui-bar ui-bar-e">컴퓨터소프트웨어과 전공동아리로 <br>창의적인 AI/IoT 응용 서비스를 개발하고 <br>캡스톤 디자인 프로젝트, 전국 규모의 <br> 대학생 해커톤 대회 등에 출품하여 우수한 성과를 내고 있는 전공 동아리이다.</div><br />
+				<img src="image/dit_csw_aicodingclub.png" alt="" width="100%"><br>
+				<br><iframe width="100%" height="240" src="https://www.youtube.com/embed/52-YinYlRSw"
+					title="YouTube video player"></iframe>
+			</div>
+			<div data-role="footer">
+				&nbsp;&nbsp;<a href="#home" data-direction="reverse">이전</a>
+				&nbsp;<a href="#wizard3-2" data-rel="dialog" data-transition="slide">다음</a>
+			</div>
+		</div>
+
+		<div data-role="page" id="wizard3-2">
+			<div data-role="header">
+				<h1>AI 카페 체험관</h1>
+			</div>
+			<div data-role="content">
+				<div class="ui-bar ui-bar-e">AI 카페는 학생들이 인공지능을 활용하는 다양한 실제 사례를 접할 수 있는 체험형 공간으로, 4차 산업혁명 시대 핵심기술에 대한 수준별 교육이 이뤄지는 미래형 강의실이다. <br><br> AI 카페는 AI 존과 VR 존으로 구성되어 있으며 AI 존에서는 비전과 음성 인식 기반 AI 플랫폼을 체험해 볼 수 있다. <br><br> AI 자율주행차‧스피커‧드론 등 AI 기술을 접목한 각종 스마트 기기뿐만 아니라,  <br>컴퓨터소프트웨어과 학생들이 제작한 <br>AI 프로젝트 결과물이 전시 중이다.</div><br />
+				<img src="image/dit_aicafe_arvr.png" alt="" width="100%"><br>
+				<br><iframe width="100%" height="240" src="https://www.youtube.com/embed/cziFpjVqULU"
+					title="YouTube video player"></iframe>
+			</div>
+			<br><br><br><br><br><pre></pre>
+			<div data-role="footer">
+				&nbsp;&nbsp;<a href="#wizard3-1" data-direction="reverse">이전</a>
+				&nbsp;<a href="#wizard3-3">다음</a>
+			</div>
+		</div>
+
+		<div data-role="page" id="wizard3-3">
+			<div data-role="header">
+				<h1>학생 AI 프로젝트</h1>
+			</div>
+			<div data-role="content">
+				<div class="ui-bar ui-bar-e">AI 카페 체험관, 실무 AI 프로그래밍 특화교육, AI 코딩 클럽 전공동아리 등을 통하여 학생들은 실무지식과 프로젝트 수행 능력을 키워서 다양한 창의적인 AI/IoT 프로젝트 결과물을 제작할 수 있다.</div><br />
+				<a href="https://www.dit.ac.kr/cs/index.php?pCode=MN9000063" target="_blank"><img src="image/dit_stu_aiproject.png" alt="" width="100%"><br></a>
+				<br><center><h4 style="color: darkcyan;">위 이미지를 클릭하면 학생 AI 프로젝트 페이지로 이동합니다.</h4></center>
+			</div>
+			<br><br><br><br><br><pre></pre>
+			<div data-role="footer">
+				&nbsp;&nbsp;<a href="#wizard3-2" data-direction="reverse">이전</a>
+				&nbsp;<a href="#home">처음</a>
+			</div>
+		</div>
+
+		<div data-role="page" id="gallery" data-theme="b">
+			<div data-role="header" data-position="fixed" data-theme="b">
+				<a href="#home" data-icon="arrow-l" data-direction="reverse">처음</a>
+				<h1>학과 갤러리</h1>
+			</div>
+			<div class="slideshow-container">
+
+				<div class="mySlides fade">
+				  <div class="numbertext">1 / 12</div>
+				  <img src="image/2018bootcamp.JPG" style="width:100%">
+				  <div class="text">2018 DIT Bootcamp</div>
+				</div>
+				
+				<div class="mySlides fade">
+				  <div class="numbertext">2 / 12</div>
+				  <img src="image/2019bootcamp.jpg" style="width:100%">
+				  <div class="text">2019 DIT Bootcamp</div>
+				</div>
+				
+				<div class="mySlides fade">
+				  <div class="numbertext">3 / 12</div>
+				  <img src="image/2019capstone.JPG" style="width:100%">
+				  <div class="text">2019 캡스톤디자인경진대회</div>
+				</div>
+				
+				<div class="mySlides fade">
+					<div class="numbertext">4 / 12</div>
+					<img src="image/2022_dit_ai.jpg" style="width:100%">
+					<div class="text">2022 AI 교육 수료식</div>
+				  </div>
+
+				  <div class="mySlides fade">
+					<div class="numbertext">5 / 12</div>
+					<img src="image/2022_dit_capstone.JPG" style="width:100%">
+					<div class="text">2022 캡스톤디자인경진대회</div>
+				  </div>
+
+				  <div class="mySlides fade">
+					<div class="numbertext">6 / 12</div>
+					<img src="image/2022_dit_csw_ai.jpg" style="width:100%">
+					<div class="text">2022 AI 코딩클럽 교육 현장</div>
+				  </div>
+
+				  <div class="mySlides fade">
+					<div class="numbertext">7 / 12</div>
+					<img src="image/deepmask.jpg" style="width:100%">
+					<div class="text">2020 과학기술정보통신부 장관상 수상</div>
+				  </div>
+
+				  <div class="mySlides fade">
+					<div class="numbertext">8 / 12</div>
+					<img src="image/dit_aicafe.png" style="width:100%">
+					<div class="text">동의과학대 AI 카페 내부</div>
+				  </div>
+
+				  <div class="mySlides fade">
+					<div class="numbertext">9 / 12</div>
+					<img src="image/dit_aicafe_vr.png" style="width:100%">
+					<div class="text">동의과학대 AI 카페 VR존</div>
+				  </div>
+
+				  <div class="mySlides fade">
+					<div class="numbertext">10 / 12</div>
+					<img src="image/mirae703.jpg" style="width:100%">
+					<div class="text">동의과학대 컴퓨터소프트웨어과 모바일앱개발실</div>
+				  </div>
+
+				  <div class="mySlides fade">
+					<div class="numbertext">11 / 12</div>
+					<img src="image/mirae607.jpg" style="width:100%">
+					<div class="text">전공동아리실 1</div>
+				  </div>
+
+				  <div class="mySlides fade">
+					<div class="numbertext">12 / 12</div>
+					<img src="image/mirae703-1.jpeg" style="width:100%">
+					<div class="text">전공동아리실 2</div>
+				  </div>
+				</div>
+				<br>
+				<div style="text-align:center">
+				  <span class="dot"></span> 
+				  <span class="dot"></span> 
+				  <span class="dot"></span> 
+				  <span class="dot"></span> 
+				  <span class="dot"></span> 
+				  <span class="dot"></span> 
+				  <span class="dot"></span> 
+				  <span class="dot"></span> 
+				  <span class="dot"></span> 
+				  <span class="dot"></span> 
+				  <span class="dot"></span> 
+				  <span class="dot"></span> 
+				</div>
+				<br>
+				<center>
+				<h5>여러분들께 저희 학과시설, 학과소식, 학과 활동을 보여드릴게요!</h5><br>
+				<h4>실무중심 SWㆍAI 교육의 선두주자</h4>
+				<h4>동의과학대학교 컴퓨터소프트웨어과</h4> <br>
+				<h4> &nbsp; 입학 문의 | 051-860-3210</h4>
+				</center>
+				<script>
+				var slideIndex = 0;
+				showSlides();
+				
+				function showSlides() {
+				  var i;
+				  var slides = document.getElementsByClassName("mySlides");
+				  var dots = document.getElementsByClassName("dot");
+				  for (i = 0; i < slides.length; i++) {
+					slides[i].style.display = "none";  
+				  }
+				  slideIndex++;
+				  if (slideIndex > slides.length) {slideIndex = 1}    
+				  for (i = 0; i < dots.length; i++) {
+					dots[i].className = dots[i].className.replace(" active", "");
+				  }
+				  slides[slideIndex-1].style.display = "block";  
+				  dots[slideIndex-1].className += " active";
+				  setTimeout(showSlides, 2000); // Change image every 2 seconds
+				}
+				</script>
+				<div data-role="footer" data-position="fixed" data-theme="b">
+					<h1>동의과학대학교 컴퓨터소프트웨어과</h1>
+				</div>		
+</body>
+</html>
