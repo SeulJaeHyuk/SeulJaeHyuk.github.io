@@ -4,7 +4,7 @@
 </div>
 
 # 🔥 Seol Jae Hyuk WebPage <br>
->[SeulJaeHyuk.github.io](https://SeulJaeHyuk.github.io)
+>[설재혁의 웹페이지 확인하기](https://SeulJaeHyuk.github.io)
 
 ## ✔ About Me
 ㆍI don't stay in the present, I always try. <br>
