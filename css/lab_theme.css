@@ -1,5 +1,5 @@
 /* Global */
-h1, h2, h3, h4, h5, h6, thead, tbody, ul, p { font-family: 'Mukta', 'Noto Sans KR', sans-serif; color: #3f4165; margin: 0; padding: 0; }
+h1, h2, h3, h4, h5, h6, thead, tbody, ul, p { font-family: "Pretendard", sans-serif; color: #3f4165; margin: 0; padding: 0; }
 body {
   background-color: #e2e1e0b0;
   transition: .5s background, .5s color;
