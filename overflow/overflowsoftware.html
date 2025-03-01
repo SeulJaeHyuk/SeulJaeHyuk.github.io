@@ -28,6 +28,60 @@
                 </section>
             </div>
         </nav>
+        <!-- 상단 이동하기 버튼 -->
+<div style="position:fixed; bottom:35px; right:30px; z-index:99;"> 
+    <a href="#">
+      <img src="../images/top_black.png" style="width:20px" title="위로 올라가기"> 
+    </a>
+    </div>
+  
+  <style>
+  .btn_gotop {
+      display:none;
+      position:fixed;
+      bottom:50px;
+      right:50px;
+      z-index:999;
+      border:1px solid #ccc;
+      outline:none;
+      background-color:white;
+      color:#333;
+      cursor:pointer;
+      padding:15px 20px;
+      border-radius:100%;
+  }
+  </style>
+  
+  <script>
+  $(window).scroll(function(){
+      if ($(this).scrollTop() > 300){
+          $('.btn_gotop').show();
+      } else{
+          $('.btn_gotop').hide();
+      }
+  });
+  $('.btn_gotop').click(function(){
+      $('html, body').animate({scrollTop:0},400);
+      return false;
+  });
+  </script>
+  
+  <style> 
+  .btn_gotop { 
+  display: block; 
+  position: fixed; 
+  bottom: 35px; /* 탑버튼을 화면의 가장 아래에서 몇 픽셀 떨어뜨릴 것인지 정하세요*/ 
+  right: 30px; /* 탑버튼을 화면의 가장 오른쪽에서 몇 픽셀 떨어뜨릴 것인지 정하세요*/ 
+  z-index: 999; 
+  border: 1px solid rgba(0,0,0,0.25); 
+  outline: none; 
+  background-color: white; 
+  color: rgba(0,0,0,0.7); 
+  cursor: pointer; 
+  padding: 15px 20px; 
+  border-radius: 100%; 
+  } 
+  </style>
         <!-- Page Content-->
         <div class="container px-4 px-lg-5">
             <!-- Heading Row-->
