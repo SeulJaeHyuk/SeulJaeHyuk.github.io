@@ -14,10 +14,11 @@
     <link rel="shortcut icon" href="../images/jaehyuk.jpg" type="image/x-icon"/>
   </head>
   <body oncontextmenu="return false" onselectstart="return false" ondragstart="return false" onkeydown="return false">
+</script>
     <!-- Navbar 시작 -->
     <nav class="navbar navbar-expand-lg navbar-light">
       <div class="container-fluid text-uppercase">
-        <a class="navbar-brand" href="#">Seol Jae Hyuk</a>
+        <a class="navbar-brand" href="#summary">Seol Jae Hyuk</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -31,6 +32,12 @@
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#license">License</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#patent">Patent</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#press">Press</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#competition">Competition</a>
@@ -58,6 +65,60 @@
       </div>
     </nav>
     <!-- Navbar 끝 -->
+<!-- 상단 이동하기 버튼 -->
+<div style="position:fixed; bottom:35px; right:30px; z-index:99;"> 
+  <a href="#summary">
+    <img src="../images/top_gray.png" style="width:20px" title="위로 올라가기"> 
+  </a>
+  </div>
+
+<style>
+.btn_gotop {
+	display:none;
+	position:fixed;
+	bottom:50px;
+	right:50px;
+	z-index:999;
+	border:1px solid #ccc;
+	outline:none;
+	background-color:white;
+	color:#333;
+	cursor:pointer;
+	padding:15px 20px;
+	border-radius:100%;
+}
+</style>
+
+<script>
+$(window).scroll(function(){
+	if ($(this).scrollTop() > 300){
+		$('.btn_gotop').show();
+	} else{
+		$('.btn_gotop').hide();
+	}
+});
+$('.btn_gotop').click(function(){
+	$('html, body').animate({scrollTop:0},400);
+	return false;
+});
+</script>
+
+<style> 
+.btn_gotop { 
+display: block; 
+position: fixed; 
+bottom: 35px; /* 탑버튼을 화면의 가장 아래에서 몇 픽셀 떨어뜨릴 것인지 정하세요*/ 
+right: 30px; /* 탑버튼을 화면의 가장 오른쪽에서 몇 픽셀 떨어뜨릴 것인지 정하세요*/ 
+z-index: 999; 
+border: 1px solid rgba(0,0,0,0.25); 
+outline: none; 
+background-color: white; 
+color: rgba(0,0,0,0.7); 
+cursor: pointer; 
+padding: 15px 20px; 
+border-radius: 100%; 
+} 
+</style>
     <!-- Main 시작 -->
     <main>
       <!-- Summary 시작 -->
@@ -97,7 +158,7 @@
                 </thead>
                 <tbody>
                   <tr>
-                    <th class="table-title" scope="col">FSR (Food Store Resevation)</th>
+                    <th class="table-title" scope="col"><center>FSR (Food Store Resevation)</center></th>
                     <td>
                       <div>[수완이와 친구들] - FSR (Food Store Resevation)</div>
                       <div>
@@ -133,7 +194,7 @@
                   </tr>
 
                   <tr>
-                    <th class="table-title" scope="col">지문 인식 보관함</th>
+                    <th class="table-title" scope="col"><center>지문 인식 보관함</center></th>
                     <td>
                       <div>[C&S] - Smart Locker</div>
                       <div>
@@ -161,13 +222,16 @@
                       <div class="progress-desc">시스템 개발 <br> 문서 작업 <br> 총괄 담당</div>
                     </td>
                     <td class="text-center">
+                      <a href="https://drive.google.com/drive/folders/1NVHZKt4Nd92tZ9uOLY_e-8uy6XR_s_zc?usp=drive_link" target="_blank">
                       <span class="text-muted" data-bs-toggle="modal" data-bs-target="#myModal2" >
+                        <i class="bi bi-file-earmark-slides"></i>
                       </span>
+                    </a>
                     </td>
                   </tr>
 
                   <tr>
-                    <th class="table-title" scope="col">ReuseMall</th>
+                    <th class="table-title" scope="col"><center>ReuseMall</center></th>
                     <td>
                       <div>[ReuseMall] - 중고 제품 판매 사이트</div>
                       <div>
@@ -193,13 +257,16 @@
                       <div class="progress-desc">시스템 개발 <br> 문서 작업 <br> 총괄 담당</div>
                     </td>
                     <td class="text-center">
+                      <a href="../reusemall/index.html" target="_blank">
                       <span class="text-muted" data-bs-toggle="modal" data-bs-target="#myModal2" >
+                        <i class="bi bi-file-earmark-slides"></i>
                       </span>
+                    </a>
                     </td>
                   </tr>
 
                   <tr>
-                    <th class="table-title" scope="col">HMP (Help Me Plese)</th>
+                    <th class="table-title" scope="col"><center>HMP (Help Me Plese)</center></th>
                     <td>
                       <div>[설재혁] - 도움을 요청하는 어플리케이션</div>
                       <div>
@@ -231,8 +298,7 @@
                   </tr>
 
                   <tr>
-                    <th class="table-title" scope="col">사물인터넷(IoT)를 이용한 방사능 오염 탐지 시스템
-                    </th>
+                    <th class="table-title" scope="col"><center>사물인터넷(IoT)를 이용한 방사능 오염 탐지 시스템</center></th>
                     <td>
                       <div>[오버플로우소프트웨어] - Gamma Canary : 사물인터넷(IoT)를 이용한 방사능 오염 탐지 시스템</div>
                       <div>
@@ -272,7 +338,7 @@
                   </tr>
 
                   <tr>
-                    <th class="table-title" scope="col">인공지능을 이용한 동아리실 출입 관리 시스템</th>
+                    <th class="table-title" scope="col"><center>인공지능을 이용한 동아리실 출입 관리 시스템</center></th>
                     <td>
                       <div>[Binary] - 인공지능을 이용한 동아리실 출입 관리 시스템</div>
                       <div>
@@ -309,7 +375,7 @@
                     </td>
                   </tr>
                   <tr>
-                    <th class="table-title" scope="col">각종 교과목 프로젝트</th>
+                    <th class="table-title" scope="col"><center>각종 교과목 프로젝트</center></th>
                     <td>
                       <div>[DIT] - 각종 교과목 프로젝트</div>
                       <div>
@@ -347,7 +413,7 @@
                     </td>
                   </tr>
                   <tr>
-                    <th class="table-title" scope="col">프로그래밍 언어별 공부</th>
+                    <th class="table-title" scope="col"><center>프로그래밍 언어별 공부</center></th>
                     <td>
                       <div>[개인] - 프로그래밍 언어별 공부</div>
                       <div>
@@ -497,7 +563,7 @@
                 </thead>
                 <tbody>
                   <tr>
-                    <th class="table-title" scope="col">2022 컴퓨터정보과 BOOTCAMP 경진대회</th>
+                    <th class="table-title" scope="col"><center>2022 컴퓨터정보과 BOOTCAMP 경진대회</center></th>
                     <td>
                       <div>[Binary] - Vision AI를 활용한 동아리실 출입 관리 시스템  (2022년)<br>
                       [메이킹필름팀] - 2022 컴퓨터정보과 BOOTCAMP 촬영 후 편집 </div>
@@ -518,7 +584,7 @@
                     </td>
                   </tr>
                   <tr>
-                    <th class="table-title" scope="col">2022 디지텍 캡스톤 디자인 경진대회</th>
+                    <th class="table-title" scope="col"><center>2022 디지텍 캡스톤 디자인 경진대회</center></th>
                     <td>
                       <div>[Binary] - Vision AI를 이용한 동아리실 출입 관리 시스템  (2022년) </div>
                       <div>
@@ -538,7 +604,7 @@
                     </td>
                   </tr>
                   <tr>
-                    <th class="table-title" scope="col">2022 DIT 캡스톤 디자인 경진대회</th>
+                    <th class="table-title" scope="col"><center>2022 DIT 캡스톤 디자인 경진대회</center></th>
                     <td>
                       <div>[Binary] - 인공지능을 이용한 동아리실 출입관리 시스템 (2022년) </div>
                       <div>
@@ -558,7 +624,7 @@
                     </td>
                   </tr>
                   <tr>
-                    <th class="table-title" scope="col">2019 DIT 캡스톤 디자인 경진대회</th>
+                    <th class="table-title" scope="col"><center>2019 DIT 캡스톤 디자인 경진대회</center></th>
                     <td>
                       <div>[오버플로우 소프트웨어] - Gamma Canary : 사물인터넷(IoT)를 이용한 방사능 오염 탐지 시스템 (2019년) </div>
                       <div>
@@ -578,7 +644,7 @@
                     </td>
                   </tr>
                   <tr>
-                    <th class="table-title" scope="col">2019 산학협력 EXPO</th>
+                    <th class="table-title" scope="col"><center>2019 산학협력 EXPO</center></th>
                     <td>
                       <div>[오버플로우 소프트웨어] - Gamma Canary : 사물인터넷(IoT)를 이용한 방사능 오염 탐지 시스템 (2019년) </div>
                       <div>
@@ -598,7 +664,7 @@
                     </td>
                   </tr>
                   <tr>
-                    <th class="table-title" scope="col">2019 부산권 LINC+ 15개 대학 연합 캡스톤디자인 경진대회</th>
+                    <th class="table-title" scope="col"><center>2019 부산권 LINC+ 15개 대학 연합 캡스톤디자인 경진대회</center></th>
                     <td>
                       <div>[오버플로우 소프트웨어] - Gamma Canary : 사물인터넷(IoT)를 이용한 방사능 오염 탐지 시스템 (2019년) </div>
                       <div>
@@ -618,7 +684,7 @@
                     </td>
                   </tr>
                   <tr>
-                    <th class="table-title" scope="col">2019 컴퓨터정보과 BOOTCAMP 경진대회</th>
+                    <th class="table-title" scope="col"><center>2019 컴퓨터정보과 BOOTCAMP 경진대회</center></th>
                     <td>
                       <div>[메이킹필름팀] - 2019 컴퓨터정보과 BOOTCAMP 예선ㆍ본선 촬영 후 편집</div>
                       <div>
@@ -636,7 +702,7 @@
                     </td>
                   </tr>
                   <tr>
-                    <th class="table-title" scope="col">2017 부산상업경진대회 - 창업실무 부문</th>
+                    <th class="table-title" scope="col"><center>2017 부산상업경진대회 - 창업실무 부문</center></th>
                     <td>
                       <div>[설재혁 (개인)] - 2017 부산상업경진대회 - 창업실무 부문 참여</div>
                       <div>
@@ -660,6 +726,192 @@
           </div>
         </div>
       </section>
+      <!-- license 시작 -->
+      <section class="container pt mt" id="license">
+        <h2 class="section-header fonsiz-xxxl fonwei-en-xxl letsp-sm text-upper color-basic">license</h2>
+        <div class="section-desc fonsiz-sm color-basic-opac letsp-sm ws-xs mt-2 mb-4">
+          저는 제 실력 향상을 위해 공부해왔으며, <br>그 공부한 것들을 바탕으로 제 실력을 향상시키고, 자격증 및 학위를 취득하였습니다.
+        </div>
+        <div class="card shadow">
+          <div class="card-body">
+            <div class="table-responsive">
+              <table class="table table-hover align-middle">
+                <thead>
+                  <tr class="fonsiz-sm fonwei-kr-md letsp-sm color-basic-opac text-center vertmid">
+                    <th>자격증</th>
+                    <th>세부 사항</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th class="table-title" scope="col"><center>한자 8급</center></th>
+                    <td>
+                      <div>[설재혁] - 한자 8급 취득 </div>
+                      <div>
+                        #대한민국 #한자 #8급 #자격증 #취득 
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th class="table-title" scope="col"><center>태권도 1단, 2단, 3단</center></th>
+                    <td>
+                      <div>[설재혁] - 태권도 1단, 2단, 3단 취득 </div>
+                      <div>
+                        #대한민국 #국기원 #태권도 #1단 #2단 #3단 #자격증 #취득
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th class="table-title" scope="col"><center>ITQ 파워포인트, 한글, 엑셀</center></th>
+                    <td>
+                      <div>[설재혁] - ITQ 파워포인트, 한글, 엑셀 취득</div>
+                      <div>
+                        #대한민국 #ITQ #파워포인트 #한글 #엑셀 #자격증 #취득
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th class="table-title" scope="col"><center>자동차 운전면허증 1종 보통</center></th>
+                    <td>
+                      <div>[설재혁] - 자동차 운전면허증 1종 보통 취득</div>
+                      <div>
+                        #대한민국 #자동차 #운전면허증 #1종 #보통 #자격증 #취득
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th class="table-title" scope="col"><center>NVIDIA Deep Learning </center></th>
+                    <td>
+                      <div>[설재혁] - NVIDIA Deep Learning 국제공인 자격증 취득</div>
+                      <div>
+                        #인공지능 #NVIDIA #DeepLearning #딥러닝 #머신러닝
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th class="table-title" scope="col"><center>공학 전문학사 </center></th>
+                    <td>
+                      <div>[설재혁] - 공학전문학사 취득</div>
+                      <div>
+                        #동의과학대 #컴퓨터정보 #공학계열 #공학전문학사 #전문학사 #학위 #대학학위
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th class="table-title" scope="col"><center>특허 취득 </center></th>
+                    <td>
+                      <div>[설재혁] - AI 기반의 얼굴인식을 통한 동아리방 출입 시스템(Club room attendance system based on AI face recognition)에 대한 특허 취득 (Binary팀)</div>
+                      <div>
+                        #동의과학대 #컴퓨터정보 #프로젝트 #특허취득 #Bianry #VisionAI #특허
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Patent 시작 -->
+      <section class="container pt mt" id="patent">
+        <h2 class="section-header fonsiz-xxxl fonwei-en-xxl letsp-sm text-upper color-basic">Patent</h2>
+        <div class="section-desc fonsiz-sm color-basic-opac letsp-sm ws-xs mt-2 mb-4">
+          저는 다양한 활동을 해오면서 많은 경험도 하였고,<br>
+          특허도 출원되어 특허 보유 중에 있습니다.
+        </div>
+        <div class="card shadow">
+          <div class="card-body">
+            <div class="table-responsive">
+              <table class="table table-hover align-middle">
+                <thead>
+                  <tr class="fonsiz-sm fonwei-kr-md letsp-sm color-basic-opac text-center vertmid">
+                    <th>특허명</th>
+                    <th>세부 사항 </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th class="table-title" scope="col"><center>AI 기반의 얼굴인식을 통한 동아리방 출입 시스템<br>(Club room attendance system based on AI face recognition)</center></th>
+                    <td>
+                      <div>AI 기반의 얼굴인식을 통한 동아리방 출입 시스템에 대한 특허 출원 </div>
+                      <div>
+                        #2022년 #2024년 #VisionAI #특허출원 #AI기반
+                        #얼굴인식 #출입시스템 #동의과학대학교 #동의과학대
+                      </div>
+                      <div>
+                        <span class="badge bg-grey">AI</span>
+                        <span class="badge bg-grey">IT</span>
+                        <span class="badge bg-grey">JetsonNano</span>
+                        <span class="badge bg-grey">Web</span>
+                        <span class="badge bg-grey">Display</span>
+                        <span class="badge bg-grey">SMS(Telegram)</span>
+                        <span class="badge bg-grey">Firebase</span>
+                      </div>
+                      <td class="text-center">
+                        <a href="../patent/press.html" target="_blank">
+                        <span class="text-muted" data-bs-toggle="modal" data-bs-target="#myModal2" >
+                          <i class="bi bi-file-earmark-slides"></i>
+                        </span>
+                      </a>
+                      </td>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </section>
+<!-- Press 시작 -->
+<section class="container pt mt" id="press">
+  <h2 class="section-header fonsiz-xxxl fonwei-en-xxl letsp-sm text-upper color-basic">Press</h2>
+  <div class="section-desc fonsiz-sm color-basic-opac letsp-sm ws-xs mt-2 mb-4">
+    저는 다양한 활동을 해오면서 많은 경험도 하였고,<br>
+    언론에도 보도되었습니다.
+  </div>
+  <div class="card shadow">
+    <div class="card-body">
+      <div class="table-responsive">
+        <table class="table table-hover align-middle">
+          <thead>
+            <tr class="fonsiz-sm fonwei-kr-md letsp-sm color-basic-opac text-center vertmid">
+              <th>보도명</th>
+              <th>세부 사항 </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th class="table-title" scope="col"><center>동의과학대 컴퓨터소프트웨어과, AI 기반 얼굴인식 출입 시스템 특허 출원</center></th>
+              <td>
+                <div>AI 기반의 얼굴인식을 통한 동아리방 출입 시스템에 대한 특허 출원</div>
+                <div>
+                  #2022년 #2024년 #VisionAI #특허출원 #AI기반
+                  #얼굴인식 #출입시스템 #동의과학대학교 #동의과학대
+                </div>
+                <div>
+                  <span class="badge bg-grey">AI</span>
+                  <span class="badge bg-grey">IT</span>
+                  <span class="badge bg-grey">JetsonNano</span>
+                  <span class="badge bg-grey">Web</span>
+                  <span class="badge bg-grey">Display</span>
+                  <span class="badge bg-grey">SMS(Telegram)</span>
+                  <span class="badge bg-grey">Firebase</span>
+                </div>
+                <td class="text-center">
+                  <a href="../patent/press.html" target="_blank">
+                  <span class="text-muted" data-bs-toggle="modal" data-bs-target="#myModal2" >
+                    <i class="bi bi-file-earmark-slides"></i>
+                  </span>
+                </a>
+                </td>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
        <!-- Awards 시작 -->
             <section class="container pt mt" id="awards">
                 <h2 class="section-header fonsiz-xxxl fonwei-en-xxl letsp-sm text-upper color-basic">Awards</h2>
@@ -679,7 +931,7 @@
                         </thead>
                         <tbody>
                           <tr>
-                            <th class="table-title" scope="col">특허 취득</th>
+                            <th class="table-title" scope="col"><center>특허 취득</center></th>
                             <td>
                               <div>[Binary] - AI 기반 얼굴인식 출입 시스템에 대한 특허 출원</div>
                               <div>
@@ -697,10 +949,10 @@
                                 <span class="badge bg-grey">Firebase</span>
                               </div>
                             </td>
-                            <td>특허 취득</td>
+                            <td><center>특허 취득</center></td>
                           </tr>
                           <tr>
-                            <th class="table-title" scope="col">공학전문학사</th>
+                            <th class="table-title" scope="col"><center>공학전문학사</center></th>
                             <td>
                               <div>[설재혁] - 공학 전문학사 취득</div>
                               <div>
@@ -718,10 +970,10 @@
                                 <span class="badge bg-grey">Associate degree Engineering</span>
                               </div>
                             </td>
-                            <td>공학전문학사</td>
+                            <td><center>공학전문학사</center></td>
                           </tr>
                           <tr>
-                            <th class="table-title" scope="col">2022 컴퓨터정보과 BOOTCAMP 경진대회</th>
+                            <th class="table-title" scope="col"><center>2022 컴퓨터정보과 BOOTCAMP 경진대회</center></th>
                             <td>
                               <div>[Binary] - Vision AI를 활용한 동아리실 출입관리 시스템<br>
                               [메이킹필름팀] - 2022 컴퓨터정보과 BOOTCAMP 촬영 후 편집</div>
@@ -740,10 +992,10 @@
                                 <span class="badge bg-grey">Firebase</span>
                               </div>
                             </td>
-                            <td>특별상</td>
+                            <td><center>특별상</center></td>
                           </tr>
                           <tr>
-                            <th class="table-title" scope="col">2022 디지텍 캡스톤 디자인 경진대회</th>
+                            <th class="table-title" scope="col"><center>2022 디지텍 캡스톤 디자인 경진대회</center></th>
                             <td>
                               <div>[Binary] - 인공지능을 이용한 동아리실 출입관리 시스템 (2022년) </div>
                               <div>
@@ -761,10 +1013,10 @@
                                 <span class="badge bg-grey">Firebase</span>
                               </div>
                             </td>
-                            <td>동상</td>
+                            <td><center>동상</center></td>
                           </tr>
                           <tr>
-                            <th class="table-title" scope="col">2022 DIT 캡스톤 디자인 경진대회</th>
+                            <th class="table-title" scope="col"><center>2022 DIT 캡스톤 디자인 경진대회</center></th>
                             <td>
                               <div>[Binary] - 인공지능을 이용한 동아리실 출입관리 시스템 (2022년) </div>
                               <div>
@@ -782,10 +1034,10 @@
                                 <span class="badge bg-grey">Firebase</span>
                               </div>
                             </td>
-                            <td>대상</td>
+                            <td><center>대상</center></td>
                           </tr>
                           <tr>
-                            <th class="table-title" scope="col">2019 DIT 캡스톤 디자인 경진대회</th>
+                            <th class="table-title" scope="col"><center>2019 DIT 캡스톤 디자인 경진대회</center></th>
                             <td>
                               <div>[오버플로우 소프트웨어] - Gamma Canary : 사물인터넷(IoT)를 이용한 방사능 오염 탐지 시스템 (2019년) </div>
                               <div>
@@ -803,10 +1055,10 @@
                                 <span class="badge bg-grey">Firebase</span>
                               </div>
                             </td>
-                            <td>일반형 금상</td>
+                            <td><center>일반형 금상</center></td>
                           </tr>
                           <tr>
-                            <th class="table-title" scope="col">2019 부산권 LINC+ 15개 대학 연합 캡스톤디자인 경진대회</th>
+                            <th class="table-title" scope="col"><center>2019 부산권 LINC+ 15개 대학 연합 캡스톤디자인 경진대회</center></th>
                             <td>
                               <div>[오버플로우 소프트웨어] - Gamma Canary : 사물인터넷(IoT)를 이용한 방사능 오염 탐지 시스템 (2019년) </div>
                               <div>
@@ -824,10 +1076,10 @@
                                 <span class="badge bg-grey">Firebase</span>
                               </div>
                             </td>
-                            <td>우수상</td>
+                            <td><center>우수상</center></td>
                           </tr>
                           <tr>
-                            <th class="table-title" scope="col">2019 컴퓨터정보과 BOOTCAMP 경진대회</th>
+                            <th class="table-title" scope="col"><center>2019 컴퓨터정보과 BOOTCAMP 경진대회</center></th>
                             <td>
                               <div>[메이킹필름팀] - 2019 컴퓨터정보과 BOOTCAMP 예선ㆍ본선 촬영 후 편집</div>
                               <div>
@@ -843,7 +1095,7 @@
                                 <span class="badge bg-grey">Video editing</span>
                               </div>
                             </td>
-                            <td>특별상</td>
+                            <td><center>특별상</center></td>
                           </tr>
                         </tbody>
                       </table>
@@ -875,30 +1127,30 @@
                 </thead>
                 <tbody>
                   <tr>
-                    <th class="table-title" scope="col">2015 대국민 기상교육 '기상청 직업 체험'</th>
+                    <th class="table-title" scope="col"><center>2015 대국민 기상교육 '기상청 직업 체험'</center></th>
                     <td>
                       <div>기상청에서 실시한 "2015 대국민 기상교육 기상청 직업체험" 수료 </div>
                     </td>
                   </tr>
                   <tr>
-                    <th class="table-title" scope="col">2018 동구청년 취업역량 강화 프로그램</th>
+                    <th class="table-title" scope="col"><center>2018 동구청년 취업역량 강화 프로그램</center></th>
                     <td>
-                      <div>부산 동구청이 주관하는 취업경쟁력 강화를 위한 "2018 동구 청년 취업역량 강화 프로그램" 수료 </div>
+                      <div>부산 동구청이 주관하는 취업경쟁력 강화를 위한 "2018 동구 청년 취업역량 강화 프로그램" 수료</center></div>
                     </td>
                   </tr>
                   <tr>
-                    <th class="table-title" scope="col">2018 Fuse를 활용한 모바일 앱 개발 교육</th>
+                    <th class="table-title" scope="col"><center>2018 Fuse를 활용한 모바일 앱 개발 교육</center></th>
                     <td>
                       <div> Fusetools Korea가 공인하는 교육과정 수료 </div>
                     </td>
                   </tr>
                   <tr>
-                    <th class="table-title" scope="col">2022 AI 복합교육과정 (160시간)</th>
+                    <th class="table-title" scope="col"><center>2022 AI 복합교육과정 (160시간)</center></th>
                     <td>
                       <div>부산정보산업진흥원이 주관하는 "(AI복합교육) AI를 활용한 무인이동체(드론, 자율주행) 개발(1) 교육" 수료 </div>
                   </tr>
                   <tr>
-                    <th class="table-title" scope="col">NVIDIA Deep Learning Institute</th>
+                    <th class="table-title" scope="col"><center>NVIDIA Deep Learning Institute</center></th>
                     <td>
                       <div>NVIDIA에서 주관하는 Deep Learning Institute 수료 후 국제공인 자격증 취득 </div>
                   </tr>
@@ -931,6 +1183,16 @@
               <th class="table-title" scope="col">고등학교 창업동아리장 활동 <br>(2017~2018년도)</th></th>
               <td>
                 <div>2년동안 고등학교에서 창업동아리장을 활동하며, 리더쉽을 향상하였으며 동아리원들을 이끌어 각종 대회에도 참여하였습니다. </div>
+              </td>
+              <td class="text-center">
+                <span class="text-muted" data-bs-toggle="modal" data-bs-target="#myModal2" >
+                </span>
+              </td>
+            </tr>
+            <tr>
+              <th class="table-title" scope="col">홈페이지 제작 <br>(2017년 ~)</th>
+              <td>
+                <div>필요한 부분에 자료를 사용하여 Github 페이지인 github io를 활용하여 홈페이지를 제작 후 활용하고 있으며, 다양한 분야가 가능하도록 최선을 다하고 있습니다.</div>
               </td>
               <td class="text-center">
                 <span class="text-muted" data-bs-toggle="modal" data-bs-target="#myModal2" >
@@ -977,6 +1239,17 @@
               <th class="table-title" scope="col">대학 학과 학생회 활동 <br> (2019~2020년 1학기, 2022년 2학기)</th>
               <td>
                 <div>2년동안 4학기 내내 대학교에서 학과(컴퓨터정보과) 학생회 활동(총대)을 하여 리더쉽을 향상하였습니다.</div>
+              </td>
+              <td class="text-center">
+                <span class="text-muted" data-bs-toggle="modal" data-bs-target="#myModal2" >
+                </span>
+              </td>
+            </tr>
+            
+            <tr>
+              <th class="table-title" scope="col">영상 제작 <br>(2019년 ~)</th>
+              <td>
+                <div>필요한 부분에 자료를 활용하여 영상을 제작 후 활용하고 있으며, 다양한 분야가 가능하도록 최선을 다하고 있습니다.</div>
               </td>
               <td class="text-center">
                 <span class="text-muted" data-bs-toggle="modal" data-bs-target="#myModal2" >
@@ -1048,29 +1321,10 @@
                 </a>
               </td>
             </tr>
-            <tr>
-              <th class="table-title" scope="col">영상 제작 <br>(2019년 ~)</th>
-              <td>
-                <div>필요한 부분에 자료를 활용하여 영상을 제작 후 활용하고 있으며, 다양한 분야가 가능하도록 최선을 다하고 있습니다.</div>
-              </td>
-              <td class="text-center">
-                <span class="text-muted" data-bs-toggle="modal" data-bs-target="#myModal2" >
-                </span>
-              </td>
-            </tr>
-            <tr>
-              <th class="table-title" scope="col">홈페이지 제작 <br>(2017년 ~)</th>
-              <td>
-                <div>필요한 부분에 자료를 사용하여 Github 페이지인 github io를 활용하여 홈페이지를 제작 후 활용하고 있으며, 다양한 분야가 가능하도록 최선을 다하고 있습니다.</div>
-              </td>
-              <td class="text-center">
-                <span class="text-muted" data-bs-toggle="modal" data-bs-target="#myModal2" >
-                </span>
-              </td>
-            </tr>
           </tbody>
         </table>
       </div>
+      <div class="table-desc fonsiz-xs fonwei-kr-sm letsp-sm text-center color-basic-opac">활동 및 경력은 과거 → 최근 순으로 정렬되어 있습니다</div>
     </div>
   </div>
 </section>
