@@ -87,7 +87,7 @@ th { font-size: 0.95rem; font-weight: 500; letter-spacing: -0.05rem;  }
 td div:nth-child(1) { font-size: 0.85rem; font-weight: 500; letter-spacing: -0.05rem; color: rgba(46, 47, 68, 0.861); text-transform: uppercase; }
 td div:nth-child(2) { font-size: 0.75rem; font-weight: 300; letter-spacing: -0.05rem; color: rgba(46, 47, 68, 0.534); text-transform: uppercase; word-spacing: 0.3rem;}
 td div:nth-child(3) { padding-top: 0.3rem; font-size: 0.65rem; font-weight: 500; letter-spacing: -0.05rem; color: rgba(46, 47, 68, 0.534);  }
-table tbody td i { font-size: 1.1rem; transition-property: font-size; color: #7f7f7fb0; transition-duration: 0.5s; position: relative; bottom: 5px; }
+table tbody td i { font-size: 1.1rem; transition-property: font-size; color: cornflowerblue; transition-duration: 0.5s; position: relative; bottom: 5px; }
 table tbody td i:hover { font-size: 2rem; color: #7A33FF; cursor: pointer; }
 .progress-desc { padding-top: 2px; font-size: 0.6rem; font-weight: 500; letter-spacing: 0; color: #ffffff; }
 
