@@ -28,7 +28,7 @@
     .license-copy { color: rgba(255, 255, 255, 0.733); }
     .bg-grey { background-color: #909090ea; }
     .table { --bs-table-hover-bg: rgba(16, 16, 23, 0.868); }
-    #summary p { color: rgba(255, 255, 255, 0.555); }
+    #summary p { color: white; }
     #document p { color: rgba(255, 255, 255, 0.555); }
     #contact p { color: rgba(255, 255, 255, 0.555); }
     footer a { color: rgba(255, 255, 255, 0.678); }
