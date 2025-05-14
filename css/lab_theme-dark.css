@@ -9,7 +9,7 @@
         background-size: cover;
     }
     .section-header { color: white; }
-    .section-desc { color: rgba(255, 255, 255, 0.329); }
+    .section-desc { color: lightsteelblue; }
     p, tr, th, td { color: white; }
     thead, tbody, tfoot, tr, td, th { border-color: rgba(255, 255, 255, 0.094);}
     .table > :not(caption) > * > * { border-color: rgba(255, 255, 255, 0.094); }
@@ -38,7 +38,7 @@
     .navbar { background-color: rgba(26, 26, 44, 0.863);}
     .navbar-brand { color: white; }
     .navbar-light .navbar-brand { color: white; }
-    .table-desc  { color: rgba(255, 255, 255, 0.212); }
+    .table-desc  { color: aquamarine; }
 
 
 
