@@ -30,7 +30,7 @@
     .table { --bs-table-hover-bg: rgba(16, 16, 23, 0.868); }
     #summary p { color: white; }
     #document p { color: rgba(255, 255, 255, 0.555); }
-    #contact p { color: rgba(255, 255, 255, 0.555); }
+    #contact p { color: white; }
     footer a { color: rgba(255, 255, 255, 0.678); }
     .card { background-color: rgba(29, 32, 42, 0.445); }
     .card-header { background-color: rgb(19, 22, 31); }
