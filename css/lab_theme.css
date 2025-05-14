@@ -146,6 +146,14 @@ td .profile { padding-top: 0.5rem; }
 @media (max-width: 768px) { .contact-body { margin: 0 } }
 table thead th { border-bottom: none !important; }
 
+/* table - careerdetails  */
+#careerdetails td img { width: 3.125rem;}
+#careerdetails table tbody td { font-size: 0.9rem; font-weight: 300; letter-spacing: -0.03rem; color: rgba(255, 255, 255, 0.911); text-transform: uppercase; padding: 20px 40px; color: rgba(255, 255, 255, 0.911);  }
+#careerdetails table thead th:nth-child(4) { width: 100px; }
+#careerdetails table tbody td:nth-child(4) { padding: 0; }
+#careerdetails table tbody td i { font-size: 0.7rem; letter-spacing: -2.4px; }
+#careerdetails .star-icon i { color:rgb(140, 233, 0); }
+
 /* footer  */
 .social-title { padding: 0.625rem; font-size: 0.75rem; font-weight: 300; letter-spacing: 0; text-transform: uppercase; text-decoration: none; color: #ffffff; }
 .social-title:hover { padding: 5px 10px; font-weight: 500; border: 1px solid rgba(147, 33, 253, 0.17); border-style: solid none; color: rgb(147, 33, 253); }
