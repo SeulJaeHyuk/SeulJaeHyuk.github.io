@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>설재혁 | Team Project</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<!-- 공통 디자인 (헤더, 페이지 제목, 통계 카드, 푸터, 다크 모드 색상) -->
+<link rel="stylesheet" href="../css/award.css">
+<link rel="stylesheet" href="../css/overflow.css">
+<link rel="icon" href="../img/favicon.jpg" type="image/x-icon">
+</head>
+<body oncontextmenu="return false" ondragstart="return false">
+
+<!-- ===== Header ===== -->
+<header id="header">
+  <div class="container nav">
+    <a class="logo">Jaehyuk<span>.</span>Portfolio</a>
+    <div class="nav-right">
+      <a href="../index.html#projects" class="back-link">← 이전 페이지</a>
+      <button class="theme-btn" id="themeBtn" aria-label="테마 전환">🌙</button>
+    </div>
+  </div>
+</header>
+
+<!-- ===== Page Head ===== -->
+<section class="page-head">
+  <div class="container">
+    <div class="reveal">
+      <div class="section-label">Team Project</div>
+      <h1>오버플로우 소프트웨어</h1>
+    </div>
+
+    <div class="stats reveal" style="grid-template-columns: repeat(3, 1fr);">
+      <div class="stat"><strong id="statTotal">0</strong><span>대회 · 전시 참가</span></div>
+      <div class="stat"><strong id="statPrize">0</strong><span>수상</span></div>
+      <div class="stat"><strong>2019</strong><span>활동 연도</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Events ===== -->
+<section class="awards">
+  <div class="container">
+    <div class="toolbar reveal">
+      <div class="section-label">Exhibitions & Competitions</div>
+      <div class="count"><b id="countNum">0</b>건</div>
+    </div>
+
+    <div class="event-list" id="eventList"></div>
+  </div>
+</section>
+
+<!-- 이미지 확대 보기 / 맨 위로 -->
+<div class="lightbox" id="lightbox"><img id="lightboxImg" alt=""></div>
+<button class="to-top" id="toTop" aria-label="맨 위로">↑</button>
+
+<script>
+  /* ============================================================
+     행사 데이터 — 항목 추가/수정은 여기서만 하면 됩니다
+     prize : (선택) 수상 내역 / level : silver 면 은색 배지
+     panel : (선택) 판넬 보기 링크 — 없으면 버튼 표시 안 함
+     ============================================================ */
+  const events = [
+    { title: "2019 DIT 캡스톤디자인경진대회",
+      img: "../img/ditcapstone.jpg",
+      date: "2019.10.10",
+      place: "동의과학대학교 진리관 컨벤션홀",
+      topic: "사물인터넷(IoT)을 이용한 방사능 오염 탐지 시스템",
+      prize: "🥇 일반형 금상",
+      panel: "https://drive.google.com/file/d/1_uK2dEBgICGAQcfWRu__k3_BmlzqNsxn/view?usp=drive_link" },
+
+    { title: "2019 산학협력 EXPO",
+      img: "../img/expo_2.JPG",
+      date: "2019.11.05 ~ 2019.11.08",
+      place: "경기도 일산 KINTEX",
+      topic: "사물인터넷(IoT)을 이용한 방사능 오염 탐지 시스템",
+      panel: "https://drive.google.com/file/d/1rNvVYug-dski6zLXCGTnPDQgNyFrB5KB/view?usp=drive_link" },
+
+    { title: "2019 한·아세안 스마트시티 페어",
+      img: "../img/dit_expo.jpg",
+      date: "2019.11.25 ~ 2019.11.27",
+      place: "부산 벡스코",
+      topic: "사물인터넷(IoT)을 이용한 방사능 오염 탐지 시스템" },
+
+    { title: "2019 부산권 LINC+사업단 성과 경진대회",
+      img: "../img/dit_linc.JPG",
+      date: "2019.12.06",
+      place: "부산 경성대학교 건학기념관",
+      topic: "사물인터넷(IoT)을 이용한 방사능 오염 탐지 시스템",
+      prize: "🥈 우수상", level: "silver",
+      panel: "https://drive.google.com/file/d/1lb9rTCBjeHUGUJuRmloSvLL6vMDrcbzK/view?usp=drive_link" }
+  ];
+
+  const setText = (id, value) => {
+    const el = document.getElementById(id);
+    if (el) el.textContent = value;
+  };
+
+  // 렌더링
+  const list = document.getElementById('eventList');
+  if (list) {
+    list.innerHTML = events.map((e, i) => `
+      <article class="event reveal">
+        <div class="event-img" data-src="${e.img}">
+          <div class="no-img">📷</div>
+          <img src="${e.img}" alt="${e.title}" loading="lazy" onerror="this.remove()">
+        </div>
+        <div class="event-body">
+          <div class="event-num">${String(i + 1).padStart(2, '0')}</div>
+          <h3>${e.title}</h3>
+          ${e.prize ? `<span class="event-prize ${e.level || ''}">${e.prize}</span>` : ''}
+          <ul class="event-info">
+            <li><b>일시</b><span>${e.date}</span></li>
+            <li><b>장소</b><span>${e.place}</span></li>
+            <li><b>주제</b><span>${e.topic}</span></li>
+          </ul>
+          ${e.panel ? `<a class="event-btn" href="${e.panel}" target="_blank" rel="noopener">판넬 보기 →</a>` : ''}
+        </div>
+      </article>`).join('');
+  }
+
+  // 통계
+  setText('statTotal', events.length);
+  setText('statPrize', events.filter(e => e.prize).length);
+  setText('countNum', events.length);
+
+  // 이미지 확대 보기
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightboxImg');
+  document.querySelectorAll('.event-img').forEach(box => {
+    box.addEventListener('click', () => {
+      if (!box.querySelector('img')) return;   // 이미지가 없으면 무시
+      lightboxImg.src = box.dataset.src;
+      lightbox.classList.add('open');
+    });
+  });
+  lightbox.addEventListener('click', () => lightbox.classList.remove('open'));
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') lightbox.classList.remove('open'); });
+
+  // 맨 위로 버튼
+  const toTop = document.getElementById('toTop');
+  window.addEventListener('scroll', () => toTop.classList.toggle('show', window.scrollY > 300));
+  toTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+  // 헤더 스크롤 효과
+  const header = document.getElementById('header');
+  if (header) window.addEventListener('scroll', () => header.classList.toggle('scrolled', window.scrollY > 10));
+
+  // 다크 모드 (다른 페이지와 같은 저장 키 사용)
+  const themeBtn = document.getElementById('themeBtn');
+  const setTheme = t => {
+    document.documentElement.setAttribute('data-theme', t);
+    if (themeBtn) themeBtn.textContent = t === 'dark' ? '☀️' : '🌙';
+    try { localStorage.setItem('theme', t); } catch (e) {}
+  };
+  let saved = null;
+  try { saved = localStorage.getItem('theme'); } catch (e) {}
+  setTheme(saved || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'));
+  if (themeBtn) themeBtn.addEventListener('click', () =>
+    setTheme(document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark'));
+
+  // 스크롤 등장 애니메이션
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('show'); io.unobserve(e.target); } });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+</body>
+</html>

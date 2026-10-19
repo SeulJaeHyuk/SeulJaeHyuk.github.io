@@ -1,70 +1,614 @@
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="" />
-        <meta name="author" content="" />
-        <title>Seol Jae Hyuk Portfolio</title>
-        <!-- Favicon-->
-        <link rel="icon" type="image/x-icon" href="./images/seul.jpg" />
-        <!-- Bootstrap Icons-->
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
-        <!-- Google fonts-->
-        <link href="https://fonts.googleapis.com/css?family=Merriweather+Sans:400,700" rel="stylesheet" />
-        <link href="https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic" rel="stylesheet" type="text/css" />
-        <!-- SimpleLightbox plugin CSS-->
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simpleLightbox.min.css" rel="stylesheet" />
-        <!-- Core theme CSS (includes Bootstrap)-->
-        <link href="css/styles2.css" rel="stylesheet" />
-        <link href="css/font.css" rel="stylesheet" />
-        <style>
-            body {
-        
-                height: 100vh;
-        
-                /*background-image: url("02.jpg");
-        
-                    background-repeat: no-repeat;
-        
-                    background-position: center;
-        
-                    background-size: cover;*/
-        
-                background: #000 url("images/seol2.png") no-repeat center/cover;
-        
-            }
-        </style>
-        <script type="text/javascript">
-            document.oncontextmenu = function(){return false;}
-        </script>
-    </head>
-    <body id="page-top" oncontextmenu="return false" onselectstart="return false" ondragstart="return false" onkeydown="return false">
-        <!-- Masthead-->
-        <header class="masthead">
-            <div class="container px-4 px-lg-5 h-100">
-                <div class="row gx-4 gx-lg-5 h-100 align-items-center justify-content-center text-center">
-                    <div class="col-lg-8 align-self-end">
-                        <h1 class="text-white font-weight-bold">Welcome To <br> Seol Jae Hyuk Portfolio</h1>
-                        <hr class="divider" />
-                    </div>
-                    <div class="col-lg-8 align-self-baseline">
-                        <p class="text-white-75 mb-5">설재혁의 포트폴리오에 오신 것을 환영합니다!</p>
-                        <a class="btn btn-primary btn-xl" href="html/otherviews.html">자세히 보기</a>
-                    </div>
-                </div>
-            </div>
-        </header>
-        <!-- Bootstrap core JS-->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-        <!-- SimpleLightbox plugin JS-->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simpleLightbox.min.js"></script>
-        <!-- Core theme JS-->
-        <script src="js/scripts2.js"></script>
-        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
-        <!-- * *                               SB Forms JS                               * *-->
-        <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
-        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
-        <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
-    </body>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>설재혁 | Portfolio</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<link rel="stylesheet" href="./css/index.css">
+<link rel="icon" href="./img/favicon.jpg" type="image/x-icon">
+</head>
+<body>
+
+<!-- ===== Header ===== -->
+<header id="header">
+  <div class="container nav">
+    <a class="logo">Jaehyuk<span>.</span>Portfolio</a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#career">Career</a></li>
+      <li><a href="#press">Press</a></li>
+      <li><a href="#training">Training</a></li>
+      <li><a href="#license">License</a></li>
+      <li><a href="#activity">Activity</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><button class="theme-btn" id="themeBtn" aria-label="테마 전환">🌙</button></li>
+    </ul>
+    <button class="menu-btn" id="menuBtn" aria-label="메뉴">☰</button>
+  </div>
+</header>
+
+<!-- ===== Hero ===== -->
+<section class="hero" id="home">
+  <div class="container hero-inner">
+    <div class="reveal">
+      <div class="badge">안전한 네트워크 인프라 위에 AI 기반 기술 혁신을 더하는 엔지니어</div>
+      <h1>코드로 현장을 움직이고,<br><em>시스템으로 가치를 만드는</em><br>엔지니어 설재혁입니다</h1>
+      <p>업무 현장에서 마주한 불편함을 웹 서비스와 자동화 도구로 바꿔왔습니다. 사용자가 바로 쓸 수 있는, 실용적인 소프트웨어를 만듭니다.</p>
+      <div class="btn-group">
+        <a href="#projects" class="btn btn-primary">프로젝트 보기</a>
+        <a href="./other/resume.html" target="_blank" class="btn btn-ghost">이력서 보기</a>
+        <a href="./other/awards.html" target="_blank" class="btn btn-ghost">수상내역 보기</a>
+      </div>
+    </div>
+
+    <div class="profile-card reveal">
+      <div class="avatar"><img src="./img/profile.jpg" alt="설재혁"></div>
+      <h3>설재혁</h3>
+      <div class="role">IT & Network Infrastructure Manager</div>
+      <div class="stats">
+        <div><strong>6+</strong><span>프로젝트</span></div>
+        <div><strong>4</strong><span>운영 서비스</span></div>
+        <div><strong>∞</strong><span>성장 중</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== About (중앙 정렬 적용) ===== -->
+<section class="soft" id="about">
+  <div class="container">
+    <div class="section-head reveal" style="text-align: center;">
+      <div class="section-label" style="display: inline-block;">About Me</div>
+      <h2>저를 소개합니다</h2>
+    </div>
+
+    <div class="about-center-wrapper">
+      <div class="about-text reveal">
+        <center><img src="./img/profile_w.jpg" width="250" height="320" alt="설재혁"></center><p></p>
+        <p>안녕하세요, <strong>현장의 문제를 코드로 해결하는 엔지니어 설재혁</strong>입니다.</p>
+        <p>네트워크·보안 인프라를 안정적으로 다지는 동시에, 사내 포털·숙소 관리·IT 장애 관리·전자서명 등<strong> 조직에서 매일 실질적으로 쓰이는 핵심 시스템</strong>을 기획부터 개발, 배포까지 직접 구축해 왔습니다.</p>
+        <p>화려한 기술보다 <strong>사용자가 직관적으로 이해하는 화면, 운영하는 담당자가 편리한 구조</strong>를 고민합니다.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Skills ===== -->
+<section id="skills">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="section-label">Skills</div>
+      <h2>보유 기술</h2>
+    </div>
+    <div class="skills-grid">
+      <div class="skill-card reveal">
+        <div class="icon">🎨</div>
+        <h3>Frontend</h3>
+        <div class="tags">
+          <span class="tag">HTML5</span><span class="tag">CSS3</span><span class="tag">JavaScript</span>
+          <span class="tag">TypeScript</span><span class="tag">React</span><span class="tag">Next.js</span>
+        </div>
+      </div>
+      <div class="skill-card reveal">
+        <div class="icon">🗄️</div>
+        <h3>Backend & DB</h3>
+        <div class="tags">
+          <span class="tag">Firebase</span><span class="tag">Firestore</span><span class="tag">Firebase Auth</span>
+          <span class="tag">Google Apps Script</span>
+        </div>
+      </div>
+      <div class="skill-card reveal">
+        <div class="icon">🐍</div>
+        <h3>Automation</h3>
+        <div class="tags">
+          <span class="tag">Python</span><span class="tag">Excel 연동</span><span class="tag">Excel 출력</span>
+          <span class="tag">PDF 출력</span>
+        </div>
+      </div>
+      <div class="skill-card reveal">
+        <div class="icon">🚀</div>
+        <h3>Tools & Deploy</h3>
+        <div class="tags">
+          <span class="tag">Git</span><span class="tag">GitHub</span><span class="tag">GitHub Pages</span>
+          <span class="tag">VS Code</span><span class="tag">AI 도구</span><span class="tag">영상 제작</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Projects ===== -->
+<section class="soft" id="projects">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="section-label">Projects</div>
+      <h2>프로젝트</h2>
+    </div>
+
+    <div class="filters reveal">
+      <button class="filter active" data-filter="all">전체</button>
+      <button class="filter" data-filter="web">웹 서비스</button>
+      <button class="filter" data-filter="system">업무 시스템</button>
+      <button class="filter" data-filter="dev">개발 시스템</button>
+    </div>
+
+    <div class="projects-grid">
+      <article class="project reveal" data-cat="system">
+        <div class="thumb">🏢</div>
+        <div class="project-body">
+          <div class="project-cat">Work Portal</div>
+          <h3>사내 업무 포털</h3>
+          <p>회사 소개와 사내 서비스 진입점을 한곳에 모은 포털 사이트</p>
+          <div class="project-links"><a href="https://dongbuenc.github.io/" target="_blank">자세히 →</a></div>
+        </div>
+      </article>
+
+      <article class="project reveal" data-cat="system">
+        <div class="thumb">🏠</div>
+        <div class="project-body">
+          <div class="project-cat">BUSINESS SYSTEM</div>
+          <h3>숙소 관리 시스템</h3>
+          <p>현장 숙소의 임대차 계약과 사용자를 관리하는 시스템</p>
+          <div class="project-links"><a href="https://dongbuenc.github.io/housing/login/" target="_blank">자세히 →</a></div>
+        </div>
+      </article>
+
+      <article class="project reveal" data-cat="system">
+        <div class="thumb">🛠️</div>
+        <div class="project-body">
+          <div class="project-cat">BUSINESS SYSTEM</div>
+          <h3>IT Service Ops</h3>
+          <p>장애 접수부터 처리까지 관리하는 시스템</p>
+          <div class="project-links"><a href="https://dongbuenc.github.io/IT-Service-Ops/" target="_blank">자세히 →</a></div>
+        </div>
+      </article>
+
+      <article class="project reveal" data-cat="system">
+        <div class="thumb">📊</div>
+        <div class="project-body">
+          <div class="project-cat">BUSINESS SYSTEM</div>
+          <h3>자산 관리 시스템</h3>
+          <p>사내 IT 자산과 물리적 장비의 도입부터 폐기까지 전 생애주기를 체계적으로 추적하고 관리하는 시스템</p>
+          <div class="project-links"><a href="https://dbec.co.kr/" target="_blank">자세히 →</a></div>
+        </div>
+      </article>
+
+      <article class="project reveal" data-cat="system">
+        <div class="thumb">✍️</div>
+        <div class="project-body">
+          <div class="project-cat">WEB SERVICE</div>
+          <h3>전자서명 시스템</h3>
+          <p>문서 열람과 전자서명을 웹에서 처리하는 시스템</p>
+          <div class="project-links"><a href="https://dongbuenc.github.io/esign/" target="_blank">자세히 →</a></div>
+        </div>
+      </article>
+
+      <article class="project reveal" data-cat="system">
+        <div class="thumb">💻</div>
+        <div class="project-body">
+          <div class="project-cat">AUTOMATION TOOL</div>
+          <h3>PC 정보 수집기</h3>
+          <p>PC·모니터 번호만 입력하면 자산 정보를 수집해 구글 시트로 전송하는 데스크톱 앱. 수기 자산 조사 시간을 크게 줄였습니다.</p>
+          <div class="project-links"><a href="https://dongbuenc.github.io/IT-Service-Ops/" target="_blank">자세히 →</a></div>
+        </div>
+      </article>
+
+      <article class="project reveal" data-cat="web">
+        <div class="thumb">🧑🏻‍💻</div>
+        <div class="project-body">
+          <div class="project-cat">development</div>
+          <h3>인공지능을 이용한 출입 관리 시스템</h3>
+          <p>인공지능 비전 기술을 활용해 동아리실 출입을 자동으로 인식하고, 보안과 편의성을 동시에 높인 스마트 출입 관리 시스템입니다.</p>
+          <div class="project-links"><a href="https://teambinary22.github.io/" target="_blank">자세히 →</a></div>
+        </div>
+      </article>
+
+      <article class="project reveal" data-cat="dev">
+        <div class="thumb">🔒</div>
+        <div class="project-body">
+          <div class="project-cat">development</div>
+          <h3>지문 인식 보관함</h3>
+          <p>지문을 이용하여 보관함을 잠금 해제하는 시스템입니다.</p>
+          <div class="project-links"><a href="https://drive.google.com/drive/u/1/folders/1NVHZKt4Nd92tZ9uOLY_e-8uy6XR_s_zc" target="_blank">자세히 →</a></div>
+        </div>
+      </article>
+
+      <article class="project reveal" data-cat="web">
+        <div class="thumb">☢️</div>
+        <div class="project-body">
+          <div class="project-cat">development</div>
+          <h3>IoT를 이용한 방사능 오염 탐지 시스템</h3>
+          <p>사물인터넷을 이용하여 방사능 오염도를 탐지하고 측정하는 시스템입니다.</p>
+          <div class="project-links"><a href="./other/overflow.html" target="_blank">자세히 →</a></div>
+        </div>
+      </article>
+
+      <article class="project reveal" data-cat="dev">
+        <div class="thumb">🌐</div>
+        <div class="project-body">
+          <div class="project-cat">Portfolio</div>
+          <h3>포트폴리오</h3>
+          <p>안정적인 인프라 구축부터 현장에 꼭 필요한 실무 웹 시스템 개발까지, IT 운영의 모든 과정을 담은 포트폴리오입니다.</p>
+          <div class="project-links"><a href="https://seuljaehyuk.github.io/" target="_blank">자세히 →</a></div>
+        </div>
+      </article>
+
+      <article class="project reveal" data-cat="dev">
+        <div class="thumb">📢</div>
+        <div class="project-body">
+          <div class="project-cat">Ambassador</div>
+          <h3>홍보대사</h3>
+          <p>학과의 주요 소식을 대내ㆍ외에 효과적으로 전달하며 활발한 소통과 홍보 활동을 수행했습니다.</p>
+          <div class="project-links"><a href="https://www.instagram.com/dit_sw_story/" target="_blank">컴퓨터소프트웨어과 →</a><a href="https://www.instagram.com/dit_bakery_story/" target="_blank">베이커리카페산업과 →</a></div>
+        </div>
+      </article>
+
+      <article class="project reveal" data-cat="dev">
+        <div class="thumb">🎬</div>
+        <div class="project-body">
+          <div class="project-cat">Video</div>
+          <h3>영상 제작</h3>
+          <p>기획, 촬영, 편집의 전 과정을 주도하여 메시지를 효과적으로 전달하는 영상 콘텐츠를 제작했습니다.</p>
+          <div class="project-links"><a href="https://www.youtube.com/@DIT_CSW" target="_blank">컴퓨터소프트웨어과 →</a><a href="https://www.youtube.com/@DIT_bakery_story" target="_blank">베이커리카페산업과 →</a></div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Education ===== -->
+<section id="education">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="section-label">Education</div>
+      <h2>학력</h2>
+    </div>
+    <div class="timeline">
+      <div class="tl-item reveal">
+        <div class="tl-date">2019 ~ 2022</div>
+        <h3>동의과학대학교 컴퓨터정보과</h3>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-date">2016 ~ 2018</div>
+        <h3>부산컴퓨터과학고등학교 소프트웨어콘텐츠과</h3>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Career ===== -->
+<section class="soft" id="career">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="section-label">Career</div>
+      <h2>경력</h2>
+    </div>
+    <div class="timeline">
+      <div class="tl-item reveal">
+        <div class="tl-date">2026. 06 ~ ing</div>
+        <h3>(주)동부 / 전산 관련 업무(자산(기자재) 관리, PC 설치, NAS 관리 등) 진행</h3>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-date">2025. 05 ~ 2026. 06</div>
+        <h3>(주)엔정보기술(울산광역시교육청 테크센터) / 테크 매니저(선임) / 울산 내 각급 학교 무선망 유지보수</h3>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-date">2025. 04 ~ 2025. 05</div>
+        <h3>아이티즈 / 인턴 / 프론트엔드 개발자</h3>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-date">2023. 04 ~ 2025. 03</div>
+        <h3>동의과학대학교 / 행정조교 (컴퓨터소프트웨어과, 소프트웨어융합과, 웹툰디자인과) / 학사 행정</h3>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Press ===== -->
+<section id="press">
+  <div class="container">
+    <div class="section-head press-head reveal">
+      <div>
+        <div class="section-label">Press</div>
+        <h2>언론 보도</h2>
+      </div>
+    </div>
+    <div class="press-grid" id="pressGrid"></div>
+  </div>
+</section>
+
+<!-- ===== Training ===== -->
+<section class="soft" id="training">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="section-label">Training</div>
+      <h2>교육</h2>
+    </div>
+    <div class="timeline">
+      <div class="tl-item reveal">
+        <div class="tl-date">2026</div>
+        <h3>AI 활용 원전산업 리더십 역량강화 과정 교육</h3>
+        <h3>시큐아이(SECUI) 기술 교육 세미나</h3>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-date">2022</div>
+        <h3>NVIDIA Deep Learning Institute</h3>
+        <h3>2022 AI 복합교육과정 (160시간)</h3>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-date">2018</div>
+        <h3>Fuse를 활용한 모바일 앱 개발 교육</h3>
+        <h3>동구청년 취업역량 강화 프로그램</h3>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-date">2015</div>
+        <h3>대국민 기상교육 '기상청 직업 체험'</h3>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== License ===== -->
+<section id="license">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="section-label">License</div>
+      <h2>자격증</h2>
+    </div>
+
+    <div class="license-summary reveal" id="licenseSummary"></div>
+    <div class="license-grid" id="licenseGrid"></div>
+  </div>
+</section>
+
+<!-- ===== Activity ===== -->
+<section class="soft" id="activity">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="section-label">Activity</div>
+      <h2>활동</h2>
+    </div>
+
+    <div class="license-summary reveal" id="activitySummary"></div>
+    <div class="activity-grid" id="activityGrid"></div>
+  </div>
+</section>
+
+<!-- ===== Contact ===== -->
+<section id="contact">
+  <div class="container">
+    <div class="contact-box reveal">
+      <h2>함께 일해요 👋</h2>
+      <p>프로젝트 제안이나 궁금한 점이 있다면 언제든 편하게 연락 주세요.</p>
+      <div class="contact-links">
+        <a href="mailto:jaehyuk7767@naver.com">✉️ E-Mail</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>Copyright © 2026. SeolJaeHyuk. All rights reserved.</footer>
+
+<script>
+  /* ============================================================
+     언론 보도 데이터 — 기사 추가/수정은 여기서만 하면 됩니다
+     ============================================================ */
+  const press = [
+    { outlet: "파이낸스투데이", date: "2025.02.25",
+      title: "동의과학대 컴퓨터소프트웨어과, AI 기반 얼굴인식 출입 시스템 특허 출원",
+      url: "https://www.fntoday.co.kr/news/articleView.html?idxno=346084" },
+    { outlet: "베리타스알파", date: "2025.02.25",
+      title: "동의과학대 컴퓨터소프트웨어과, 'AI 기반의 얼굴인식을 통한 동아리방 출입 시스템'에 대한 특허 출원",
+      url: "https://www.veritas-a.com/news/articleView.html?idxno=543605" },
+    { outlet: "부산일보", date: "2025.02.25",
+      title: "동의과학대, 'AI 기반의 얼굴인식을 통한 동아리방 출입 시스템' 특허 출원",
+      url: "https://www.busan.com/view/busan/view.php?code=2025022513583848944" },
+    { outlet: "포인트경제", date: "2025.02.25",
+      title: "동의과학대 Binary팀, AI 얼굴인식 동아리방 출입 시스템 특허 출원",
+      url: "https://www.pointe.co.kr/news/articleView.html?idxno=39013" },
+    { outlet: "글로벌이코노믹", date: "2025.02.25",
+      title: "동의과학대, 컴퓨터소프트웨어과 'AI 출입 시스템' 특허 출원",
+      url: "https://www.g-enews.com/ko-kr/news/article/news_all/2025022514174380237f21df127_1/article.html" },
+    { outlet: "아시아경제", date: "2025.02.25",
+      title: "동의과학대 컴퓨터소프트웨어과, 'AI 기반 얼굴인식 통한 동아리방 출입시스템' 특허 출원",
+      url: "https://view.asiae.co.kr/article/2025022515164810599" },
+    { outlet: "메트로신문", date: "2025.02.25",
+      title: "동의과학대, AI 얼굴인식 출입 시스템 특허 출원",
+      url: "https://www.metroseoul.co.kr/article/20250225500426" },
+    { outlet: "브릿지경제", date: "2025.02.25",
+      title: "동의과학대 Binary팀 'AI 기반 얼굴인식을 통한 동아리방 출입 시스템' 특허 출원",
+      url: "https://www.viva100.com/article/20250225501442" },
+    { outlet: "스포츠동아", date: "2025.02.26",
+      title: "동의과학대 컴퓨터소프트웨어과 '동아리방 출입 시스템'에 대한 특허 출원",
+      url: "https://sports.donga.com/region/article/all/20250226/131104951/1" }
+  ];
+
+  // 메인 페이지에 보여줄 기사 수 (전부 보이려면 press.length)
+  const PRESS_PREVIEW = 6;
+
+  const pressGrid = document.getElementById('pressGrid');
+  if (pressGrid) {
+    pressGrid.innerHTML = press.slice(0, PRESS_PREVIEW).map(p => `
+      <a class="press-card reveal" href="${p.url}" target="_blank" rel="noopener">
+        <div class="press-top">
+          <div class="press-logo">${p.outlet.charAt(0)}</div>
+          <div>
+            <div class="press-name">${p.outlet}</div>
+            <div class="press-date">${p.date || ''}</div>
+          </div>
+        </div>
+        <h3>${p.title}</h3>
+        <span class="press-link">기사 보기 →</span>
+      </a>`).join('');
+  }
+
+  /* ============================================================
+     자격증 데이터 — 항목 추가/수정은 여기서만 하면 됩니다
+     type   : patent(특허) / degree(학위) / intl(국제자격) / national(국가자격)
+              certified(국가공인) / private(민간자격) / etc(기타)
+     issuer : (선택) 발급 기관 / date : (선택) 취득 연월
+     number : (선택) 자격번호 / tags : (선택) 해시태그
+     ============================================================ */
+  const licenses = [
+    { icon: "📜", name: "특허 취득", type: "patent", issuer: "Binary팀" },
+    { icon: "🎓", name: "공학 전문학사", type: "degree", issuer: "동의과학대학교" },
+    { icon: "🤖", name: "NVIDIA Deep Learning", type: "intl", issuer: "NVIDIA" },
+    { icon: "💻", name: "ITQ 파워포인트 · 한글 · 엑셀", type: "certified", issuer: "한국생산성본부" },
+    { icon: "🚗", name: "자동차 운전면허증 1종 보통", type: "national", issuer: "경찰청" },
+    { icon: "🗂️", name: "인사총무관리자 1급", type: "private", issuer: "한국자격증협회" },
+    { icon: "📱", name: "모바일디지털튜터 1급", type: "private", issuer: "한국자격증협회" },
+    { icon: "🈶", name: "한자 8급", type: "private" },
+    { icon: "🥋", name: "태권도 1단 · 2단 · 3단", type: "etc", issuer: "국기원" }
+  ];
+
+  const typeLabel = {
+    patent: "특허", degree: "학위", intl: "국제자격", national: "국가자격",
+    certified: "국가공인", private: "민간자격", etc: "단증"
+  };
+
+  const licenseGrid = document.getElementById('licenseGrid');
+  if (licenseGrid) {
+    licenseGrid.innerHTML = licenses.map(l => `
+      <div class="license-card reveal">
+        <div class="license-icon">${l.icon || '📄'}</div>
+        <div class="license-body">
+          <span class="license-type ${l.type || ''}">${typeLabel[l.type] || '자격'}</span>
+          <h3>${l.name}</h3>
+          <div class="license-meta">
+            ${l.issuer ? `<span>${l.issuer}</span>` : ''}
+            ${l.detail ? `<span>${l.detail}</span>` : ''}
+            ${l.date ? `<span>${l.date} 취득</span>` : ''}
+            ${l.number ? `<span>No. ${l.number}</span>` : ''}
+          </div>
+          ${l.tags ? `<div class="license-tags">${l.tags}</div>` : ''}
+        </div>
+      </div>`).join('');
+  }
+
+  // 자격증 상단 요약 (전체 / 유형별 개수 자동 계산)
+  const licenseSummary = document.getElementById('licenseSummary');
+  if (licenseSummary) {
+    const countBy = t => licenses.filter(l => l.type === t).length;
+    const items = [['전체', licenses.length]];
+    Object.keys(typeLabel).forEach(t => { if (countBy(t)) items.push([typeLabel[t], countBy(t)]); });
+    licenseSummary.innerHTML = items.map(([k, v]) => `<div>${k}<b>${v}</b></div>`).join('');
+  }
+
+  /* ============================================================
+     활동 데이터 — 항목 추가/수정은 여기서만 하면 됩니다
+     type   : leader(리더십) / create(제작) / support(지원·봉사) / military(병역)
+     period : 활동 기간 / desc : 활동 설명
+     ============================================================ */
+  const activities = [
+    { icon: "🎖️", name: "육군 병장 만기전역", type: "military",
+      period: "2020.09 ~ 2022.03",
+      desc: "논산 육군훈련소에서 5주간 군사훈련을 수료한 뒤, 대전 육군종합군수학교에서 병과(병참, 편성보급) 후반기 교육을 이수하였으며 이후 육군 22사단으로 전속(자대배치)되어 병장으로 만기전역했습니다." },
+
+    { icon: "🎬", name: "영상 제작", type: "create",
+      period: "2019 ~ 2025.03",
+      desc: "필요한 부분에 자료를 활용해 영상을 제작하고 있으며, 다양한 분야를 다룰 수 있도록 최선을 다하고 있습니다." },
+
+    { icon: "🏫", name: "대학 학과 학생회 활동", type: "leader",
+      period: "2019 ~ 2020 1학기 · 2022 2학기",
+      desc: "2년 동안 4학기에 걸쳐 대학교 학과(컴퓨터정보과) 학생회(총대) 활동을 하며 리더십을 키웠습니다." },
+
+    { icon: "🎉", name: "고등학교 교내 축제 기획 및 진행", type: "leader",
+      period: "2018",
+      desc: "고등학교 교내 축제 중 학급별 축제를 기획하고 진행하며 추진력을 키웠습니다." },
+
+    { icon: "📝", name: "수능 후 프로그램 진행 도우미", type: "support",
+      period: "2018",
+      desc: "고등학교 3학년 학생들이 수능 이후 참여하는 프로그램에서 진행 도우미를 맡았습니다." },
+
+    { icon: "🌱", name: "전교 학생회 환경미화부장 활동", type: "leader",
+      period: "2018",
+      desc: "고등학교에서 1년 동안 전교 학생회 환경미화부장으로 활동했습니다." },
+
+    { icon: "💡", name: "고등학교 창업동아리장 활동", type: "leader",
+      period: "2017 ~ 2018",
+      desc: "2년 동안 고등학교 창업동아리장을 맡아 리더십을 키웠고, 동아리원들을 이끌고 각종 대회에 참여했습니다." },
+
+    { icon: "🌐", name: "홈페이지 제작", type: "create",
+      period: "2017 ~",
+      desc: "필요한 자료를 활용해 GitHub Pages(github.io)로 홈페이지를 제작·운영하고 있으며, 다양한 분야를 다룰 수 있도록 최선을 다하고 있습니다." }
+  ];
+
+  const activityLabel = { leader: "리더십", create: "제작", support: "지원 · 봉사", military: "병역" };
+
+  const activityGrid = document.getElementById('activityGrid');
+  if (activityGrid) {
+    activityGrid.innerHTML = activities.map(a => `
+      <div class="license-card activity-card reveal">
+        <div class="license-icon">${a.icon || '📌'}</div>
+        <div class="license-body">
+          <span class="license-type ${a.type || ''}">${activityLabel[a.type] || '활동'}</span>
+          <h3>${a.name}</h3>
+          ${a.period ? `<div class="activity-period">${a.period}</div>` : ''}
+          ${a.desc ? `<div class="activity-desc">${a.desc}</div>` : ''}
+        </div>
+      </div>`).join('');
+  }
+
+  // 활동 상단 요약 (전체 / 유형별 개수 자동 계산)
+  const activitySummary = document.getElementById('activitySummary');
+  if (activitySummary) {
+    const countBy = t => activities.filter(a => a.type === t).length;
+    const items = [['전체', activities.length]];
+    Object.keys(activityLabel).forEach(t => { if (countBy(t)) items.push([activityLabel[t], countBy(t)]); });
+    activitySummary.innerHTML = items.map(([k, v]) => `<div>${k}<b>${v}</b></div>`).join('');
+  }
+
+  // 헤더 스크롤 효과
+  const header = document.getElementById('header');
+  window.addEventListener('scroll', () => header.classList.toggle('scrolled', window.scrollY > 10));
+
+  // 모바일 메뉴
+  const navLinks = document.getElementById('navLinks');
+  document.getElementById('menuBtn').addEventListener('click', () => navLinks.classList.toggle('open'));
+  navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
+
+  // 다크 모드 (설정 기억)
+  const themeBtn = document.getElementById('themeBtn');
+  const setTheme = t => {
+    document.documentElement.setAttribute('data-theme', t);
+    themeBtn.textContent = t === 'dark' ? '☀️' : '🌙';
+    try { localStorage.setItem('theme', t); } catch (e) {}
+  };
+  let saved = null;
+  try { saved = localStorage.getItem('theme'); } catch (e) {}
+  setTheme(saved || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'));
+  themeBtn.addEventListener('click', () =>
+    setTheme(document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark'));
+
+  // 프로젝트 필터
+  document.querySelectorAll('.filter').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.filter').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const f = btn.dataset.filter;
+      document.querySelectorAll('.project').forEach(p =>
+        p.classList.toggle('hide', f !== 'all' && p.dataset.cat !== f));
+    });
+  });
+
+  // 스크롤 등장 애니메이션 (카드 생성 후 실행되도록 이 위치 유지)
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('show'); io.unobserve(e.target); } });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  // 현재 섹션 메뉴 하이라이트
+  const sections = document.querySelectorAll('section[id]');
+  window.addEventListener('scroll', () => {
+    let cur = '';
+    sections.forEach(s => { if (scrollY >= s.offsetTop - 120) cur = s.id; });
+    navLinks.querySelectorAll('a').forEach(a =>
+      a.classList.toggle('active', a.getAttribute('href') === '#' + cur));
+  });
+</script>
+</body>
 </html>

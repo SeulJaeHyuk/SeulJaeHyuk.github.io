@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>설재혁 | Award</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<link rel="stylesheet" href="../css/award.css">
+<link rel="icon" href="../img/favicon.jpg" type="image/x-icon">
+</head>
+<body oncontextmenu="return false" ondragstart="return false">
+
+<!-- ===== Header ===== -->
+<header id="header">
+  <div class="container nav">
+    <a class="logo">Jaehyuk<span>.</span>Portfolio</a>
+    <div class="nav-right">
+      <a href="../index.html" class="back-link">← 이전 페이지</a>
+      <button class="theme-btn" id="themeBtn" aria-label="테마 전환">🌙</button>
+    </div>
+  </div>
+</header>
+
+<!-- ===== Page Head ===== -->
+<section class="page-head">
+  <div class="container">
+    <div class="reveal">
+      <div class="section-label">Awards</div>
+      <h1>수상 경력</h1>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Awards ===== -->
+<section class="awards">
+  <div class="container">
+    <div class="toolbar reveal">
+      <div class="filters">
+        <button class="filter active" data-filter="all">전체</button>
+        <button class="filter" data-filter="college">대학 · 특허</button>
+        <button class="filter" data-filter="social">군 · 외부</button>
+        <button class="filter" data-filter="school">학창시절</button>
+      </div>
+      <div class="count"><b id="countNum">0</b>건</div>
+    </div>
+
+    <div class="award-list" id="awardList"></div>
+
+  </div>
+</section>
+
+<script>
+  /* ============================================================
+     수상 데이터 — 항목 추가/수정은 여기서만 하면 됩니다
+     cat      : college(대학·특허) / social(군·외부) / school(학창시절)
+     level    : gold / silver / bronze / (없으면 기본색)
+     hashtags : (선택) "#태그 #태그" 문자열 — 없으면 표시 안 함
+     tags     : (선택) ["AI", "IT"] 배열 — 없으면 표시 안 함
+     ============================================================ */
+  const awards = [
+    { cat: "college", icon: "📜", year: "2022", title: "특허 취득", team: "Binary",
+      detail: "AI 기반 얼굴인식 출입 시스템에 대한 특허 출원",
+      prize: "특허 취득", level: "gold" },
+
+    { cat: "college", icon: "🎓", year: "2022", title: "공학전문학사", team: "설재혁",
+      detail: "공학 전문학사 취득",
+      prize: "공학전문학사" },
+
+    { cat: "college", icon: "🏅", year: "2022", title: "2022 컴퓨터정보과 BOOTCAMP 경진대회", team: "Binary · 메이킹필름팀",
+      detail: "Vision AI를 이용한 동아리실 출입 관리 프로그램 / 2022 컴퓨터정보과 BOOTCAMP 촬영 후 편집",
+      prize: "특별상" },
+
+    { cat: "college", icon: "🥉", year: "2022", title: "2022 디지텍 캡스톤 디자인 경진대회", team: "Binary",
+      detail: "Vision AI를 이용한 동아리실 출입 관리 프로그램",
+      prize: "동상", level: "bronze" },
+
+    { cat: "college", icon: "🏆", year: "2022", title: "2022 DIT 캡스톤 디자인 경진대회", team: "Binary",
+      detail: "인공지능을 이용한 동아리실 출입관리 시스템",
+      prize: "대상", level: "gold" },
+
+    { cat: "college", icon: "🥇", year: "2019", title: "2019 DIT 캡스톤 디자인 경진대회", team: "오버플로우 소프트웨어",
+      detail: "Gamma Canary : 사물인터넷(IoT)을 이용한 방사능 오염 탐지 시스템",
+      prize: "일반형 금상", level: "gold" },
+
+    { cat: "college", icon: "🥈", year: "2019", title: "2019 부산권 LINC+ 15개 대학 연합 캡스톤디자인 경진대회", team: "오버플로우 소프트웨어",
+      detail: "Gamma Canary : 사물인터넷(IoT)을 이용한 방사능 오염 탐지 시스템",
+      prize: "우수상", level: "silver" },
+
+    { cat: "college", icon: "🎬", year: "2019", title: "2019 컴퓨터정보과 BOOTCAMP 경진대회", team: "메이킹필름팀",
+      detail: "2019 컴퓨터정보과 BOOTCAMP 예선·본선 촬영 후 편집",
+      prize: "특별상" },
+
+    { cat: "social", icon: "🎖️", year: "육군", title: "훈육평가 우수", team: "설재혁",
+      detail: "육군종합군수학교 병참교육대 특기병중대 훈육평가 우수 (특기병중대장상)",
+      prize: "훈육평가 우수상" },
+
+    { cat: "social", icon: "👮", year: "경찰", title: "모범상", team: "설재혁",
+      detail: "모범상 수상 (부산동부경찰서장)",
+      prize: "모범상" },
+
+    { cat: "school", icon: "📅", year: "초·중·고", title: "3년 개근", team: "설재혁",
+      detail: "초·중·고 3년 개근상 수상",
+      prize: "3년 개근상" },
+
+    { cat: "school", icon: "🤝", year: "고교", title: "선행상", team: "설재혁",
+      detail: "선행상 수상",
+      prize: "선행상" },
+
+    { cat: "school", icon: "⭐", year: "중·고", title: "모범상 (2회)", team: "설재혁",
+      detail: "모범상 수상",
+      prize: "모범상" },
+
+    { cat: "school", icon: "📋", year: "고교", title: "전교 학생회 임명장", team: "설재혁",
+      detail: "임명장 수여",
+      prize: "임명장" },
+
+    { cat: "school", icon: "🙇", year: "고교", title: "인사예절상", team: "설재혁",
+      detail: "인사예절상 수상",
+      prize: "인사예절상" },
+
+    { cat: "school", icon: "💼", year: "고교", title: "제14회 특성화고교생 사장되기 창업대회 (Be the CEOs)", team: "설재혁",
+      detail: "제14회 특성화고교생 사장되기 창업대회 (Be the CEOs) 우수상 수상",
+      prize: "우수상", level: "silver" },
+
+    { cat: "school", icon: "✍️", year: "고교", title: "바른말고운말 글쓰기 대회", team: "설재혁",
+      detail: "교내 바른말고운말 글쓰기 대회 장려상 수상",
+      prize: "장려상" },
+
+    { cat: "school", icon: "📚", year: "고교", title: "독서노트 기록", team: "설재혁",
+      detail: "독서노트 기록 우수상 수상",
+      prize: "우수상", level: "silver" },
+
+    { cat: "school", icon: "💡", year: "고교", title: "제13회 교내 창업아이템 대회", team: "설재혁",
+      detail: "제13회 교내 창업아이템 대회 동상 수상",
+      prize: "동상", level: "bronze" },
+
+    { cat: "school", icon: "📝", year: "고교", title: "자기소개서 작성 경시대회", team: "설재혁",
+      detail: "자기소개서 작성 경시대회 우량상 수상",
+      prize: "우량상" },
+
+    { cat: "school", icon: "⌨️", year: "초등", title: "타자검정대회", team: "설재혁",
+      detail: "타자검정대회 장려상 수상",
+      prize: "장려상" },
+
+    { cat: "school", icon: "🔍", year: "초등", title: "정보검색대회", team: "설재혁",
+      detail: "정보검색대회 장려상 수상",
+      prize: "장려상" },
+
+    { cat: "school", icon: "🔬", year: "중학교", title: "강연후기 장려상", team: "설재혁",
+      detail: "\"고교생 물리홍보대사가 찾아가는 중학교 강연\" 강연후기 장려상 (한국물리학회장상)",
+      prize: "장려상" }
+  ];
+
+  const catLabel = { college: "COLLEGE · PATENT", social: "MILITARY · EXTERNAL", school: "SCHOOL DAYS" };
+
+  // 요소가 있을 때만 값을 넣는 도우미 — HTML에서 통계 카드를 지워도 오류가 나지 않음
+  const setText = (id, value) => {
+    const el = document.getElementById(id);
+    if (el) el.textContent = value;
+  };
+
+  // 렌더링 — hashtags / tags 가 없는 항목도 오류 없이 표시
+  const list = document.getElementById('awardList');
+  list.innerHTML = awards.map(a => {
+    const hashtagsHtml = a.hashtags ? `<div class="hashtags">${a.hashtags}</div>` : '';
+    const tagsHtml = (a.tags && a.tags.length)
+      ? `<div class="tags">${a.tags.map(t => `<span class="tag">${t}</span>`).join('')}</div>`
+      : '';
+    return `
+    <article class="award reveal" data-cat="${a.cat}">
+      <div class="year"><span class="icon">${a.icon}</span><small>${a.year}</small></div>
+      <div>
+        <div class="award-cat">${catLabel[a.cat]}</div>
+        <h3>${a.title}</h3>
+        <div class="detail"><b>[${a.team}]</b> ${a.detail}</div>
+        ${hashtagsHtml}
+        ${tagsHtml}
+      </div>
+      <div class="prize ${a.level || ''}">${a.prize}</div>
+    </article>`;
+  }).join('');
+
+  // 통계 / 카운트
+  setText('statTotal', awards.length);
+  const updateCount = () =>
+    setText('countNum', document.querySelectorAll('.award:not(.hide)').length);
+  updateCount();
+
+  // 필터
+  document.querySelectorAll('.filter').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.filter').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const f = btn.dataset.filter;
+      document.querySelectorAll('.award').forEach(el => {
+        el.classList.toggle('hide', f !== 'all' && el.dataset.cat !== f);
+        el.classList.add('show');
+      });
+      updateCount();
+    });
+  });
+
+  // 헤더 스크롤 효과
+  const header = document.getElementById('header');
+  window.addEventListener('scroll', () => header.classList.toggle('scrolled', window.scrollY > 10));
+
+  // 다크 모드 (portfolio.html과 같은 저장 키 사용)
+  const themeBtn = document.getElementById('themeBtn');
+  const setTheme = t => {
+    document.documentElement.setAttribute('data-theme', t);
+    themeBtn.textContent = t === 'dark' ? '☀️' : '🌙';
+    try { localStorage.setItem('theme', t); } catch (e) {}
+  };
+  let saved = null;
+  try { saved = localStorage.getItem('theme'); } catch (e) {}
+  setTheme(saved || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'));
+  themeBtn.addEventListener('click', () =>
+    setTheme(document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark'));
+
+  // 스크롤 등장 애니메이션
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('show'); io.unobserve(e.target); } });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+</body>
+</html>
