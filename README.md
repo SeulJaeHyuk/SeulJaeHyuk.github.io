@@ -41,20 +41,3 @@
 
 
 ![Anurag's GitHub stats](https://github-readme-stats.vercel.app/api?username=SeulJaeHyuk&theme=dark&show_icons=highcontrast)
-
-
-## Contact Me
-
-
-<a href="mailto:tbn2913@kakao.com">
-  
-![KakaoTalk](https://img.shields.io/badge/kakaotalk-ffcd00.svg?style=for-the-badge&logo=kakaotalk&logoColor=000000)
-  
-  
-</a>
-<a href="mailto:sjh1858321@gmail.com">
-  
-![Gmail](https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white)
-  
-  
-</a>
