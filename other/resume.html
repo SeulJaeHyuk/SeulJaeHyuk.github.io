@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>설재혁 | 이력서</title>
+<title>설재혁 | Resume</title>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
 <link rel="stylesheet" href="../css/resume.css">
 <link rel="icon" href="../img/favicon.jpg" type="image/x-icon">
@@ -11,178 +11,6 @@
 <!-- PDF 파일 생성 라이브러리: 페이지를 이미지로 찍는 html2canvas + PDF로 묶는 jsPDF -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-
-<!-- 추가 스타일: 버튼 위치 · 내보내기 팝업 · 2페이지 고정 (resume.css보다 우선 적용) -->
-<style>
-  /* ---------- 1. 버튼 오른쪽 정렬 ---------- */
-  .toolbar { justify-content: flex-end; }
-  .toolbar button {
-    display: inline-flex; align-items: center; gap: 6px;
-    box-shadow: 0 6px 18px rgba(31, 58, 104, .25); transition: transform .2s;
-  }
-  .toolbar button:hover { transform: translateY(-2px); }
-
-  /* ---------- 2. A4 2페이지 고정 ---------- */
-  .page {
-    height: 297mm; min-height: 297mm; overflow: hidden; position: relative;
-  }
-  .page + .page { margin-top: 24px; }
-
-  /* 1페이지: A4 안에 들어가도록 간격 압축 */
-  .page-1 .side { padding: 11mm 7mm 9mm; }
-  .page-1 .photo { width: 30mm; height: 38mm; margin-bottom: 4mm; }
-  .page-1 .name { font-size: 24px; }
-  .page-1 .role { margin-bottom: 4mm; }
-  .page-1 .side h2 { margin: 4.5mm 0 2.2mm; }
-  .page-1 .contact-list { gap: 5px; }
-  .page-1 .skill-group { margin-bottom: 6px; }
-  .page-1 .skill-group h4 { margin-bottom: 3px; }
-  .page-1 .chips { gap: 3px; }
-  .page-1 .chips span { font-size: 10px; padding: 1px 6px; }
-  .page-1 .lic-list { gap: 3px; }
-  .page-1 .lic-list li { font-size: 11px; }
-  .page-1 .main { padding: 11mm 11mm 10mm 9mm; }
-  .page-1 .main h2 { margin: 4.5mm 0 2.2mm; }
-  .page-1 .summary { padding: 3mm 4mm; font-size: 12.5px; }
-  .page-1 .item { padding: 1.6mm 0; }
-  .page-1 .proj-grid { gap: 2.2mm; }
-  .page-1 .proj { padding: 2.4mm 3mm; }
-
-  /* 2페이지: 사이드 없이 본문 전체 폭 */
-  .page-2 { display: block; }
-  .page-2 .main { padding: 11mm 14mm 10mm; }
-  .page-2 .main h2 { margin: 4.5mm 0 2.2mm; }
-  .page-2 .proj-grid { gap: 2.2mm; }
-  .page-2 .proj { padding: 2.4mm 3mm; }
-  .page-head-mini {
-    display: flex; justify-content: space-between; align-items: center;
-    padding-bottom: 3mm; border-bottom: 2px solid var(--accent);
-  }
-  .page-head-mini .who { font-size: 15px; font-weight: 800; letter-spacing: 1px; }
-  .page-head-mini .who span { font-size: 11px; font-weight: 600; color: var(--text-sub); margin-left: 8px; letter-spacing: 1px; }
-  .page-head-mini .role-mini {
-    font-size: 11px; font-weight: 700; color: var(--accent);
-    background: var(--accent-soft); padding: 3px 10px; border-radius: 999px;
-  }
-  .page-2 .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 8mm; }
-  .page-2 .award-table td { padding: 3px 4px; }
-  .page-2 .simple-list { gap: 3px; }
-  .page-2 .sign { margin-top: 6mm; }
-
-  /* 페이지 번호 */
-  .page-no {
-    position: absolute; right: 12mm; bottom: 6mm;
-    font-size: 10px; color: var(--text-sub); letter-spacing: 1px;
-  }
-
-  /* ---------- 3. 내보내기 팝업 ---------- */
-  .modal-backdrop {
-    position: fixed; inset: 0; z-index: 100;
-    display: flex; align-items: center; justify-content: center; padding: 20px;
-    background: rgba(15, 18, 24, .45); backdrop-filter: blur(6px);
-    opacity: 0; pointer-events: none; transition: opacity .25s;
-  }
-  .modal-backdrop.open { opacity: 1; pointer-events: auto; }
-  .modal {
-    width: 100%; max-width: 420px; background: #fff; border-radius: 20px;
-    padding: 28px; box-shadow: 0 24px 60px rgba(15, 18, 24, .25);
-    transform: translateY(16px) scale(.98); transition: transform .25s;
-  }
-  .modal-backdrop.open .modal { transform: none; }
-  .modal-head { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 6px; }
-  .modal h3 { font-size: 19px; font-weight: 800; letter-spacing: -.5px; }
-  .modal-close {
-    width: 32px; height: 32px; border-radius: 50%; border: none; cursor: pointer;
-    background: var(--side-bg); color: var(--text-sub); font-size: 16px;
-  }
-  .modal-close:hover { background: var(--line); }
-  .modal-desc { font-size: 13.5px; color: var(--text-sub); margin-bottom: 20px; }
-
-  .option {
-    width: 100%; display: flex; align-items: center; gap: 14px; text-align: left;
-    padding: 16px 18px; margin-bottom: 10px; cursor: pointer;
-    font-family: inherit; background: #fff;
-    border: 1.5px solid var(--line); border-radius: 14px;
-    transition: border-color .2s, background .2s, transform .2s;
-  }
-  .option:hover { border-color: var(--accent); background: var(--accent-soft); transform: translateY(-2px); }
-  .option:disabled { opacity: .6; cursor: wait; transform: none; }
-  .option .ico {
-    width: 44px; height: 44px; border-radius: 12px; flex-shrink: 0;
-    display: grid; place-items: center; font-size: 22px; background: var(--accent-soft);
-  }
-  .option:hover .ico { background: #fff; }
-  .option strong { display: block; font-size: 15px; color: var(--text); }
-  .option small { font-size: 12.5px; color: var(--text-sub); }
-  .option .arrow { margin-left: auto; color: var(--text-sub); font-size: 18px; }
-
-  /* ---------- 3-1. 알림 팝업 (alert 대체) ---------- */
-  .alert-backdrop { z-index: 110; }
-  .alert-modal { max-width: 380px; text-align: center; padding: 32px 28px 24px; }
-  .alert-icon {
-    width: 60px; height: 60px; margin: 0 auto 16px; border-radius: 50%;
-    display: grid; place-items: center; font-size: 28px;
-    background: #fdecec; color: #c53030;
-  }
-  .alert-modal.warn .alert-icon { background: #fdf3e1; color: #b7791f; }
-  .alert-modal.success .alert-icon { background: #e8f5ee; color: #1f7a4d; }
-  .alert-modal h3 { margin-bottom: 8px; }
-  .alert-message { font-size: 14px; color: var(--text-sub); line-height: 1.65; margin-bottom: 24px; word-break: keep-all; }
-  .alert-message b { color: var(--text); font-weight: 600; }
-  .alert-actions { display: flex; gap: 8px; }
-  .alert-actions button {
-    flex: 1; padding: 13px 16px; border-radius: 12px; cursor: pointer;
-    font-family: inherit; font-size: 14.5px; font-weight: 700; transition: transform .2s, opacity .2s, background .2s;
-  }
-  .alert-actions button:hover { transform: translateY(-1px); }
-  .alert-btn-sub { border: 1.5px solid var(--line); background: #fff; color: var(--text); }
-  .alert-btn-sub:hover { background: var(--side-bg); }
-  .alert-btn-main { border: none; background: var(--accent); color: #fff; }
-  .alert-btn-main:hover { opacity: .92; }
-  .alert-btn-main[hidden] { display: none; }
-
-  /* ---------- PDF 생성용 고정 레이아웃 ----------
-     휴대폰·일부 브라우저는 PDF용 복제 화면의 폭을 좁게 잡아서 모바일 CSS가 적용됩니다.
-     PDF 모드에서는 화면 폭과 상관없이 항상 A4 데스크톱 레이아웃으로 고정합니다. */
-  body.pdf-mode .page {
-    width: 210mm !important; height: 297mm !important; min-height: 297mm !important;
-    overflow: hidden !important; margin: 0 !important; box-shadow: none !important;
-  }
-  body.pdf-mode .page-1 { display: grid !important; grid-template-columns: 68mm 1fr !important; }
-  body.pdf-mode .page-2 { display: block !important; }
-  body.pdf-mode .page-1 .side {
-    padding: 11mm 7mm 9mm !important;
-    border-right: 1px solid var(--line) !important; border-bottom: none !important;
-  }
-  body.pdf-mode .page-1 .main { padding: 11mm 11mm 10mm 9mm !important; }
-  body.pdf-mode .page-2 .main { padding: 11mm 14mm 10mm !important; }
-  body.pdf-mode .proj-grid { grid-template-columns: 1fr 1fr !important; }
-  body.pdf-mode .item { grid-template-columns: 30mm 1fr !important; gap: 4mm !important; }
-  body.pdf-mode .page-2 .two-col { grid-template-columns: 1fr 1fr !important; gap: 8mm !important; }
-  body.pdf-mode .page-no { display: block !important; }
-
-  /* ---------- 4. 인쇄 설정 ---------- */
-  @page { size: A4; margin: 0; }
-  @media print {
-    html, body { width: 210mm; background: #fff; }
-    .toolbar, .modal-backdrop { display: none !important; }
-    .page {
-      width: 210mm; height: 297mm; min-height: 297mm;
-      margin: 0 !important; box-shadow: none;
-      break-after: page; page-break-after: always;
-    }
-    .page:last-of-type { break-after: auto; page-break-after: auto; }
-    .page-2 .two-col { grid-template-columns: 1fr 1fr; }
-  }
-
-  /* 화면이 좁을 때는 높이 고정 해제 (인쇄에는 영향 없음) */
-  @media screen and (max-width: 860px) {
-    .page { height: auto; min-height: 0; overflow: visible; }
-    .page-2 .two-col { grid-template-columns: 1fr; gap: 0; }
-    .page-2 .main { padding: 8mm 6mm; }
-    .page-no { display: none; }
-  }
-</style>
 </head>
 <body>
 
@@ -422,7 +250,7 @@
       <strong>부산일보, 아시아경제, 메트로신문 등 9개 언론사</strong>에 보도되었습니다.
     </div>
 
-    <div class="sign">위 기재 사항은 사실과 틀림이 없습니다.<b>설재혁</b></div>
+    <div class="sign">위 기재 사항은 사실과 틀림이 없습니다.<b>설 재 혁</b></div>
   </main>
 
   <div class="page-no">2 / 2</div>
@@ -464,6 +292,9 @@
     </div>
   </div>
 </div>
+
+<!-- 보호 안내 토스트 -->
+<div class="guard-toast" id="guardToast" role="status" aria-live="polite"><span class="ico">🔒</span><span id="guardMsg"></span></div>
 
 <script>
   const modal    = document.getElementById('exportModal');
@@ -640,6 +471,76 @@
       });
     });
   });
+</script>
+<script>
+  /* ============================================================
+     콘텐츠 보호 (index.html · overflow.html · awards.html과 동일)
+     - 우클릭 · 드래그 · 텍스트 선택 · 복사 방지
+     - 개발자 도구 / 소스 보기 / 페이지 저장 단축키 차단
+     - Tab · 방향키 · 스페이스 · ESC(팝업 닫기) · Ctrl+P(인쇄) · 새로고침 등은 그대로 사용 가능
+     ※ 일반 방문자의 무단 복사를 막는 "억제" 장치입니다. 브라우저 메뉴나
+        자바스크립트 끄기 등으로는 우회할 수 있습니다.
+     ============================================================ */
+  (() => {
+    const toast = document.getElementById('guardToast');
+    const msg = document.getElementById('guardMsg');
+    let hideTimer = null;
+    const notify = text => {
+      if (!toast) return;
+      msg.textContent = text;
+      toast.classList.add('show');
+      clearTimeout(hideTimer);
+      hideTimer = setTimeout(() => toast.classList.remove('show'), 1800);
+    };
+    const isEditable = el => el && el.closest && el.closest('input, textarea, [contenteditable="true"]');
+
+    // 1) 우클릭 메뉴 (확대한 사진 위 포함)
+    document.addEventListener('contextmenu', e => {
+      if (isEditable(e.target)) return;
+      e.preventDefault();
+      notify(e.target.tagName === 'IMG' ? '사진은 저장할 수 없습니다' : '콘텐츠 보호를 위해 우클릭이 제한됩니다');
+    });
+
+    // 2) 드래그 (사진 · 링크 · 텍스트)
+    document.addEventListener('dragstart', e => { if (!isEditable(e.target)) e.preventDefault(); });
+
+    // 3) 텍스트 선택
+    document.addEventListener('selectstart', e => { if (!isEditable(e.target)) e.preventDefault(); });
+
+    // 4) 복사 · 잘라내기
+    ['copy', 'cut'].forEach(type => document.addEventListener(type, e => {
+      if (isEditable(e.target)) return;
+      e.preventDefault();
+      notify('콘텐츠 보호를 위해 복사가 제한됩니다');
+    }));
+
+    // 5) 개발자 도구 · 소스 보기 · 저장 · 전체 선택 단축키 (그 외 키는 막지 않음)
+    document.addEventListener('keydown', e => {
+      const k = (e.key || '').toLowerCase();
+      const mod = e.ctrlKey || e.metaKey;              // Windows: Ctrl / Mac: Cmd
+      const devtools =
+        k === 'f12' ||
+        (mod && e.shiftKey && ['i', 'j', 'c', 'k'].includes(k)) ||
+        (e.metaKey && e.altKey && ['i', 'j', 'c', 'u'].includes(k));
+      const source = mod && k === 'u';
+      const save   = mod && k === 's';
+      const selAll = mod && k === 'a' && !isEditable(e.target);
+
+      if (devtools || source || save || selAll) {
+        e.preventDefault();
+        e.stopPropagation();
+        notify(devtools ? '개발자 도구는 사용할 수 없습니다'
+             : source   ? '소스 보기는 제한됩니다'
+             : save     ? '페이지 저장은 제한됩니다'
+             :            '콘텐츠 보호를 위해 선택이 제한됩니다');
+      }
+    }, true);
+
+    // 6) 콘솔을 연 사람에게 보이는 안내 메시지
+    console.log('%c잠깐!', 'color:#1f3a68;font-size:28px;font-weight:800;');
+    console.log('%c이 사이트의 콘텐츠는 저작권 보호를 받습니다. 협업 문의는 jaehyuk7767@naver.com 으로 연락 주세요.',
+                'font-size:13px;color:#5b6170;');
+  })();
 </script>
 </body>
 </html>

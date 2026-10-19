@@ -1,0 +1,1257 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>설재혁 | 문구 애니메이션 비교</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<link rel="icon" href="./img/favicon.jpg" type="image/x-icon">
+<link rel="stylesheet" href="./css/test.css">
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="label">HERO TITLE ANIMATIONS</div>
+    <h1>메인 문구 애니메이션 비교</h1>
+    <p>총 <b>36가지</b> 연출입니다. 각 카드의 <b>다시 보기</b>로 비교하고, <b>코드 보기</b>로 코드를 확인·복사할 수 있습니다. <b>인터랙티브</b> 표시가 있는 카드는 마우스를 올리면 반응합니다.</p>
+    <div class="top-actions"><button class="replay all" id="playAll">▶ 전체 다시 보기</button></div>
+  </header>
+
+  <div class="grid">
+    <!-- 1 -->
+    <section class="card a1" data-anim="1">
+      <div class="card-head"><div><div class="num">01</div><h2>타이핑 (자모 조합)</h2></div><span class="tag">친근함</span></div>
+      <p class="desc">ㅋ → 코 → 코드처럼 실제로 입력하는 과정을 보여 줍니다. 개발자다운 느낌이 가장 강합니다.</p>
+      <div class="stage"><div class="h" data-src="1"></div></div>
+      <button class="replay">↻ 다시 보기</button>
+    </section>
+
+    <!-- 2 -->
+    <section class="card a2" data-anim="2">
+      <div class="card-head"><div><div class="num">02</div><h2>스크램블 해독</h2></div><span class="tag">테크 · 임팩트</span></div>
+      <p class="desc">무작위 글자가 빠르게 바뀌다가 왼쪽부터 차례로 정답 글자로 고정됩니다. 암호를 푸는 듯한 연출입니다.</p>
+      <div class="stage"><div class="h" data-src="2"></div></div>
+      <button class="replay">↻ 다시 보기</button>
+    </section>
+
+    <!-- 3 -->
+    <section class="card a3" data-anim="3">
+      <div class="card-head"><div><div class="num">03</div><h2>단어별 블러 페이드업</h2></div><span class="tag">세련 · 차분</span></div>
+      <p class="desc">흐릿한 단어가 아래에서 떠오르며 또렷해집니다. 애플 스타일 랜딩 페이지에서 자주 쓰는 방식입니다.</p>
+      <div class="stage"><div class="h" data-src="3"></div></div>
+      <button class="replay">↻ 다시 보기</button>
+    </section>
+
+    <!-- 4 -->
+    <section class="card a4" data-anim="4">
+      <div class="card-head"><div><div class="num">04</div><h2>줄 단위 마스크 슬라이드</h2></div><span class="tag">고급 · 에디토리얼</span></div>
+      <p class="desc">각 줄이 보이지 않는 선 아래에서 밀려 올라옵니다. 잡지나 브랜드 사이트 같은 단정한 인상을 줍니다.</p>
+      <div class="stage"><div class="h">
+        <span class="line" style="--i:0"><span>코드로 현장을 움직이고,</span></span>
+        <span class="line" style="--i:1"><span><em>시스템으로 가치를 만드는</em></span></span>
+        <span class="line" style="--i:2"><span>엔지니어 설재혁입니다</span></span>
+      </div></div>
+      <button class="replay">↻ 다시 보기</button>
+    </section>
+
+    <!-- 5 -->
+    <section class="card a5" data-anim="5">
+      <div class="card-head"><div><div class="num">05</div><h2>형광펜 하이라이트</h2></div><span class="tag">강조 · 깔끔</span></div>
+      <p class="desc">줄이 차례로 나타난 뒤 핵심 문구에 형광펜이 쭉 그어집니다. 메시지가 가장 잘 전달됩니다.</p>
+      <div class="stage"><div class="h">
+        <span style="--i:0">코드로 현장을 움직이고,</span><br>
+        <span style="--i:1"><em>시스템으로 가치를 만드는</em></span><br>
+        <span style="--i:2">엔지니어 설재혁입니다</span>
+      </div></div>
+      <button class="replay">↻ 다시 보기</button>
+    </section>
+
+    <!-- 6 -->
+    <section class="card a6" data-anim="6">
+      <div class="card-head"><div><div class="num">06</div><h2>터미널 명령어</h2></div><span class="tag">개발자 감성</span></div>
+      <p class="desc">명령어 <code>whoami</code>를 입력하면 결과로 소개 문구가 출력됩니다. IT 엔지니어 정체성이 확실히 드러납니다.</p>
+      <div class="stage"><div class="term">
+        <div class="bar"><i></i><i></i><i></i></div>
+        <div><span class="prompt">jaehyuk@portfolio:~$</span> <span class="cmd"></span></div>
+        <div class="out">
+          <span class="ln">코드로 현장을 움직이고,</span>
+          <span class="ln"><em>시스템으로 가치를 만드는</em></span>
+          <span class="ln">엔지니어 설재혁입니다</span>
+        </div>
+        <div class="ok">✔ profile loaded</div>
+      </div></div>
+      <button class="replay">↻ 다시 보기</button>
+    </section>
+
+    <!-- 7 -->
+    <section class="card a7" data-anim="7">
+      <div class="card-head"><div><div class="num">07 · 현재 적용</div><h2>키워드 회전</h2></div><span class="tag">다채로움</span></div>
+      <p class="desc">강조 단어가 몇 초마다 위로 넘어가며 바뀝니다. 한 문장으로 여러 강점을 보여 줄 수 있습니다.</p>
+      <div class="stage"><div class="h">
+        코드로 현장을 움직이고,<br>
+        시스템으로 <span class="rot"><span class="cur">가치를</span><span>효율을</span><span>안정을</span><span>변화를</span></span> 만드는<br>
+        엔지니어 설재혁입니다
+      </div></div>
+      <button class="replay">↻ 다시 보기</button>
+    </section>
+
+    <div class="group">MORE · 08 ~ 21</div>
+
+    <!-- 8 -->
+    <section class="card a8" data-anim="8">
+      <div class="card-head"><div><div class="num">08</div><h2>글자 낙하 바운스</h2></div><span class="tag">경쾌함</span></div>
+      <p class="desc">글자가 위에서 하나씩 떨어져 통통 튀며 자리를 잡습니다. 밝고 활기찬 첫인상을 줍니다.</p>
+      <div class="stage"><div class="h"></div></div>
+      <button class="replay">↻ 다시 보기</button>
+    </section>
+
+    <!-- 9 -->
+    <section class="card a9" data-anim="9">
+      <div class="card-head"><div><div class="num">09</div><h2>그라데이션 흐름</h2></div><span class="tag">트렌디 · 은은함</span></div>
+      <p class="desc">줄이 나타난 뒤 글자 위로 빛나는 색이 계속 흘러갑니다. 정적인 문구에 생동감을 더합니다.</p>
+      <div class="stage"><div class="h">
+        <span style="--i:0">코드로 현장을 움직이고,</span><br>
+        <span style="--i:1"><em>시스템으로 가치를 만드는</em></span><br>
+        <span style="--i:2">엔지니어 설재혁입니다</span>
+      </div></div>
+      <button class="replay">↻ 다시 보기</button>
+    </section>
+
+    <!-- 10 -->
+    <section class="card a10" data-anim="10">
+      <div class="card-head"><div><div class="num">10</div><h2>3D 플립</h2></div><span class="tag">입체감</span></div>
+      <p class="desc">누워 있던 글자가 앞으로 일어서듯 회전하며 나타납니다. 공항 안내판 같은 기계적인 리듬감이 있습니다.</p>
+      <div class="stage"><div class="h"></div></div>
+      <button class="replay">↻ 다시 보기</button>
+    </section>
+
+    <!-- 11 -->
+    <section class="card a11" data-anim="11">
+      <div class="card-head"><div><div class="num">11</div><h2>네온사인</h2></div><span class="tag">강렬함 · 야간</span></div>
+      <p class="desc">전원이 들어오듯 깜빡이며 켜지고, 이후에도 가끔 미세하게 떨립니다. 어두운 배경에서 시선을 확 끕니다.</p>
+      <div class="stage"><div class="h">
+        <span style="--i:0">코드로 현장을 움직이고,</span><br>
+        <span style="--i:1"><em>시스템으로 가치를 만드는</em></span><br>
+        <span style="--i:2">엔지니어 설재혁입니다</span>
+      </div></div>
+      <button class="replay">↻ 다시 보기</button>
+    </section>
+
+    <!-- 12 -->
+    <section class="card a12" data-anim="12">
+      <div class="card-head"><div><div class="num">12</div><h2>글리치</h2></div><span class="tag">사이버 · 해커</span></div>
+      <p class="desc">신호가 튀는 것처럼 빨강·청록 잔상이 어긋났다 돌아옵니다. 몇 초마다 한 번씩 반복됩니다.</p>
+      <div class="stage"><div class="h">
+        <span class="gl" style="--i:0" data-t="코드로 현장을 움직이고,">코드로 현장을 움직이고,</span><br>
+        <span class="gl" style="--i:1" data-t="시스템으로 가치를 만드는"><em>시스템으로 가치를 만드는</em></span><br>
+        <span class="gl" style="--i:2" data-t="엔지니어 설재혁입니다">엔지니어 설재혁입니다</span>
+      </div></div>
+      <button class="replay">↻ 다시 보기</button>
+    </section>
+
+    <!-- 13 -->
+    <section class="card a13" data-anim="13">
+      <div class="card-head"><div><div class="num">13</div><h2>물결 웨이브</h2></div><span class="tag">리듬감</span></div>
+      <p class="desc">글자가 파도처럼 차례로 살짝 솟았다 내려앉기를 반복합니다. 강조 문구는 색도 함께 출렁입니다.</p>
+      <div class="stage"><div class="h"></div></div>
+      <button class="replay">↻ 다시 보기</button>
+    </section>
+
+    <!-- 14 -->
+    <section class="card a14" data-anim="14">
+      <div class="card-head"><div><div class="num">14</div><h2>컬러 블록 와이프</h2></div><span class="tag">모던 · 브랜딩</span></div>
+      <p class="desc">색 블록이 지나가며 글자를 덮었다가 걷히면서 문구가 드러납니다. 브랜드 영상 오프닝 같은 느낌입니다.</p>
+      <div class="stage"><div class="h">
+        <span class="line" style="--i:0"><span class="blk" style="--c:var(--accent)"><span class="tx">코드로 현장을 움직이고,</span></span></span>
+        <span class="line" style="--i:1"><span class="blk" style="--c:var(--accent-2)"><span class="tx"><em>시스템으로 가치를 만드는</em></span></span></span>
+        <span class="line" style="--i:2"><span class="blk" style="--c:var(--text)"><span class="tx">엔지니어 설재혁입니다</span></span></span>
+      </div></div>
+      <button class="replay">↻ 다시 보기</button>
+    </section>
+
+    <!-- 15 -->
+    <section class="card a15" data-anim="15">
+      <div class="card-head"><div><div class="num">15</div><h2>외곽선 드로잉</h2></div><span class="tag">감성 · 섬세함</span></div>
+      <p class="desc">펜으로 글자 테두리를 그린 뒤 안쪽이 채워집니다. 손으로 직접 쓴 듯한 정성스러운 인상을 줍니다.</p>
+      <div class="stage"><svg viewBox="0 0 450 140" role="img" aria-label="코드로 현장을 움직이고, 시스템으로 가치를 만드는 엔지니어 설재혁입니다">
+        <text x="1" y="34"  style="--i:0;--s:var(--text)">코드로 현장을 움직이고,</text>
+        <text x="1" y="80"  style="--i:1;--s:var(--accent)">시스템으로 가치를 만드는</text>
+        <text x="1" y="126" style="--i:2;--s:var(--text)">엔지니어 설재혁입니다</text>
+      </svg></div>
+      <button class="replay">↻ 다시 보기</button>
+    </section>
+
+    <!-- 16 -->
+    <section class="card a16" data-anim="16">
+      <div class="card-head"><div><div class="num">16</div><h2>3D 틸트</h2></div><span class="tag live">인터랙티브</span></div>
+      <p class="desc">줄마다 깊이가 달라 입체적으로 떠 보입니다. 평소엔 천천히 흔들리고, 마우스를 올리면 커서를 따라 기울어집니다.</p>
+      <p class="hint">🖱 박스 위에서 마우스를 움직여 보세요</p>
+      <div class="stage"><div class="h">
+        <span class="ln">코드로 현장을 움직이고,</span>
+        <span class="ln"><em>시스템으로 가치를 만드는</em></span>
+        <span class="ln">엔지니어 설재혁입니다</span>
+      </div></div>
+      <button class="replay">↻ 다시 보기</button>
+    </section>
+
+    <!-- 17 -->
+    <section class="card a17" data-anim="17">
+      <div class="card-head"><div><div class="num">17</div><h2>랜덤 초점 줌</h2></div><span class="tag">드라마틱</span></div>
+      <p class="desc">크고 흐릿한 글자들이 무작위 순서로 날아와 초점이 맞춰집니다. 카메라 렌즈가 맞춰지는 듯한 연출입니다.</p>
+      <div class="stage"><div class="h"></div></div>
+      <button class="replay">↻ 다시 보기</button>
+    </section>
+
+    <!-- 18 -->
+    <section class="card a18" data-anim="18">
+      <div class="card-head"><div><div class="num">18</div><h2>타이핑 · 지우기 반복</h2></div><span class="tag">개발자 감성</span></div>
+      <p class="desc">강조 단어를 입력하고, 백스페이스로 지운 뒤, 다음 단어를 다시 입력합니다. 01번과 07번을 합친 방식입니다.</p>
+      <div class="stage"><div class="h">
+        코드로 현장을 움직이고,<br>
+        시스템으로 <span class="tw"></span><span class="caret"></span> 만드는<br>
+        엔지니어 설재혁입니다
+      </div></div>
+      <button class="replay">↻ 다시 보기</button>
+    </section>
+
+    <!-- 19 -->
+    <section class="card a19" data-anim="19">
+      <div class="card-head"><div><div class="num">19</div><h2>스포트라이트</h2></div><span class="tag live">인터랙티브</span></div>
+      <p class="desc">어둠 속을 빛이 한 번 훑고 지나간 뒤 문구가 밝아집니다. 마우스를 올리면 손전등처럼 비추는 부분만 보입니다.</p>
+      <p class="hint">🔦 박스 위에 마우스를 올려 보세요</p>
+      <div class="stage"><div class="spot">
+        <div class="h base">코드로 현장을 움직이고,<br><em>시스템으로 가치를 만드는</em><br>엔지니어 설재혁입니다</div>
+        <div class="h lit" aria-hidden="true">코드로 현장을 움직이고,<br><em>시스템으로 가치를 만드는</em><br>엔지니어 설재혁입니다</div>
+      </div></div>
+      <button class="replay">↻ 다시 보기</button>
+    </section>
+
+    <!-- 20 -->
+    <section class="card a20" data-anim="20">
+      <div class="card-head"><div><div class="num">20</div><h2>파티클 집결</h2></div><span class="tag live">인터랙티브</span></div>
+      <p class="desc">흩어진 수천 개의 점이 모여 문구를 만듭니다. 마우스를 대면 점들이 흩어졌다가 다시 제자리로 돌아옵니다.</p>
+      <p class="hint">✨ 글자 위로 마우스를 휘저어 보세요</p>
+      <div class="stage"><canvas role="img" aria-label="코드로 현장을 움직이고, 시스템으로 가치를 만드는 엔지니어 설재혁입니다"></canvas></div>
+      <button class="replay">↻ 다시 보기</button>
+    </section>
+
+    <!-- 21 -->
+    <section class="card a21" data-anim="21">
+      <div class="card-head"><div><div class="num">21</div><h2>슬롯머신</h2></div><span class="tag">재미 · 반전</span></div>
+      <p class="desc">글자마다 릴이 빠르게 돌다가 왼쪽부터 차례로 멈추며 정답 글자에 맞춰집니다.</p>
+      <div class="stage"><div class="h"></div></div>
+      <button class="replay">↻ 다시 보기</button>
+    </section>
+
+    <div class="group">MORE · 22 ~ 36</div>
+
+    <!-- 22 -->
+    <section class="card a22" data-anim="22">
+      <div class="card-head"><div><div class="num">22</div><h2>흩어진 단어 정렬</h2></div><span class="tag">정리 · 질서</span></div>
+      <p class="desc">사방에 흩어져 기울어 있던 단어들이 제자리로 날아와 반듯하게 정렬됩니다.</p>
+      <div class="stage"><div class="h"></div></div>
+      <button class="replay">↻ 다시 보기</button>
+    </section>
+
+    <!-- 23 -->
+    <section class="card a23" data-anim="23">
+      <div class="card-head"><div><div class="num">23</div><h2>카운트다운</h2></div><span class="tag">긴장감 · 오프닝</span></div>
+      <p class="desc">3 · 2 · 1 카운트다운이 끝나면 문구가 톡 튀어나옵니다. 발표나 오프닝 화면에 잘 어울립니다.</p>
+      <div class="stage"><div class="h">
+        <span style="--i:0">코드로 현장을 움직이고,</span><br>
+        <span style="--i:1"><em>시스템으로 가치를 만드는</em></span><br>
+        <span style="--i:2">엔지니어 설재혁입니다</span>
+      </div><div class="count"></div></div>
+      <button class="replay">↻ 다시 보기</button>
+    </section>
+
+    <!-- 24 -->
+    <section class="card a24" data-anim="24">
+      <div class="card-head"><div><div class="num">24</div><h2>손그림 동그라미</h2></div><span class="tag">포인트 강조</span></div>
+      <p class="desc">문구가 나타난 뒤 핵심 단어에 빨간 펜으로 동그라미를 쓱 그립니다. 손으로 첨삭한 듯한 느낌입니다.</p>
+      <div class="stage"><div class="h">
+        <span style="--i:0">코드로 현장을 움직이고,</span><br>
+        <span style="--i:1">시스템으로 <span class="circ">가치를<svg viewBox="0 0 120 60" preserveAspectRatio="none" aria-hidden="true"><path pathLength="100" d="M14 34 C10 14 52 4 92 9 C120 13 120 44 84 52 C46 60 8 52 9 30 C10 18 30 9 58 8"/></svg></span> 만드는</span><br>
+        <span style="--i:2">엔지니어 설재혁입니다</span>
+      </div></div>
+      <button class="replay">↻ 다시 보기</button>
+    </section>
+
+    <!-- 25 -->
+    <section class="card a25" data-anim="25">
+      <div class="card-head"><div><div class="num">25</div><h2>큐브 회전</h2></div><span class="tag">입체 · 다채로움</span></div>
+      <p class="desc">강조 단어가 정육면체의 각 면에 붙어 있어 몇 초마다 굴러가듯 바뀝니다. 07번의 입체 버전입니다.</p>
+      <div class="stage"><div class="h">
+        코드로 현장을 움직이고,<br>
+        시스템으로 <span class="cube"><span class="cb"><span>가치를</span><span>효율을</span><span>안정을</span><span>변화를</span></span></span> 만드는<br>
+        엔지니어 설재혁입니다
+      </div></div>
+      <button class="replay">↻ 다시 보기</button>
+    </section>
+
+    <!-- 26 -->
+    <section class="card a26" data-anim="26">
+      <div class="card-head"><div><div class="num">26</div><h2>타일 디졸브</h2></div><span class="tag">모자이크</span></div>
+      <p class="desc">화면을 덮은 색 타일들이 무작위로 뒤집히며 사라지고, 그 아래 문구가 드러납니다.</p>
+      <div class="stage"><div class="h">코드로 현장을 움직이고,<br><em>시스템으로 가치를 만드는</em><br>엔지니어 설재혁입니다</div><div class="tiles"></div></div>
+      <button class="replay">↻ 다시 보기</button>
+    </section>
+
+    <!-- 27 -->
+    <section class="card a27" data-anim="27">
+      <div class="card-head"><div><div class="num">27</div><h2>셔터 오픈</h2></div><span class="tag">시네마틱</span></div>
+      <p class="desc">가운데에 빛이 한 줄 스치고, 위아래 셔터가 열리며 문구가 줌인됩니다. 영화 오프닝 같은 연출입니다.</p>
+      <div class="stage"><div class="h">코드로 현장을 움직이고,<br><em>시스템으로 가치를 만드는</em><br>엔지니어 설재혁입니다</div><div class="seam"></div></div>
+      <button class="replay">↻ 다시 보기</button>
+    </section>
+
+    <!-- 28 -->
+    <section class="card a28" data-anim="28">
+      <div class="card-head"><div><div class="num">28</div><h2>롱 섀도우</h2></div><span class="tag">레트로 · 입체</span></div>
+      <p class="desc">글자 뒤로 그림자가 길게 뻗어 나오며 문구가 종이에서 솟아오르듯 떠오릅니다.</p>
+      <div class="stage"><div class="h">
+        <span style="--i:0">코드로 현장을 움직이고,</span><br>
+        <span style="--i:1"><em>시스템으로 가치를 만드는</em></span><br>
+        <span style="--i:2">엔지니어 설재혁입니다</span>
+      </div></div>
+      <button class="replay">↻ 다시 보기</button>
+    </section>
+
+    <!-- 29 -->
+    <section class="card a29" data-anim="29">
+      <div class="card-head"><div><div class="num">29</div><h2>물 채우기</h2></div><span class="tag">유려함</span></div>
+      <p class="desc">비어 있는 글자 안에 물결이 출렁이며 아래부터 차오릅니다. 다 차오른 뒤에도 수면이 계속 일렁입니다.</p>
+      <div class="stage"><div class="h">코드로 현장을 움직이고,<br><em>시스템으로 가치를 만드는</em><br>엔지니어 설재혁입니다</div></div>
+      <button class="replay">↻ 다시 보기</button>
+    </section>
+
+    <!-- 30 -->
+    <section class="card a30" data-anim="30">
+      <div class="card-head"><div><div class="num">30</div><h2>로딩 퍼센트</h2></div><span class="tag">시스템 감성</span></div>
+      <p class="desc">0%에서 100%까지 로딩이 끝나면 숫자가 사라지고 문구가 나타납니다. 시스템이 부팅되는 듯한 연출입니다.</p>
+      <div class="stage"><div class="h">
+        <span style="--i:0">코드로 현장을 움직이고,</span><br>
+        <span style="--i:1"><em>시스템으로 가치를 만드는</em></span><br>
+        <span style="--i:2">엔지니어 설재혁입니다</span>
+      </div><div class="ld"><b>0%</b><div class="bar"><i></i></div></div></div>
+      <button class="replay">↻ 다시 보기</button>
+    </section>
+
+    <!-- 31 -->
+    <section class="card a31" data-anim="31">
+      <div class="card-head"><div><div class="num">31</div><h2>돋보기 확대</h2></div><span class="tag live">인터랙티브</span></div>
+      <p class="desc">커서 근처 글자만 돋보기를 댄 것처럼 커지고 색이 바뀝니다. 처음 한 번은 자동으로 시연합니다.</p>
+      <p class="hint">🔍 글자 위로 마우스를 천천히 움직여 보세요</p>
+      <div class="stage"><div class="h"></div></div>
+      <button class="replay">↻ 다시 보기</button>
+    </section>
+
+    <!-- 32 -->
+    <section class="card a32" data-anim="32">
+      <div class="card-head"><div><div class="num">32</div><h2>스핀 인</h2></div><span class="tag">경쾌함</span></div>
+      <p class="desc">점처럼 작던 글자가 빙글 돌며 커져 제자리에 섭니다. 08번보다 더 장난스러운 느낌입니다.</p>
+      <div class="stage"><div class="h"></div></div>
+      <button class="replay">↻ 다시 보기</button>
+    </section>
+
+    <!-- 33 -->
+    <section class="card a33" data-anim="33">
+      <div class="card-head"><div><div class="num">33</div><h2>매트릭스 레인</h2></div><span class="tag">해커 · 몰입감</span></div>
+      <p class="desc">초록 코드가 비처럼 쏟아지는 가운데 문구가 서서히 떠오릅니다. 배경의 비는 계속 내립니다.</p>
+      <div class="stage"><canvas aria-hidden="true"></canvas><div class="h">코드로 현장을 움직이고,<br><em>시스템으로 가치를 만드는</em><br>엔지니어 설재혁입니다</div></div>
+      <button class="replay">↻ 다시 보기</button>
+    </section>
+
+    <!-- 34 -->
+    <section class="card a34" data-anim="34">
+      <div class="card-head"><div><div class="num">34</div><h2>좌우 교차 슬라이드</h2></div><span class="tag">속도감</span></div>
+      <p class="desc">줄마다 왼쪽·오른쪽에서 번갈아 미끄러져 들어오며, 들어오는 순간 흐릿하던 글자가 선명해집니다.</p>
+      <div class="stage"><div class="h">
+        <span class="line" style="--i:0"><span>코드로 현장을 움직이고,</span></span>
+        <span class="line" style="--i:1"><span><em>시스템으로 가치를 만드는</em></span></span>
+        <span class="line" style="--i:2"><span>엔지니어 설재혁입니다</span></span>
+      </div></div>
+      <button class="replay">↻ 다시 보기</button>
+    </section>
+
+    <!-- 35 -->
+    <section class="card a35" data-anim="35">
+      <div class="card-head"><div><div class="num">35</div><h2>컨페티 팡!</h2></div><span class="tag live">인터랙티브</span></div>
+      <p class="desc">문구가 튀어나오는 순간 양쪽에서 색종이가 터집니다. 박스를 클릭하면 그 자리에서 또 터집니다.</p>
+      <p class="hint">🎉 박스를 클릭해 보세요</p>
+      <div class="stage"><div class="h">
+        <span style="--i:0">코드로 현장을 움직이고,</span><br>
+        <span style="--i:1"><em>시스템으로 가치를 만드는</em></span><br>
+        <span style="--i:2">엔지니어 설재혁입니다</span>
+      </div><canvas aria-hidden="true"></canvas></div>
+      <button class="replay">↻ 다시 보기</button>
+    </section>
+
+    <!-- 36 -->
+    <section class="card a36" data-anim="36">
+      <div class="card-head"><div><div class="num">36</div><h2>가라오케</h2></div><span class="tag">리듬 · 집중</span></div>
+      <p class="desc">노래방 자막처럼 단어가 왼쪽부터 차례로 색이 채워집니다. 읽는 속도에 맞춰 시선을 이끕니다.</p>
+      <div class="stage"><div class="h"></div></div>
+      <button class="replay">↻ 다시 보기</button>
+    </section>
+  </div>
+</div>
+
+<script>
+  const HTML = '코드로 현장을 움직이고,<br><em>시스템으로 가치를 만드는</em><br>엔지니어 설재혁입니다';
+  const sleep = ms => new Promise(r => setTimeout(r, ms));
+  const runs = {};   // 카드별 실행 토큰 (다시 보기 시 이전 실행 중단)
+
+  // 텍스트를 글자 span으로 쪼개기 (<br>, <em> 유지)
+  function splitChars(el, cls = 't') {
+    el.innerHTML = HTML;
+    const list = [];
+    const walk = node => [...node.childNodes].forEach(n => {
+      if (n.nodeType === 3) {
+        const f = document.createDocumentFragment();
+        [...n.textContent].forEach(c => { const s = document.createElement('span'); s.className = cls; s.textContent = c; f.appendChild(s); list.push({ el: s, ch: c }); });
+        n.replaceWith(f);
+      } else if (n.nodeName === 'BR') { if (list.length) list[list.length - 1].br = true; }
+      else walk(n);
+    });
+    walk(el);
+    return list;
+  }
+
+  // ---------- 1. 타이핑 (자모 조합) ----------
+  const CHO = 'ㄱㄲㄴㄷㄸㄹㅁㅂㅃㅅㅆㅇㅈㅉㅊㅋㅌㅍㅎ';
+  const stages = ch => { const c = ch.charCodeAt(0) - 0xAC00; if (c < 0 || c > 11171) return [ch];
+    const cho = Math.floor(c / 588), jung = Math.floor((c % 588) / 28), jong = c % 28;
+    const o = [CHO[cho], String.fromCharCode(0xAC00 + cho * 588 + jung * 28)]; if (jong) o.push(ch); return o; };
+  async function anim1(card, tk) {
+    const h = card.querySelector('.h'); const list = splitChars(h);
+    const caret = document.createElement('span'); caret.className = 'caret'; h.prepend(caret);
+    await sleep(400);
+    for (const c of list) {
+      if (runs[1] !== tk) return;
+      c.el.after(caret);
+      for (const st of stages(c.ch)) { c.el.textContent = st; c.el.classList.add('on'); if (st !== c.ch) await sleep(32); }
+      await sleep(c.ch === ',' ? 360 : c.br ? 480 : c.ch === ' ' ? 0 : 50 + Math.random() * 30);
+    }
+  }
+
+  // ---------- 2. 스크램블 ----------
+  const POOL = '가나다라마바사아자차카타파하ABCDEFGHJKLMNPQRSTUVWXYZ0123456789#%&*<>/';
+  async function anim2(card, tk) {
+    const h = card.querySelector('.h'); const list = splitChars(h).filter(c => c.ch !== ' ');
+    list.forEach(c => { c.el.classList.add('scr'); c.el.textContent = POOL[Math.random() * POOL.length | 0]; });
+    const start = performance.now(), per = 55, hold = 350;
+    await new Promise(done => {
+      const tick = now => {
+        if (runs[2] !== tk) return done();
+        const t = now - start; let left = 0;
+        list.forEach((c, i) => {
+          if (t > hold + i * per) { if (c.el.classList.contains('scr')) { c.el.textContent = c.ch; c.el.classList.remove('scr'); } }
+          else { left++; if (Math.random() < .5) c.el.textContent = POOL[Math.random() * POOL.length | 0]; }
+        });
+        left ? requestAnimationFrame(tick) : done();
+      };
+      requestAnimationFrame(tick);
+    });
+  }
+
+  // ---------- 3. 단어별 블러 ----------
+  function anim3(card) {
+    const h = card.querySelector('.h'); h.innerHTML = HTML; let i = 0;
+    const walk = node => [...node.childNodes].forEach(n => {
+      if (n.nodeType === 3) {
+        const f = document.createDocumentFragment();
+        n.textContent.split(/(\s+)/).forEach(w => {
+          if (!w) return;
+          if (/^\s+$/.test(w)) { f.appendChild(document.createTextNode(w)); return; }
+          const s = document.createElement('span'); s.className = 'w'; s.style.setProperty('--i', i++); s.textContent = w; f.appendChild(s);
+        });
+        n.replaceWith(f);
+      } else if (n.nodeName !== 'BR') walk(n);
+    });
+    walk(h);
+    restartCss(card);
+  }
+
+  // ---------- 4 · 5: CSS 애니메이션 재시작 ----------
+  function restartCss(card) { card.classList.remove('play'); void card.offsetWidth; card.classList.add('play'); }
+
+  // ---------- 6. 터미널 ----------
+  async function anim6(card, tk) {
+    const cmd = card.querySelector('.cmd'); const lns = card.querySelectorAll('.ln'); const ok = card.querySelector('.ok');
+    cmd.textContent = ''; lns.forEach(l => l.classList.remove('on')); ok.classList.remove('on');
+    const caret = document.createElement('span'); caret.className = 'caret'; cmd.after(caret);
+    card.querySelectorAll('.term .caret').forEach(c => c !== caret && c.remove());
+    await sleep(500);
+    for (const ch of 'whoami') { if (runs[6] !== tk) return; cmd.textContent += ch; await sleep(90 + Math.random() * 60); }
+    await sleep(380); caret.remove();
+    for (const l of lns) { if (runs[6] !== tk) return; l.classList.add('on'); await sleep(260); }
+    await sleep(200); ok.classList.add('on');
+  }
+
+  // ---------- 7. 키워드 회전 ----------
+  const rotTimers = {};
+  function anim7(card) {
+    const words = [...card.querySelectorAll('.rot span')];
+    clearInterval(rotTimers[7]);
+    words.forEach((w, i) => { w.className = i === 0 ? 'cur' : ''; });
+    let idx = 0;
+    rotTimers[7] = setInterval(() => {
+      const prev = words[idx]; idx = (idx + 1) % words.length; const next = words[idx];
+      prev.className = 'out';
+      next.style.transition = 'none'; next.className = ''; void next.offsetWidth; next.style.transition = '';
+      next.className = 'cur';
+      setTimeout(() => { if (prev.className === 'out') { prev.style.transition = 'none'; prev.className = ''; void prev.offsetWidth; prev.style.transition = ''; } }, 600);
+    }, 1800);
+  }
+
+  /* ================================================================
+     08 ~ 21 추가 애니메이션
+     ================================================================ */
+
+  // 글자 분리 (단어 단위로 묶어 줄바꿈 시 단어가 끊기지 않게 함)
+  function splitWords(el, html = HTML) {
+    el.innerHTML = html;
+    const list = []; let i = 0;
+    const walk = node => [...node.childNodes].forEach(n => {
+      if (n.nodeType === 3) {
+        const f = document.createDocumentFragment();
+        n.textContent.split(/(\s+)/).forEach(w => {
+          if (!w) return;
+          if (/^\s+$/.test(w)) { f.appendChild(document.createTextNode(' ')); return; }
+          const wd = document.createElement('span'); wd.className = 'wd';
+          [...w].forEach(ch => {
+            const c = document.createElement('span'); c.className = 'c'; c.textContent = ch;
+            c.style.setProperty('--i', i++); wd.appendChild(c); list.push(c);
+          });
+          f.appendChild(wd);
+        });
+        n.replaceWith(f);
+      } else if (n.nodeName !== 'BR') walk(n);
+    });
+    walk(el);
+    return list;
+  }
+  const splitAndPlay = card => { splitWords(card.querySelector('.h')); restartCss(card); };
+
+  // ---------- 17. 랜덤 초점 줌 : 무작위 순서 지정 ----------
+  function anim17(card) {
+    const list = splitWords(card.querySelector('.h'));
+    const order = list.map((_, i) => i).sort(() => Math.random() - .5);
+    list.forEach((c, i) => c.style.setProperty('--r', order[i]));
+    restartCss(card);
+  }
+
+  // ---------- 18. 타이핑 · 지우기 반복 ----------
+  async function anim18(card, tk) {
+    const tw = card.querySelector('.tw');
+    const words = ['가치를', '효율을', '안정을', '변화를', '신뢰를'];
+    tw.textContent = '';
+    await sleep(400);
+    for (let k = 0; ; k = (k + 1) % words.length) {
+      const w = words[k];
+      for (let i = 0; i < w.length; i++) {                     // 입력 (자모 조합)
+        for (const st of stages(w[i])) {
+          if (runs[18] !== tk) return;
+          tw.textContent = w.slice(0, i) + st; await sleep(60);
+        }
+        await sleep(60 + Math.random() * 50);
+      }
+      await sleep(1500);
+      for (let i = w.length; i > 0; i--) {                     // 백스페이스
+        if (runs[18] !== tk) return;
+        tw.textContent = w.slice(0, i - 1); await sleep(70);
+      }
+      await sleep(300);
+    }
+  }
+
+  // ---------- 16. 3D 틸트 ----------
+  function anim16(card) {
+    const stage = card.querySelector('.stage'), h = card.querySelector('.h');
+    if (!stage.dataset.bound) {
+      stage.dataset.bound = 1;
+      stage.addEventListener('pointermove', e => {
+        const r = stage.getBoundingClientRect();
+        const x = (e.clientX - r.left) / r.width - .5, y = (e.clientY - r.top) / r.height - .5;
+        stage.classList.add('hover');
+        h.style.setProperty('--ry', (x * 30).toFixed(1) + 'deg');
+        h.style.setProperty('--rx', (-y * 24).toFixed(1) + 'deg');
+      });
+      stage.addEventListener('pointerleave', () => {
+        stage.classList.remove('hover'); h.style.removeProperty('--rx'); h.style.removeProperty('--ry');
+      });
+    }
+    restartCss(card);
+  }
+
+  // ---------- 19. 스포트라이트 ----------
+  function anim19(card, tk) {
+    const stage = card.querySelector('.stage'), spot = card.querySelector('.spot');
+    const set = (x, y, r) => { spot.style.setProperty('--x', x); spot.style.setProperty('--y', y); if (r) spot.style.setProperty('--r', r); };
+    if (!stage.dataset.bound) {
+      stage.dataset.bound = 1;
+      stage.addEventListener('pointermove', e => {
+        if (spot.dataset.intro) return;
+        const r = spot.getBoundingClientRect();
+        set((e.clientX - r.left) + 'px', (e.clientY - r.top) + 'px', '110px');
+      });
+      stage.addEventListener('pointerleave', () => { if (!spot.dataset.intro) spot.style.setProperty('--r', '900px'); });
+    }
+    // 인트로: 빛이 왼쪽에서 오른쪽으로 한 번 훑고 지나간 뒤 전체가 밝아짐
+    spot.dataset.intro = 1;
+    spot.style.transition = 'none'; set('-20%', '50%', '95px'); void spot.offsetWidth; spot.style.transition = '';
+    const start = performance.now(), dur = 1900;
+    const tick = now => {
+      if (runs[19] !== tk) return;
+      const p = Math.min((now - start) / dur, 1), e = p < .5 ? 2 * p * p : 1 - (-2 * p + 2) ** 2 / 2;
+      set((-20 + e * 135) + '%', (50 + Math.sin(p * Math.PI * 2) * 22) + '%');
+      if (p < 1) requestAnimationFrame(tick);
+      else { set('50%', '50%', '900px'); delete spot.dataset.intro; }
+    };
+    requestAnimationFrame(tick);
+  }
+
+  // ---------- 20. 파티클 집결 (canvas) ----------
+  async function anim20(card, tk) {
+    const stage = card.querySelector('.stage'), cv = card.querySelector('canvas'), ctx = cv.getContext('2d');
+    try { await document.fonts.load('800 28px Pretendard'); } catch (e) {}
+    if (runs[20] !== tk) return;
+    const W = stage.clientWidth, H = stage.clientHeight, dpr = Math.min(devicePixelRatio || 1, 2);
+    cv.width = W * dpr; cv.height = H * dpr; ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+
+    // 1) 화면 밖 캔버스에 문구를 그리고 픽셀 위치를 추출
+    const css = getComputedStyle(card);
+    const textC = css.getPropertyValue('--text').trim() || '#15171c', accC = css.getPropertyValue('--accent').trim() || '#1f3a68';
+    const fs = Math.min(28, (W - 44) / 12.5), lh = fs * 1.32, top = (H - lh * 3) / 2;
+    const off = document.createElement('canvas'); off.width = W; off.height = H;
+    const o = off.getContext('2d', { willReadFrequently: true });
+    o.font = `800 ${fs}px Pretendard, sans-serif`; o.textBaseline = 'top';
+    if ('letterSpacing' in o) o.letterSpacing = '-1px';
+    [['코드로 현장을 움직이고,', textC], ['시스템으로 가치를 만드는', accC], ['엔지니어 설재혁입니다', textC]]
+      .forEach(([t, c], i) => { o.fillStyle = c; o.fillText(t, 22, top + i * lh + fs * .1); });
+    const data = o.getImageData(0, 0, W, H).data, gap = 3, pts = [];
+    for (let y = 0; y < H; y += gap) for (let x = 0; x < W; x += gap) {
+      const k = (y * W + x) * 4;
+      if (data[k + 3] > 140) pts.push({ tx: x, ty: y, x: Math.random() * W, y: Math.random() < .5 ? -20 - Math.random() * 80 : H + 20 + Math.random() * 80,
+        vx: 0, vy: 0, d: Math.random() * 700, c: `rgb(${data[k]},${data[k + 1]},${data[k + 2]})` });
+    }
+
+    // 2) 마우스 위치 (한 번만 연결)
+    if (!stage.dataset.bound) {
+      stage.dataset.bound = 1;
+      stage.addEventListener('pointermove', e => { const r = stage.getBoundingClientRect(); card._m = { x: e.clientX - r.left, y: e.clientY - r.top }; });
+      stage.addEventListener('pointerleave', () => { card._m = null; });
+    }
+
+    // 3) 스프링 물리로 목표 위치까지 이동 + 마우스 근처는 밀어냄
+    const start = performance.now();
+    const frame = now => {
+      if (runs[20] !== tk) return;
+      requestAnimationFrame(frame);
+      if (card._vis === false) return;          // 화면 밖이면 그리기 생략
+      const t = now - start, m = card._m;
+      ctx.clearRect(0, 0, W, H);
+      for (const p of pts) {
+        if (t > p.d) {
+          p.vx += (p.tx - p.x) * .045; p.vy += (p.ty - p.y) * .045;
+          if (m) { const dx = p.x - m.x, dy = p.y - m.y, d2 = dx * dx + dy * dy;
+            if (d2 < 3600) { const f = (3600 - d2) / 3600 * 3.2, d = Math.sqrt(d2) || 1; p.vx += dx / d * f; p.vy += dy / d * f; } }
+          p.vx *= .8; p.vy *= .8; p.x += p.vx; p.y += p.vy;
+        }
+        ctx.fillStyle = p.c; ctx.fillRect(p.x, p.y, 2.2, 2.2);
+      }
+    };
+    requestAnimationFrame(frame);
+  }
+
+  // ---------- 21. 슬롯머신 ----------
+  function anim21(card) {
+    const list = splitWords(card.querySelector('.h'));
+    list.forEach((c, i) => {
+      const ch = c.textContent, n = 6 + Math.floor(Math.random() * 6);
+      const slot = document.createElement('span'); slot.className = 'slot';
+      const reel = document.createElement('span'); reel.className = 'reel';
+      for (let k = 0; k < n; k++) { const s = document.createElement('span'); s.textContent = POOL[Math.random() * POOL.length | 0]; reel.appendChild(s); }
+      const last = document.createElement('span'); last.textContent = ch; reel.appendChild(last);
+      reel.style.setProperty('--n', n); reel.style.setProperty('--i', i); reel.style.setProperty('--d', (0.9 + n * 0.06).toFixed(2) + 's');
+      slot.appendChild(reel); c.replaceWith(slot);
+    });
+    restartCss(card);
+  }
+
+  /* ================================================================
+     22 ~ 36 추가 애니메이션
+     ================================================================ */
+
+  // 단어 단위 분리 (<br>, <em> 유지)
+  function splitWordEls(el, html = HTML) {
+    el.innerHTML = html;
+    const list = []; let i = 0;
+    const walk = node => [...node.childNodes].forEach(n => {
+      if (n.nodeType === 3) {
+        const f = document.createDocumentFragment();
+        n.textContent.split(/(\s+)/).forEach(w => {
+          if (!w) return;
+          if (/^\s+$/.test(w)) { f.appendChild(document.createTextNode(' ')); return; }
+          const s = document.createElement('span'); s.className = 'ww'; s.textContent = w;
+          s.style.setProperty('--i', i++); f.appendChild(s); list.push(s);
+        });
+        n.replaceWith(f);
+      } else if (n.nodeName !== 'BR') walk(n);
+    });
+    walk(el);
+    return list;
+  }
+
+  // ---------- 22. 흩어진 단어 정렬 ----------
+  function anim22(card) {
+    const rnd = (a, b) => a + Math.random() * (b - a);
+    splitWordEls(card.querySelector('.h')).forEach(w => {
+      w.style.setProperty('--tx', rnd(-140, 140).toFixed(0) + 'px');
+      w.style.setProperty('--ty', rnd(-70, 70).toFixed(0) + 'px');
+      w.style.setProperty('--rot', rnd(-50, 50).toFixed(0) + 'deg');
+    });
+    restartCss(card);
+  }
+
+  // ---------- 23. 카운트다운 ----------
+  async function anim23(card, tk) {
+    const count = card.querySelector('.count');
+    card.classList.remove('play');
+    for (const n of [3, 2, 1]) {
+      if (runs[23] !== tk) return;
+      count.textContent = n;
+      count.classList.remove('pop'); void count.offsetWidth; count.classList.add('pop');
+      await sleep(800);
+    }
+    if (runs[23] !== tk) return;
+    count.textContent = '';
+    restartCss(card);
+  }
+
+  // ---------- 25. 큐브 회전 ----------
+  function anim25(card, tk) {
+    const cb = card.querySelector('.cb');
+    let deg = 0;
+    clearInterval(rotTimers[25]);
+    cb.style.transition = 'none'; cb.style.setProperty('--a', '0deg'); void cb.offsetWidth; cb.style.transition = '';
+    rotTimers[25] = setInterval(() => {
+      if (runs[25] !== tk) return clearInterval(rotTimers[25]);
+      deg += 90; cb.style.setProperty('--a', deg + 'deg');
+    }, 2000);
+  }
+
+  // ---------- 26. 타일 디졸브 ----------
+  function anim26(card) {
+    const tiles = card.querySelector('.tiles'), colors = ['var(--accent)', 'var(--accent-2)', 'var(--text)'];
+    tiles.innerHTML = '';
+    for (let k = 0; k < 60; k++) {
+      const t = document.createElement('i');
+      t.style.setProperty('--d', (Math.random() * 1100).toFixed(0));
+      t.style.setProperty('--c', colors[Math.random() * colors.length | 0]);
+      tiles.appendChild(t);
+    }
+    restartCss(card);
+  }
+
+  // ---------- 30. 로딩 퍼센트 ----------
+  function anim30(card, tk) {
+    const num = card.querySelector('.ld b'), bar = card.querySelector('.ld .bar i');
+    card.classList.remove('done');
+    const start = performance.now(), dur = 1700;
+    const tick = now => {
+      if (runs[30] !== tk) return;
+      const p = Math.min((now - start) / dur, 1), e = 1 - (1 - p) ** 3;
+      num.textContent = Math.round(e * 100) + '%';
+      bar.style.setProperty('--p', (e * 100).toFixed(1) + '%');
+      if (p < 1) requestAnimationFrame(tick); else setTimeout(() => runs[30] === tk && card.classList.add('done'), 250);
+    };
+    requestAnimationFrame(tick);
+  }
+
+  // ---------- 31. 돋보기 확대 ----------
+  function anim31(card, tk) {
+    const stage = card.querySelector('.stage'), list = splitWords(card.querySelector('.h'));
+    let centers = [];
+    const measure = () => { centers = list.map(c => { const r = c.getBoundingClientRect(); return [r.left + r.width / 2, r.top + r.height / 2]; }); };
+    const lens = (x, y) => list.forEach((c, i) => {
+      const dx = x - centers[i][0], dy = (y - centers[i][1]) * 1.6, s = 1 + .75 * Math.exp(-(dx * dx + dy * dy) / 2600);
+      c.style.transform = s > 1.02 ? `scale(${s.toFixed(3)}) translateY(${(-(s - 1) * 8).toFixed(1)}px)` : '';
+      c.classList.toggle('hot', s > 1.3);
+    });
+    const reset = () => list.forEach(c => { c.style.transform = ''; c.classList.remove('hot'); });
+    card._lens = { lens, measure, reset };
+    if (!stage.dataset.bound) {
+      stage.dataset.bound = 1;
+      stage.addEventListener('pointerenter', () => { card._demo = false; card._lens.reset(); card._lens.measure(); });
+      stage.addEventListener('pointermove', e => card._lens.lens(e.clientX, e.clientY));
+      stage.addEventListener('pointerleave', () => card._lens.reset());
+    }
+    restartCss(card);
+    // 자동 시연: 렌즈가 가운데 줄을 따라 왼쪽 → 오른쪽으로 한 번 지나감
+    card._demo = true;
+    setTimeout(() => {
+      if (runs[31] !== tk || !card._demo) return;
+      measure();
+      const xs = centers.map(c => c[0]), ys = centers.map(c => c[1]);
+      const x0 = Math.min(...xs) - 30, x1 = Math.max(...xs) + 30, y = (Math.min(...ys) + Math.max(...ys)) / 2, start = performance.now();
+      const tick = now => {
+        if (runs[31] !== tk || !card._demo) return;
+        const p = Math.min((now - start) / 2200, 1);
+        lens(x0 + (x1 - x0) * p, y + Math.sin(p * Math.PI * 3) * 26);
+        if (p < 1) requestAnimationFrame(tick); else reset();
+      };
+      requestAnimationFrame(tick);
+    }, 1200);
+  }
+
+  // ---------- 33. 매트릭스 레인 ----------
+  function anim33(card, tk) {
+    const stage = card.querySelector('.stage'), cv = card.querySelector('canvas'), ctx = cv.getContext('2d');
+    const W = stage.clientWidth, H = stage.clientHeight, dpr = Math.min(devicePixelRatio || 1, 2), fs = 14;
+    cv.width = W * dpr; cv.height = H * dpr; ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    const glyphs = 'アイウエオカキクケコサシスセソ0123456789ABCDEF<>/{}=;가나다라마바사';
+    const drops = Array.from({ length: Math.ceil(W / fs) }, () => Math.random() * -H / fs);
+    stage.classList.remove('on');
+    ctx.fillStyle = '#030805'; ctx.fillRect(0, 0, W, H);
+    const start = performance.now(); let last = 0;
+    const frame = now => {
+      if (runs[33] !== tk) return;
+      requestAnimationFrame(frame);
+      if (card._vis === false || now - last < 45) return;      // 약 22fps · 화면 밖이면 생략
+      last = now;
+      const t = now - start;
+      if (t > 1300) stage.classList.add('on');
+      ctx.fillStyle = t > 1300 ? 'rgba(3, 8, 5, .2)' : 'rgba(3, 8, 5, .12)';
+      ctx.fillRect(0, 0, W, H);
+      ctx.font = `${fs}px ui-monospace, monospace`;
+      drops.forEach((d, i) => {
+        const ch = glyphs[Math.random() * glyphs.length | 0], y = d * fs;
+        ctx.fillStyle = Math.random() < .08 ? '#d6ffe0' : (t > 1300 ? 'rgba(60, 220, 110, .45)' : '#3ddc6e');
+        ctx.fillText(ch, i * fs, y);
+        drops[i] = y > H && Math.random() > .96 ? 0 : d + 1;
+      });
+    };
+    requestAnimationFrame(frame);
+  }
+
+  // ---------- 35. 컨페티 ----------
+  function anim35(card, tk) {
+    const stage = card.querySelector('.stage'), cv = card.querySelector('canvas'), ctx = cv.getContext('2d');
+    const W = stage.clientWidth, H = stage.clientHeight, dpr = Math.min(devicePixelRatio || 1, 2);
+    cv.width = W * dpr; cv.height = H * dpr; ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    const colors = ['#ff5f57', '#febc2e', '#28c840', '#5b7fc4', '#b06bfa', '#22d3ee', '#ff7ab6'];
+    const parts = [];
+    const burst = (x, y, n, angle, spread, power) => {
+      for (let k = 0; k < n; k++) {
+        const a = angle + (Math.random() - .5) * spread, v = power * (.55 + Math.random() * .6);
+        parts.push({ x, y, vx: Math.cos(a) * v, vy: Math.sin(a) * v, w: 5 + Math.random() * 5, h: 8 + Math.random() * 6,
+          r: Math.random() * 6, vr: (Math.random() - .5) * .4, c: colors[Math.random() * colors.length | 0], life: 0 });
+      }
+    };
+    card._burst = (x, y) => burst(x, y, 70, -Math.PI / 2, Math.PI * 2, 9);
+    if (!stage.dataset.bound) {
+      stage.dataset.bound = 1;
+      stage.addEventListener('click', e => { const r = stage.getBoundingClientRect(); card._burst && card._burst(e.clientX - r.left, e.clientY - r.top); });
+    }
+    restartCss(card);
+    setTimeout(() => {                                   // 문구가 튀어나오는 순간 양쪽 아래에서 발사
+      if (runs[35] !== tk) return;
+      burst(0, H, 80, -Math.PI / 3, .9, 15); burst(W, H, 80, -Math.PI * 2 / 3, .9, 15);
+    }, 420);
+    const frame = () => {
+      if (runs[35] !== tk) return;
+      requestAnimationFrame(frame);
+      if (card._vis === false) return;
+      ctx.clearRect(0, 0, W, H);
+      for (let k = parts.length - 1; k >= 0; k--) {
+        const p = parts[k];
+        p.vy += .32; p.vx *= .985; p.vy *= .985; p.x += p.vx; p.y += p.vy; p.r += p.vr; p.life++;
+        if (p.y > H + 30 || p.life > 400) { parts.splice(k, 1); continue; }
+        ctx.save(); ctx.translate(p.x, p.y); ctx.rotate(p.r);
+        ctx.fillStyle = p.c; ctx.fillRect(-p.w / 2, -p.h / 2 * Math.abs(Math.cos(p.life * .15)), p.w, p.h * Math.abs(Math.cos(p.life * .15)));
+        ctx.restore();
+      }
+    };
+    requestAnimationFrame(frame);
+  }
+
+  // ---------- 36. 가라오케 ----------
+  function anim36(card) { splitWordEls(card.querySelector('.h')); restartCss(card); }
+
+  const ANIMS = { 1: anim1, 2: anim2, 3: anim3, 4: restartCss, 5: restartCss, 6: anim6, 7: anim7,
+    8: splitAndPlay, 9: restartCss, 10: splitAndPlay, 11: restartCss, 12: restartCss, 13: splitAndPlay,
+    14: restartCss, 15: restartCss, 16: anim16, 17: anim17, 18: anim18, 19: anim19, 20: anim20, 21: anim21,
+    22: anim22, 23: anim23, 24: restartCss, 25: anim25, 26: anim26, 27: restartCss, 28: restartCss, 29: restartCss,
+    30: anim30, 31: anim31, 32: splitAndPlay, 33: anim33, 34: restartCss, 35: anim35, 36: anim36 };
+  const play = card => { const n = card.dataset.anim; runs[n] = Symbol(); ANIMS[n](card, runs[n]); };
+
+  const cards = [...document.querySelectorAll('.card')];
+
+  /* ================================================================
+     코드 보기 — 카드별 HTML / CSS / JS 를 자동으로 모아 모달에 표시
+     ================================================================ */
+  // 애니메이션이 화면을 바꾸기 전에 원본 마크업 저장
+  const ORIGINAL = {};
+  cards.forEach(c => { ORIGINAL[c.dataset.anim] = c.querySelector('.stage').outerHTML; });
+
+  // 줄 앞 공통 들여쓰기 제거
+  const dedent = (text, skipFirst = true, maxCut = Infinity) => {
+    const lines = text.replace(/\t/g, '  ').split('\n');
+    const body = lines.slice(skipFirst ? 1 : 0).filter(l => l.trim());
+    const min = body.length ? Math.min(maxCut, ...body.map(l => l.match(/^ */)[0].length)) : 0;
+    return lines.map((l, i) => (skipFirst && i === 0) ? l : l.slice(min)).join('\n').replace(/[ \t]+$/gm, '');
+  };
+  const fnSrc = f => dedent(f.toString(), true, 2);   // 스크립트 안의 기본 들여쓰기(2칸)만 제거
+
+  // JS 공통 도우미 — 필요한 것만 자동으로 골라 넣음 (아래 순서대로 출력)
+  const HELPERS = [
+    ['HTML', `const HTML = '${HTML}';`],
+    ['sleep', 'const sleep = ms => new Promise(r => setTimeout(r, ms));'],
+    ['runs', 'const runs = {};   // 실행 토큰 — 다시 재생하면 이전 실행을 멈춤'],
+    ['rotTimers', 'const rotTimers = {};'],
+    ['CHO', `const CHO = '${CHO}';`],
+    ['POOL', `const POOL = '${POOL}';`],
+    ['stages', 'const stages = ' + fnSrc(stages) + ';'],
+    ['restartCss', fnSrc(restartCss)],
+    ['splitChars', fnSrc(splitChars)],
+    ['splitWords', fnSrc(splitWords)],
+    ['splitWordEls', fnSrc(splitWordEls)],
+    ['splitAndPlay', 'const splitAndPlay = ' + fnSrc(splitAndPlay) + ';']
+  ];
+  const helperNames = HELPERS.map(h => h[0]);
+
+  function buildJs(n) {
+    const fn = ANIMS[n], name = fn.name, isHelper = helperNames.includes(name);
+    const usesRuns = /\bruns\b/.test(fn.toString());
+    const run = [
+      '// ▶ 실행 — 페이지가 열리면 한 번 재생 (다시 재생하려면 play() 호출)',
+      `const card = document.querySelector('.a${n}');`,
+      usesRuns ? `const play = () => { runs[${n}] = Symbol(); ${name}(card, runs[${n}]); };` : `const play = () => ${name}(card);`,
+      'play();'
+    ].join('\n');
+    const main = isHelper ? '' : fnSrc(fn);
+    // 의존성 자동 추적 (도우미가 다른 도우미를 쓰는 경우까지)
+    const used = new Set(); let src = main + '\n' + run + (usesRuns ? '\nruns' : ''), changed = true;
+    while (changed) {
+      changed = false;
+      for (const [k, v] of HELPERS) if (!used.has(k) && new RegExp('\\b' + k + '\\b').test(src)) { used.add(k); src += '\n' + v; changed = true; }
+    }
+    const parts = HELPERS.filter(([k]) => used.has(k)).map(h => h[1]);
+    if (main) parts.push(main);
+    parts.push(run);
+    return parts.join('\n\n');
+  }
+
+  // CSS 문자열 보기 좋게 정리
+  function fmtCss(t) {
+    t = t.replace(/\s+/g, ' ');
+    let out = '', ind = 0, par = 0, q = null;
+    const nl = () => '\n' + '  '.repeat(ind);
+    for (let i = 0; i < t.length; i++) {
+      const ch = t[i];
+      if (q) { out += ch; if (ch === q && t[i - 1] !== '\\') q = null; continue; }
+      if (ch === '"' || ch === "'") { q = ch; out += ch; continue; }
+      if (ch === '(') par++;
+      if (ch === ')') par--;
+      if (par > 0) { out += ch; continue; }
+      if (ch === '{') { out = out.trimEnd() + ' {'; ind++; out += nl(); while (t[i + 1] === ' ') i++; continue; }
+      if (ch === ';') { out += ';' + nl(); while (t[i + 1] === ' ') i++; continue; }
+      if (ch === '}') { out = out.trimEnd(); ind = Math.max(0, ind - 1); out += nl() + '}' + nl(); while (t[i + 1] === ' ') i++; continue; }
+      out += ch;
+    }
+    return out.split('\n').map(l => l.trimEnd()).filter(l => l.trim()).join('\n');
+  }
+
+  // CSS 원본 텍스트 수집 — CSSOM은 var()가 든 단축 속성을 빈 값으로 돌려주므로 원문을 직접 읽음
+  //  · http(s)  : fetch로 css 파일을 읽음 (GitHub Pages, Live Server)
+  //  · file://  : 브라우저가 fetch를 막으므로 시도하지 않음 → 콘솔 에러 없음
+  //               대신 모달에서 [test.css 선택] 버튼으로 파일을 직접 불러올 수 있음
+  const cssFiles = [];   // { name, text } — text가 null이면 아직 읽지 못한 파일
+  const cssReady = (async () => {
+    for (const el of document.querySelectorAll('link[rel="stylesheet"], style')) {
+      if (el.tagName === 'STYLE') { cssFiles.push({ name: '<style>', text: el.textContent }); continue; }
+      const url = new URL(el.getAttribute('href'), location.href);
+      if (/^https?:$/.test(url.protocol) && url.origin !== location.origin) continue;   // 외부 폰트 CSS 제외
+      const name = decodeURIComponent(url.pathname.split('/').pop());
+      let text = null;
+      if (url.protocol !== 'file:') {
+        try { const r = await fetch(url); if (r.ok) text = await r.text(); } catch (e) {}
+      }
+      if (text === null) {                       // 일부 브라우저는 file://에서도 CSSOM 접근을 허용
+        try { text = [...el.sheet.cssRules].map(r => r.cssText).join('\n'); } catch (e) {}
+      }
+      cssFiles.push({ name, text });
+    }
+  })();
+
+  // 아주 단순한 CSS 파서 — 최상위 규칙을 { prelude, body } 로 나눔
+  function parseCss(text) {
+    text = text.replace(/\/\*[\s\S]*?\*\//g, '');
+    const out = []; let i = 0;
+    while (i < text.length) {
+      const open = text.indexOf('{', i); if (open < 0) break;
+      let depth = 1, j = open + 1, q = null;
+      for (; j < text.length && depth; j++) {
+        const ch = text[j];
+        if (q) { if (ch === q && text[j - 1] !== '\\') q = null; continue; }
+        if (ch === '"' || ch === "'") q = ch;
+        else if (ch === '{') depth++;
+        else if (ch === '}') depth--;
+      }
+      const prelude = text.slice(i, open).trim().replace(/\s+/g, ' '), body = text.slice(open + 1, j - 1);
+      out.push({ prelude, body, full: prelude + ' {' + body + '}' });
+      i = j;
+    }
+    return out;
+  }
+
+  async function buildCss(n, html, js) {
+    await cssReady;
+    const texts = cssFiles.filter(f => f.text !== null).map(f => f.text);
+    const missing = cssFiles.filter(f => f.text === null).map(f => f.name);
+    const own = new RegExp('\\.a' + n + '(?![0-9])');
+    const common = new Set([':root', '.stage', '.stage .h', '.stage .h em']);
+    const extra = [];
+    if (/caret/.test(html + js)) extra.push(/^\.caret/);
+    if (/\bsplitWords\b/.test(js)) extra.push(/^\.(wd|c)$/);
+    if (/\bsplitWordEls\b/.test(js)) extra.push(/^\.ww$/);
+    const want = sel => own.test(sel) || common.has(sel) || extra.some(r => r.test(sel));
+    const rules = [], media = {}, kfs = {}, props = {};
+    const walk = (list, cond) => list.forEach(r => {
+      const pre = r.prelude;
+      if (pre.startsWith('@media')) { if (!/reduced-motion/.test(pre)) walk(parseCss(r.body), pre.slice(6).trim()); }
+      else if (pre.startsWith('@keyframes')) kfs[pre.split(' ')[1]] = r.full;
+      else if (pre.startsWith('@property')) props[pre.split(' ')[1]] = r.full;
+      else if (pre.startsWith('@')) return;
+      else if (want(pre)) (cond ? (media[cond] = media[cond] || []) : rules).push(r.full);
+    });
+    texts.forEach(t => walk(parseCss(t)));
+    let body = rules.map(fmtCss).join('\n\n');
+    for (const [cond, list] of Object.entries(media))
+      body += `\n\n@media ${cond} {\n` + list.map(t => fmtCss(t).replace(/^/gm, '  ')).join('\n') + '\n}';
+    const usedK = Object.entries(kfs).filter(([k]) => new RegExp('\\b' + k + '\\b').test(body));
+    const kText = usedK.map(([, t]) => t).join('');
+    const usedP = Object.entries(props).filter(([k]) => new RegExp(k + '(?![\\w-])').test(body + kText));
+    const out = [];
+    if (missing.length) out.push(`/* ⚠ ${missing.join(', ')} 을(를) 읽지 못해 이 부분의 CSS가 빠져 있습니다.\n   위의 [파일 선택] 버튼으로 불러오거나, GitHub Pages·Live Server로 열어 주세요. */`);
+    if (usedP.length) out.push(usedP.map(([, t]) => fmtCss(t)).join('\n'));
+    out.push(body);
+    if (usedK.length) out.push(usedK.map(([, t]) => fmtCss(t)).join('\n\n'));
+    return out.filter(Boolean).join('\n\n');
+  }
+
+  function buildHtml(n) {
+    const stage = dedent(ORIGINAL[n]).replace(/^/gm, '  ');
+    return `<section class="card a${n}">\n${stage}\n</section>`;
+  }
+
+  function buildAll(n, title, html, css, js) {
+    return [
+      '<!DOCTYPE html>', '<html lang="ko">', '<head>', '<meta charset="UTF-8">',
+      '<meta name="viewport" content="width=device-width, initial-scale=1.0">',
+      `<title>${title}</title>`,
+      '<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">',
+      '<style>',
+      '* { margin: 0; padding: 0; box-sizing: border-box; }',
+      'body { font-family: "Pretendard", sans-serif; background: var(--card, #fff); color: var(--text); padding: 40px 16px; }',
+      `.a${n} { max-width: 560px; margin: 0 auto; }`,
+      '',
+      css, '</style>', '</head>', '<body>', '', html, '', '<' + 'script>', js, '</' + 'script>', '</body>', '</html>'
+    ].join('\n');
+  }
+
+  // ---------- 구문 강조 ----------
+  const esc = s => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+  const paint = (code, re, classes) => {
+    let out = '', last = 0;
+    code.replace(re, (m, ...g) => {
+      const at = g[g.length - 2]; out += esc(code.slice(last, at)); last = at + m.length;
+      const k = g.slice(0, classes.length).findIndex(v => v !== undefined);
+      out += k < 0 ? esc(m) : `<span class="${classes[k]}">${esc(m)}</span>`;
+      return m;
+    });
+    return out + esc(code.slice(last));
+  };
+  const HL = {
+    js: c => paint(c, /(\/\/[^\n]*|\/\*[\s\S]*?\*\/)|(`(?:\\[\s\S]|[^`\\])*`|'(?:\\.|[^'\\\n])*'|"(?:\\.|[^"\\\n])*")|\b(const|let|var|function|async|await|return|if|else|for|of|in|new|while|typeof|true|false|null|undefined|try|catch|continue|break)\b|\b(\d+(?:\.\d+)?)\b/g, ['tk-c', 'tk-s', 'tk-k', 'tk-n']),
+    css: c => paint(c, /(\/\*[\s\S]*?\*\/)|("(?:\\.|[^"\\])*"|'(?:\\.|[^'\\])*')|(^[ \t]*[^\s@{};][^{};\n]*(?=\{))|(@[\w-]+)|([\w-]+)(?=\s*:(?!:)[^{]*;)|(#[0-9a-fA-F]{3,8}\b|(?<![\w#-])-?\d*\.?\d+(?:px|em|rem|ms|s|deg|%|fr|vh|vw)?)/gm, ['tk-c', 'tk-s', 'tk-sel', 'tk-at', 'tk-p', 'tk-n']),
+    html: c => paint(c, /(<[!]--[\s\S]*?--[>])|(<\/?[\w-]+|\/?>)|([\w-:]+)(?==)|("[^"]*")/g, ['tk-c', 'tk-t', 'tk-a', 'tk-s'])
+  };
+
+  // ---------- 모달 ----------
+  document.body.insertAdjacentHTML('beforeend', `
+    <div class="cm-overlay" id="cm" aria-hidden="true">
+      <div class="cm" role="dialog" aria-modal="true" aria-labelledby="cmTitle">
+        <div class="cm-head">
+          <div><div class="num" id="cmNum"></div><h3 id="cmTitle"></h3></div>
+          <button class="cm-close" id="cmClose" aria-label="닫기">×</button>
+        </div>
+        <div class="cm-bar">
+          <div class="cm-tabs" role="tablist">
+            <button data-tab="html" role="tab">HTML</button>
+            <button data-tab="css" role="tab">CSS</button>
+            <button data-tab="js" role="tab">JS</button>
+            <button data-tab="all" role="tab">전체 (단일 파일)</button>
+          </div>
+          <span class="cm-meta" id="cmMeta"></span>
+          <button class="cm-copy" id="cmCopy">📋 복사</button>
+        </div>
+        <div class="cm-warn" id="cmWarn" hidden style="margin:0 20px 10px;padding:10px 14px;border-radius:12px;font-size:13px;line-height:1.5;display:flex;gap:10px;align-items:center;flex-wrap:wrap;background:color-mix(in srgb,#febc2e 18%,transparent);border:1px solid color-mix(in srgb,#febc2e 55%,transparent);color:var(--text);">
+          <span style="flex:1;min-width:220px;">⚠ 파일을 직접 열어(file://) 브라우저 보안상 <b id="cmMissing">test.css</b>를 자동으로 읽지 못했습니다. 파일을 선택하면 CSS가 바로 채워집니다.</span>
+          <button type="button" id="cmPick" style="font:inherit;font-size:13px;font-weight:700;padding:7px 12px;border-radius:9px;border:1px solid var(--line);background:var(--card);color:var(--text);cursor:pointer;">📂 파일 선택</button>
+          <input type="file" id="cmFile" accept=".css,text/css" multiple hidden>
+        </div>
+        <div class="cm-body" id="cmBody"><pre class="gut" id="cmGut" aria-hidden="true"></pre><pre><code id="cmCode"></code></pre></div>
+        <div class="cm-foot">
+          <span><kbd>Ctrl</kbd> + <kbd>C</kbd> 현재 탭 전체 복사 (드래그로 선택하면 선택 부분만)</span>
+          <span><kbd>Ctrl</kbd> + <kbd>A</kbd> 코드 전체 선택</span>
+          <span><kbd>Esc</kbd> 닫기</span>
+        </div>
+      </div>
+    </div>
+    <div class="cm-toast" id="cmToast" role="status" aria-live="polite"></div>`);
+
+  const $ = id => document.getElementById(id);
+  const cm = $('cm'), cmCode = $('cmCode'), cmGut = $('cmGut'), cmCopy = $('cmCopy');
+  const TAB_LABEL = { html: 'HTML을', css: 'CSS를', js: 'JS를', all: '전체 코드를' };
+  let cur = null, curTab = 'html', curCard = null, opener = null, toastTimer;
+
+  const toast = msg => {
+    const t = $('cmToast'); t.textContent = msg; t.classList.add('show');
+    clearTimeout(toastTimer); toastTimer = setTimeout(() => t.classList.remove('show'), 1800);
+  };
+
+  function showTab(tab) {
+    curTab = tab;
+    document.querySelectorAll('.cm-tabs button').forEach(b => { const on = b.dataset.tab === tab; b.classList.toggle('on', on); b.setAttribute('aria-selected', on); });
+    const code = cur[tab];
+    const warn = $('cmWarn'), showWarn = cur.missing.length > 0 && (tab === 'css' || tab === 'all');
+    warn.hidden = !showWarn; warn.style.display = showWarn ? 'flex' : 'none';
+    if (showWarn) $('cmMissing').textContent = cur.missing.join(', ');
+    cmCode.innerHTML = HL[tab === 'all' ? 'html' : tab](code);
+    const lines = code.split('\n').length;
+    cmGut.textContent = Array.from({ length: lines }, (_, i) => i + 1).join('\n');
+    $('cmMeta').textContent = `${lines}줄 · ${(new Blob([code]).size / 1024).toFixed(1)}KB`;
+    $('cmBody').scrollTop = 0; $('cmBody').scrollLeft = 0;
+    cmCopy.classList.remove('done'); cmCopy.textContent = '📋 복사';
+  }
+
+  // 카드의 코드를 만들어 cur에 저장
+  async function buildCode(card) {
+    const n = card.dataset.anim, title = card.querySelector('h2').textContent;
+    const html = buildHtml(n), js = buildJs(n), css = await buildCss(n, html, js);
+    const missing = cssFiles.filter(f => f.text === null).map(f => f.name);
+    cur = { html, css, js, all: buildAll(n, title, html, css, js), missing };
+  }
+
+  async function openCode(card, btn) {
+    curCard = card;
+    await buildCode(card);
+    const n = card.dataset.anim;
+    $('cmNum').textContent = String(n).padStart(2, '0') + ' · CODE';
+    $('cmTitle').textContent = card.querySelector('h2').textContent;
+    showTab('html');
+    opener = btn;
+    cm.classList.add('open'); cm.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+    $('cmClose').focus();
+  }
+
+  // file:// 로 열었을 때 — 사용자가 고른 CSS 파일을 읽어서 채움
+  $('cmPick').addEventListener('click', () => $('cmFile').click());
+  $('cmFile').addEventListener('change', async e => {
+    let loaded = 0;
+    for (const file of e.target.files) {
+      const slot = cssFiles.find(f => f.text === null && f.name === file.name) || cssFiles.find(f => f.text === null);
+      if (!slot) break;
+      slot.text = await file.text(); loaded++;
+    }
+    e.target.value = '';
+    if (!loaded) return toast('불러올 CSS가 없습니다');
+    await buildCode(curCard);
+    showTab(curTab);
+    toast(cur.missing.length ? '일부 CSS 파일이 아직 남아 있습니다' : 'CSS를 불러왔습니다 — 다른 카드에도 그대로 적용됩니다');
+  });
+
+  function closeCode() {
+    cm.classList.remove('open'); cm.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+    if (opener) opener.focus();
+  }
+
+  async function copyText(text) {
+    try { await navigator.clipboard.writeText(text); return true; }
+    catch (e) {
+      const ta = document.createElement('textarea'); ta.value = text;
+      ta.style.cssText = 'position:fixed;top:0;left:0;opacity:0;';
+      document.body.appendChild(ta); ta.select();
+      let ok = false; try { ok = document.execCommand('copy'); } catch (err) {}
+      ta.remove(); return ok;
+    }
+  }
+  async function copyTab() {
+    const ok = await copyText(cur[curTab]);
+    if (ok) {
+      cmCopy.classList.add('done'); cmCopy.textContent = '✓ 복사됨';
+      setTimeout(() => { cmCopy.classList.remove('done'); cmCopy.textContent = '📋 복사'; }, 1600);
+      toast(`${TAB_LABEL[curTab]} 클립보드에 복사했습니다`);
+    } else toast('복사하지 못했습니다. 코드를 드래그해서 복사해 주세요');
+  }
+
+  document.querySelectorAll('.cm-tabs button').forEach(b => b.addEventListener('click', () => showTab(b.dataset.tab)));
+  cmCopy.addEventListener('click', copyTab);
+  $('cmClose').addEventListener('click', closeCode);
+  cm.addEventListener('click', e => { if (e.target === cm) closeCode(); });
+
+  // 키보드: Ctrl+C 복사 · Ctrl+A 코드만 선택 · Esc 닫기 · Tab 포커스 가두기
+  document.addEventListener('keydown', e => {
+    if (!cm.classList.contains('open')) return;
+    const mod = e.ctrlKey || e.metaKey, key = e.key.toLowerCase();
+    if (e.key === 'Escape') { e.preventDefault(); closeCode(); return; }
+    if (mod && key === 'c') {
+      const sel = getSelection();
+      if (sel && sel.toString() && cmCode.contains(sel.anchorNode)) {      // 선택 영역이 있으면 기본 복사
+        toast('선택한 부분을 복사했습니다'); return;
+      }
+      e.preventDefault(); copyTab(); return;
+    }
+    if (mod && key === 'a') {
+      e.preventDefault();
+      const r = document.createRange(); r.selectNodeContents(cmCode);
+      const sel = getSelection(); sel.removeAllRanges(); sel.addRange(r);
+      return;
+    }
+    if (e.key === 'Tab') {
+      const f = [...cm.querySelectorAll('button')];
+      const i = f.indexOf(document.activeElement);
+      if (e.shiftKey && i <= 0) { e.preventDefault(); f[f.length - 1].focus(); }
+      else if (!e.shiftKey && i === f.length - 1) { e.preventDefault(); f[0].focus(); }
+    }
+  });
+
+  // 카드마다 [다시 보기] 옆에 [코드 보기] 버튼 추가
+  const CODE_ICON = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 7l-5 5 5 5M16 7l5 5-5 5"/></svg>';
+  cards.forEach(card => {
+    const replay = card.querySelector('.replay');
+    const wrap = document.createElement('div'); wrap.className = 'actions';
+    replay.replaceWith(wrap); wrap.appendChild(replay);
+    const btn = document.createElement('button');
+    btn.className = 'replay code-btn'; btn.type = 'button'; btn.innerHTML = CODE_ICON + '코드 보기';
+    btn.addEventListener('click', () => openCode(card, btn));
+    wrap.appendChild(btn);
+    replay.addEventListener('click', () => play(card));
+  });
+  document.getElementById('playAll').addEventListener('click', () => cards.forEach(play));
+
+  // 화면에 보이는지 기록 (캔버스 애니메이션은 화면 밖에서 그리기를 쉼)
+  const vis = new IntersectionObserver(es => es.forEach(e => { e.target._vis = e.isIntersecting; }));
+  cards.forEach(c => vis.observe(c));
+
+  // 카드가 화면에 들어올 때 처음 한 번 자동 재생
+  const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { play(e.target); io.unobserve(e.target); } }), { threshold: .35 });
+  cards.forEach(c => io.observe(c));
+</script>
+</body>
+</html>

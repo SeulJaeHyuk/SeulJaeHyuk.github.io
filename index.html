@@ -13,22 +13,41 @@
 <!-- ===== Header ===== -->
 <header id="header">
   <div class="container nav">
-    <a class="logo">Jaehyuk<span>.</span>Portfolio</a>
+    <a class="logo" href="#home">Jaehyuk<span>.</span>Portfolio</a>
+
     <ul class="nav-links" id="navLinks">
+      <li><a href="#home">Home</a></li>
       <li><a href="#about">About</a></li>
       <li><a href="#skills">Skills</a></li>
       <li><a href="#projects">Projects</a></li>
-      <li><a href="#education">Education</a></li>
       <li><a href="#career">Career</a></li>
-      <li><a href="#press">Press</a></li>
-      <li><a href="#training">Training</a></li>
-      <li><a href="#license">License</a></li>
-      <li><a href="#activity">Activity</a></li>
-      <li><a href="#contact">Contact</a></li>
-      <li><button class="theme-btn" id="themeBtn" aria-label="테마 전환">🌙</button></li>
+      <li><a href="#education">Education</a></li>
+
+      <!-- 더보기 드롭다운 -->
+      <li class="nav-more" id="navMore">
+        <button type="button" class="more-btn" id="moreBtn" aria-haspopup="true" aria-expanded="false" aria-controls="moreMenu">
+          More
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <ul class="more-menu" id="moreMenu">
+          <li><a href="#press"><span>Press</span><small>언론 보도</small></a></li>
+          <li><a href="#training"><span>Training</span><small>교육</small></a></li>
+          <li><a href="#license"><span>License</span><small>자격증</small></a></li>
+          <li><a href="#activity"><span>Activity</span><small>활동</small></a></li>
+        </ul>
+      </li>
+
+      <li class="nav-cta"><a href="#contact">Contact</a></li>
     </ul>
-    <button class="menu-btn" id="menuBtn" aria-label="메뉴">☰</button>
+
+    <div class="nav-tools">
+      <button class="theme-btn" id="themeBtn" aria-label="테마 전환">🌙</button>
+      <button class="menu-btn" id="menuBtn" aria-label="메뉴 열기" aria-expanded="false" aria-controls="navLinks">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
   </div>
+  <div class="nav-progress" id="navProgress" aria-hidden="true"></div>
 </header>
 
 <!-- ===== Hero ===== -->
@@ -36,7 +55,11 @@
   <div class="container hero-inner">
     <div class="reveal">
       <div class="badge">안전한 네트워크 인프라 위에 AI 기반 기술 혁신을 더하는 엔지니어</div>
-      <h1>코드로 현장을 움직이고,<br><em>시스템으로 가치를 만드는</em><br>엔지니어 설재혁입니다</h1>
+      <h1 id="heroTitle" aria-label="코드로 현장을 움직이고, 시스템으로 가치를 만드는 엔지니어 설재혁입니다">
+        <span aria-hidden="true">코드로 현장을 움직이고,<br>
+        <em>시스템으로 <span class="rot" id="heroRot"><span class="cur">가치를</span><span>효율을</span><span>안정을</span><span>변화를</span></span> 만드는</em><br>
+        엔지니어 설재혁입니다</span>
+      </h1>
       <p>업무 현장에서 마주한 불편함을 웹 서비스와 자동화 도구로 바꿔왔습니다. 사용자가 바로 쓸 수 있는, 실용적인 소프트웨어를 만듭니다.</p>
       <div class="btn-group">
         <a href="#projects" class="btn btn-primary">프로젝트 보기</a>
@@ -47,11 +70,11 @@
 
     <div class="profile-card reveal">
       <div class="avatar"><img src="./img/profile.jpg" alt="설재혁"></div>
-      <h3>설재혁</h3>
+      <h3>설 재 혁</h3>
       <div class="role">IT & Network Infrastructure Manager</div>
       <div class="stats">
         <div><strong>6+</strong><span>프로젝트</span></div>
-        <div><strong>4</strong><span>운영 서비스</span></div>
+        <div><strong>6+</strong><span>운영 서비스</span></div>
         <div><strong>∞</strong><span>성장 중</span></div>
       </div>
     </div>
@@ -326,18 +349,20 @@
   <div class="container">
     <div class="section-head reveal">
       <div class="section-label">Training</div>
-      <h2>교육</h2>
+      <h2>교육 (이수ㆍ수료)</h2>
     </div>
     <div class="timeline">
       <div class="tl-item reveal">
         <div class="tl-date">2026</div>
         <h3>AI 활용 원전산업 리더십 역량강화 과정 교육</h3>
         <h3>시큐아이(SECUI) 기술 교육 세미나</h3>
+        <h3>ISO9001 내부심사원 과정 교육</h3>
       </div>
       <div class="tl-item reveal">
         <div class="tl-date">2022</div>
         <h3>NVIDIA Deep Learning Institute</h3>
         <h3>2022 AI 복합교육과정 (160시간)</h3>
+        <h3>건설업 기초안전보건교육</h3>
       </div>
       <div class="tl-item reveal">
         <div class="tl-date">2018</div>
@@ -382,16 +407,31 @@
 <section id="contact">
   <div class="container">
     <div class="contact-box reveal">
-      <h2>함께 일해요 👋</h2>
-      <p>프로젝트 제안이나 궁금한 점이 있다면 언제든 편하게 연락 주세요.</p>
+      <h2>함께해요 👋</h2>
+      <p>공동 프로젝트 제안이나 궁금하신 점이 있으시다면 언제든 편하게 연락 주세요.</p>
       <div class="contact-links">
-        <a href="mailto:jaehyuk7767@naver.com">✉️ E-Mail</a>
+        <a href="mailto:jaehyuk7767@naver.com">✉️ NAVER Mail</a><a href="mailto:sjh1858321@gmail.com">✉️ Google Mail</a><a href="mailto:tbn2913@kakao.com">✉️ Kakao Mail</a>
       </div>
     </div>
   </div>
 </section>
 
 <footer>Copyright © 2026. SeolJaeHyuk. All rights reserved.</footer>
+
+<!-- ===== 위로 가기 버튼 ===== -->
+<button type="button" class="to-top" id="toTop" aria-label="맨 위로 이동" title="맨 위로">
+  <svg class="ring" viewBox="0 0 52 52" aria-hidden="true">
+    <circle class="ring-bg" cx="26" cy="26" r="24"></circle>
+    <circle class="ring-fg" id="toTopRing" cx="26" cy="26" r="24"></circle>
+  </svg>
+  <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"
+       stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <path d="M12 19V5"></path><path d="M5 12l7-7 7 7"></path>
+  </svg>
+</button>
+
+<!-- 보호 안내 토스트 -->
+<div class="guard-toast" id="guardToast" role="status" aria-live="polite"><span class="ico">🔒</span><span id="guardMsg"></span></div>
 
 <script>
   /* ============================================================
@@ -609,6 +649,203 @@
     navLinks.querySelectorAll('a').forEach(a =>
       a.classList.toggle('active', a.getAttribute('href') === '#' + cur));
   });
+</script>
+<script>
+  /* ============================================================
+     Hero 키워드 회전
+     - 단어 목록은 HTML의 <span class="rot"> 안에서 수정하세요
+     - 화면에 보일 때만 돌아가고, 다른 탭으로 가면 멈춥니다
+     ============================================================ */
+  (() => {
+    const rot = document.getElementById('heroRot');
+    if (!rot) return;
+    const words = [...rot.children];
+    const INTERVAL = 2200;   // 단어가 바뀌는 간격 (ms)
+    let idx = 0, timer = null, visible = false;
+
+    const reset = el => { el.style.transition = 'none'; el.className = ''; void el.offsetWidth; el.style.transition = ''; };
+
+    const next = () => {
+      const prev = words[idx];
+      idx = (idx + 1) % words.length;
+      const cur = words[idx];
+      reset(cur);                 // 아래쪽 대기 위치로 순간 이동
+      prev.className = 'out';     // 이전 단어는 위로 사라짐
+      cur.className = 'cur';      // 새 단어는 아래에서 올라옴
+      setTimeout(() => { if (prev.className === 'out') reset(prev); }, 650);
+    };
+
+    const startStop = () => {
+      const run = visible && !document.hidden && !matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (run && !timer) timer = setInterval(next, INTERVAL);
+      if (!run && timer) { clearInterval(timer); timer = null; }
+    };
+
+    new IntersectionObserver(es => { visible = es[0].isIntersecting; startStop(); }).observe(rot);
+    document.addEventListener('visibilitychange', startStop);
+  })();
+</script>
+<script>
+  /* ============================================================
+     위로 가기 버튼
+     - SHOW_AFTER(px) 이상 내려가면 나타나고, 누르면 부드럽게 맨 위로 이동
+     - 버튼 테두리 링이 페이지를 얼마나 읽었는지(스크롤 진행률) 표시
+     ============================================================ */
+  (() => {
+    const btn = document.getElementById('toTop');
+    const ring = document.getElementById('toTopRing');
+    if (!btn) return;
+    const SHOW_AFTER = 400;
+    const CIRC = 2 * Math.PI * 24;   // 링 둘레 (r = 24)
+    const reduce = matchMedia('(prefers-reduced-motion: reduce)');
+    let ticking = false;
+
+    const update = () => {
+      const y = window.scrollY;
+      const max = document.documentElement.scrollHeight - window.innerHeight;
+      btn.classList.toggle('show', y > SHOW_AFTER);
+      if (ring) ring.style.strokeDashoffset = CIRC * (1 - (max > 0 ? Math.min(y / max, 1) : 0));
+      ticking = false;
+    };
+
+    // 스크롤할 때마다 계산하지 않고 화면 그리기 주기에 맞춰 한 번만 계산
+    window.addEventListener('scroll', () => { if (!ticking) { ticking = true; requestAnimationFrame(update); } }, { passive: true });
+    window.addEventListener('resize', update);
+
+    btn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: reduce.matches ? 'auto' : 'smooth' });
+      // 키보드 사용자를 위해 이동 후 맨 위 로고로 초점 이동
+      const logo = document.querySelector('.logo');
+      if (logo) { logo.setAttribute('tabindex', '-1'); setTimeout(() => logo.focus({ preventScroll: true }), reduce.matches ? 0 : 500); }
+    });
+
+    update();
+  })();
+</script>
+<script>
+  /* ============================================================
+     콘텐츠 보호
+     - 우클릭 · 드래그 · 텍스트 선택 · 복사 방지
+     - 개발자 도구 / 소스 보기 / 페이지 저장 단축키 차단
+     - Tab · 방향키 · 스페이스 · 새로고침 등 일반 키는 그대로 사용 가능
+     ※ 일반 방문자의 무단 복사를 막는 "억제" 장치입니다. 브라우저 메뉴나
+        자바스크립트 끄기 등으로는 우회할 수 있으므로 민감한 정보는 올리지 마세요.
+     ============================================================ */
+  (() => {
+    const toast = document.getElementById('guardToast');
+    const msg = document.getElementById('guardMsg');
+    let hideTimer = null;
+    const notify = text => {
+      if (!toast) return;
+      msg.textContent = text;
+      toast.classList.add('show');
+      clearTimeout(hideTimer);
+      hideTimer = setTimeout(() => toast.classList.remove('show'), 1800);
+    };
+    const isEditable = el => el && (el.closest('input, textarea, [contenteditable="true"]'));
+
+    // 1) 우클릭 메뉴
+    document.addEventListener('contextmenu', e => {
+      if (isEditable(e.target)) return;
+      e.preventDefault();
+      notify('콘텐츠 보호를 위해 우클릭이 제한됩니다');
+    });
+
+    // 2) 드래그 (이미지 · 링크 · 텍스트)
+    document.addEventListener('dragstart', e => { if (!isEditable(e.target)) e.preventDefault(); });
+
+    // 3) 텍스트 선택 (CSS로 1차 차단, 일부 브라우저 대비 2차 차단)
+    document.addEventListener('selectstart', e => { if (!isEditable(e.target)) e.preventDefault(); });
+
+    // 4) 복사 · 잘라내기
+    ['copy', 'cut'].forEach(type => document.addEventListener(type, e => {
+      if (isEditable(e.target)) return;
+      e.preventDefault();
+      notify('콘텐츠 보호를 위해 복사가 제한됩니다');
+    }));
+
+    // 5) 개발자 도구 · 소스 보기 · 저장 · 전체 선택 단축키
+    document.addEventListener('keydown', e => {
+      const k = (e.key || '').toLowerCase();
+      const mod = e.ctrlKey || e.metaKey;              // Windows: Ctrl / Mac: Cmd
+      const devtools =
+        k === 'f12' ||
+        (mod && e.shiftKey && ['i', 'j', 'c', 'k'].includes(k)) ||   // 개발자 도구 · 콘솔 · 요소 선택
+        (e.metaKey && e.altKey && ['i', 'j', 'c', 'u'].includes(k)); // Mac (Cmd + Option)
+      const source = mod && k === 'u';                 // 소스 보기
+      const save   = mod && k === 's';                 // 페이지 저장
+      const selAll = mod && k === 'a' && !isEditable(e.target);       // 전체 선택
+
+      if (devtools || source || save || selAll) {
+        e.preventDefault();
+        e.stopPropagation();
+        notify(devtools ? '개발자 도구는 사용할 수 없습니다'
+             : source   ? '소스 보기는 제한됩니다'
+             : save     ? '페이지 저장은 제한됩니다'
+             :            '콘텐츠 보호를 위해 선택이 제한됩니다');
+      }
+    }, true);
+
+    // 6) 콘솔을 연 사람에게 보이는 안내 메시지
+    console.log('%c잠깐!', 'color:#1f3a68;font-size:28px;font-weight:800;');
+    console.log('%c이 사이트의 콘텐츠는 저작권 보호를 받습니다. 협업 문의는 jaehyuk7767@naver.com 으로 연락 주세요.',
+                'font-size:13px;color:#5b6170;');
+  })();
+</script>
+<script>
+  /* ============================================================
+     상단 메뉴: 더보기 드롭다운 · 햄버거 아이콘 · 스크롤 진행 막대
+     ============================================================ */
+  (() => {
+    const header  = document.getElementById('header');
+    const links   = document.getElementById('navLinks');
+    const menuBtn = document.getElementById('menuBtn');
+    const more    = document.getElementById('navMore');
+    const moreBtn = document.getElementById('moreBtn');
+    const bar     = document.getElementById('navProgress');
+
+    // 더보기 열고 닫기 (클릭 · 마우스 올림 · 키보드)
+    const setMore = open => { more.classList.toggle('open', open); moreBtn.setAttribute('aria-expanded', open); };
+    moreBtn.addEventListener('click', e => { e.stopPropagation(); setMore(!more.classList.contains('open')); });
+    const canHover = matchMedia('(hover: hover) and (min-width: 1101px)');
+    let leaveTimer;
+    more.addEventListener('mouseenter', () => { if (canHover.matches) { clearTimeout(leaveTimer); setMore(true); } });
+    more.addEventListener('mouseleave', () => { if (canHover.matches) leaveTimer = setTimeout(() => setMore(false), 180); });
+    more.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setMore(false)));
+    document.addEventListener('click', e => { if (!more.contains(e.target)) setMore(false); });
+
+    // ESC: 드롭다운 · 모바일 메뉴 닫기
+    document.addEventListener('keydown', e => {
+      if (e.key !== 'Escape') return;
+      if (more.classList.contains('open')) { setMore(false); moreBtn.focus(); }
+      if (links.classList.contains('open')) { links.classList.remove('open'); menuBtn.focus(); }
+    });
+
+    // 모바일 메뉴 바깥을 누르면 닫기
+    document.addEventListener('click', e => {
+      if (links.classList.contains('open') && !links.contains(e.target) && !menuBtn.contains(e.target)) links.classList.remove('open');
+    });
+
+    // 메뉴 열림 상태 ↔ 햄버거 아이콘(☰ ↔ ✕), 더보기 버튼 강조 동기화
+    new MutationObserver(() => {
+      const open = links.classList.contains('open');
+      menuBtn.classList.toggle('open', open);
+      menuBtn.setAttribute('aria-expanded', open);
+      menuBtn.setAttribute('aria-label', open ? '메뉴 닫기' : '메뉴 열기');
+      moreBtn.classList.toggle('has-active', !!more.querySelector('a.active'));
+    }).observe(links, { attributes: true, attributeFilter: ['class'], subtree: true });
+
+    // 스크롤 진행 막대
+    let ticking = false;
+    const update = () => {
+      const max = document.documentElement.scrollHeight - innerHeight;
+      bar.style.transform = `scaleX(${max > 0 ? Math.min(scrollY / max, 1) : 0})`;
+      ticking = false;
+    };
+    addEventListener('scroll', () => { if (!ticking) { ticking = true; requestAnimationFrame(update); } }, { passive: true });
+    addEventListener('resize', update);
+    update();
+  })();
 </script>
 </body>
 </html>

@@ -1,0 +1,732 @@
+ :root {
+    --bg: #f6f7fb; --card: #fff; --text: #15171c; --text-sub: #5b6170; --line: #e6e8ef;
+    --accent: #1f3a68; --accent-2: #5b7fc4; --accent-soft: #e9eef8;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg: #0f1218; --card: #161a22; --text: #eef0f4; --text-sub: #9aa1b0; --line: #262b36;
+            --accent: #8fb0ff; --accent-2: #c7d6ff; --accent-soft: #1c2638; }
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: "Pretendard", -apple-system, "Noto Sans KR", sans-serif; background: var(--bg); color: var(--text);
+         -webkit-font-smoothing: antialiased; padding: 40px 16px 60px; }
+  .wrap { max-width: 1120px; margin: 0 auto; }
+  header { margin-bottom: 28px; }
+  header .label { color: var(--accent); font-weight: 700; font-size: 13px; letter-spacing: 2px; }
+  header h1 { font-size: clamp(24px, 3vw, 32px); letter-spacing: -1px; margin: 6px 0 8px; }
+  header p { color: var(--text-sub); font-size: 15px; }
+  .top-actions { margin-top: 16px; }
+
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(500px, 1fr)); gap: 18px; }
+  @media (max-width: 560px) { .grid { grid-template-columns: 1fr; } }
+
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: 20px; padding: 22px 24px 20px;
+          display: flex; flex-direction: column; }
+  .card-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; margin-bottom: 4px; }
+  .num { font-size: 12px; font-weight: 800; color: var(--accent); letter-spacing: 1.5px; }
+  .card h2 { font-size: 18px; letter-spacing: -.4px; margin-top: 2px; }
+  .card .desc { font-size: 13.5px; color: var(--text-sub); margin: 6px 0 16px; line-height: 1.6; }
+  .tag { font-size: 11.5px; font-weight: 700; padding: 3px 9px; border-radius: 999px; background: var(--accent-soft); color: var(--accent); white-space: nowrap; }
+
+  .stage { flex: 1; min-height: 196px; border-radius: 14px; background: var(--bg); padding: 22px 22px;
+           display: flex; align-items: center; overflow: hidden; position: relative; }
+  .stage .h { font-size: 28px; line-height: 1.32; font-weight: 800; letter-spacing: -1px; word-break: keep-all; }
+  .stage .h em { font-style: normal; color: var(--accent); }
+
+  button.replay { margin-top: 14px; align-self: flex-start; font-family: inherit; font-size: 13.5px; font-weight: 700;
+    padding: 9px 16px; border-radius: 10px; border: 1px solid var(--line); background: var(--card); color: var(--text); cursor: pointer; }
+  button.replay:hover { border-color: var(--accent); color: var(--accent); }
+  button.all { background: var(--accent); color: #fff; border-color: var(--accent); }
+  @media (prefers-color-scheme: dark) { button.all { color: #0f1218; } }
+
+  /* ===== 공통: 커서 ===== */
+  .caret { display: inline-block; position: relative; width: 0; height: 1em; vertical-align: -.12em; }
+  .caret::after { content: ""; position: absolute; left: 2px; top: 0; width: 3px; height: 100%; border-radius: 2px;
+    background: var(--accent); animation: blink 1s steps(1) infinite; }
+  @keyframes blink { 50% { opacity: 0; } }
+
+  /* ===== 1. 타이핑 ===== */
+  .a1 .t { visibility: hidden; } .a1 .t.on { visibility: visible; }
+
+  /* ===== 2. 스크램블 (해독) ===== */
+  .a2 .t { display: inline-block; min-width: .2em; }
+  .a2 .t.scr { color: var(--accent-2); opacity: .55; }
+
+  /* ===== 3. 단어별 블러 페이드업 ===== */
+  .a3 .w { display: inline-block; opacity: 0; filter: blur(10px); transform: translateY(18px); }
+  .a3.play .w { animation: blurUp .7s cubic-bezier(.2, .7, .2, 1) forwards; animation-delay: calc(var(--i) * 90ms); }
+  @keyframes blurUp { to { opacity: 1; filter: blur(0); transform: none; } }
+
+  /* ===== 4. 줄 단위 마스크 슬라이드업 ===== */
+  .a4 .line { display: block; overflow: hidden; padding-bottom: .06em; }
+  .a4 .line > span { display: inline-block; transform: translateY(110%); }
+  .a4.play .line > span { animation: rise .9s cubic-bezier(.77, 0, .175, 1) forwards; animation-delay: calc(var(--i) * 160ms); }
+  @keyframes rise { to { transform: none; } }
+
+  /* ===== 5. 형광펜 하이라이트 스윕 ===== */
+  .a5 .h > span { display: inline-block; opacity: 0; transform: translateY(10px); }
+  .a5.play .h > span { animation: fadeUp .6s ease forwards; animation-delay: calc(var(--i) * 220ms); }
+  .a5 em { background-image: linear-gradient(90deg, color-mix(in srgb, var(--accent-2) 35%, transparent), color-mix(in srgb, var(--accent-2) 35%, transparent));
+           background-repeat: no-repeat; background-position: 0 85%; background-size: 0% .38em;
+           -webkit-box-decoration-break: clone; box-decoration-break: clone; }
+  .a5.play em { animation: mark 1s cubic-bezier(.65, 0, .35, 1) .9s forwards; }
+  @keyframes mark { to { background-size: 100% .38em; } }
+  @keyframes fadeUp { to { opacity: 1; transform: none; } }
+
+  /* ===== 6. 터미널 ===== */
+  .a6 .stage { background: #0f1420; color: #d6deeb; font-family: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace; align-items: flex-start; }
+  .a6 .term { width: 100%; font-size: 14px; line-height: 1.7; }
+  .a6 .bar { display: flex; gap: 6px; margin-bottom: 12px; }
+  .a6 .bar i { width: 10px; height: 10px; border-radius: 50%; background: #ff5f57; } .a6 .bar i:nth-child(2) { background: #febc2e; } .a6 .bar i:nth-child(3) { background: #28c840; }
+  .a6 .prompt { color: #7fdbca; } .a6 .cmd { color: #fff; }
+  .a6 .out { font-family: "Pretendard", sans-serif; font-size: 22px; font-weight: 800; letter-spacing: -.6px; color: #fff; line-height: 1.35; margin-top: 6px; word-break: keep-all; }
+  .a6 .out em { font-style: normal; color: #82aaff; }
+  .a6 .out .ln { display: block; opacity: 0; transform: translateX(-8px); transition: opacity .35s, transform .35s; }
+  .a6 .out .ln.on { opacity: 1; transform: none; }
+  .a6 .ok { color: #28c840; font-size: 13px; opacity: 0; transition: opacity .3s; } .a6 .ok.on { opacity: 1; }
+  .a6 .caret::after { background: #7fdbca; }
+
+  /* ===== 7. 단어 회전 ===== */
+  .a7 .rot { display: inline-grid; vertical-align: bottom; overflow: hidden; height: 1.32em; color: var(--accent); }
+  .a7 .rot span { grid-area: 1 / 1; transform: translateY(100%); opacity: 0; transition: transform .55s cubic-bezier(.77, 0, .175, 1), opacity .55s; }
+  .a7 .rot span.cur { transform: none; opacity: 1; }
+  .a7 .rot span.out { transform: translateY(-100%); opacity: 0; }
+
+  @media (prefers-reduced-motion: reduce) { * { animation-duration: .01ms !important; transition-duration: .01ms !important; } }
+
+@property --r  { syntax: '<length>'; inherits: true; initial-value: 0px; }
+@property --rx { syntax: '<angle>';  inherits: true; initial-value: 0deg; }
+@property --ry { syntax: '<angle>';  inherits: true; initial-value: 0deg; }
+
+.group { grid-column: 1 / -1; display: flex; align-items: center; gap: 12px; margin: 22px 0 2px;
+  font-size: 13px; font-weight: 800; letter-spacing: 1.5px; color: var(--accent); }
+.group::after { content: ""; flex: 1; height: 1px; background: var(--line); }
+.tag.live { background: color-mix(in srgb, #28c840 16%, transparent); color: #1f9d3a; }
+.hint { font-size: 12px; color: var(--text-sub); margin: -8px 0 12px; }
+
+/* 글자 분리 공통 — 단어는 줄바꿈 중 끊기지 않게 묶음 */
+.wd { display: inline-block; white-space: nowrap; }
+.c  { display: inline-block; }
+
+/* ===== 8. 글자 낙하 바운스 ===== */
+.a8 .c { opacity: 0; transform: translateY(-1.4em) scaleY(1.15); }
+.a8.play .c { animation: drop .75s cubic-bezier(.34, 1.56, .64, 1) forwards; animation-delay: calc(var(--i) * 32ms); }
+@keyframes drop { 60% { opacity: 1; } to { opacity: 1; transform: none; } }
+
+/* ===== 9. 그라데이션 흐름 ===== */
+.a9 .h > span { display: inline-block; opacity: 0; transform: translateY(12px);
+  background: linear-gradient(100deg, var(--text) 0%, var(--text) 30%, var(--accent) 42%, var(--accent-2) 50%, #b06bfa 58%, var(--text) 70%, var(--text) 100%) 0 0 / 250% 100%;
+  -webkit-background-clip: text; background-clip: text; color: transparent; }
+.a9 .h > span:nth-of-type(2) { background-image: linear-gradient(100deg, var(--accent) 0%, var(--accent-2) 30%, #b06bfa 50%, var(--accent-2) 70%, var(--accent) 100%); }
+.a9 em { color: transparent; }
+.a9.play .h > span { animation: fadeUp .6s ease forwards calc(var(--i) * 180ms), flow 3.6s linear infinite; }
+@keyframes flow { from { background-position: 100% 0; } to { background-position: -150% 0; } }
+
+/* ===== 10. 3D 플립 ===== */
+.a10 .wd { perspective: 600px; }
+.a10 .c { opacity: 0; transform: rotateX(-95deg); transform-origin: 50% 100%; }
+.a10.play .c { animation: flipIn .7s cubic-bezier(.2, .8, .2, 1) forwards; animation-delay: calc(var(--i) * 38ms); }
+@keyframes flipIn { 40% { opacity: 1; } to { opacity: 1; transform: none; } }
+
+/* ===== 11. 네온사인 ===== */
+.a11 .stage { background: radial-gradient(ellipse at 30% 50%, #1b1030, #07070d 70%); }
+.a11 .h { color: #fff3fc; text-shadow: 0 0 3px #fff, 0 0 10px #ff4fd8, 0 0 24px #ff4fd8, 0 0 46px #a63cff; }
+.a11 .h em { color: #eafcff; text-shadow: 0 0 3px #fff, 0 0 10px #22e3ff, 0 0 24px #22e3ff, 0 0 46px #2a7bff; }
+.a11 .h > span { display: inline-block; opacity: 0; }
+.a11.play .h > span { animation: neonOn 1.4s linear forwards calc(var(--i) * 350ms); }
+.a11.play .h em { animation: hum 4s linear infinite 2.4s; }
+@keyframes neonOn { 0% { opacity: 0; } 8% { opacity: .9; } 11% { opacity: .1; } 18% { opacity: 1; } 21% { opacity: .25; } 30%, 100% { opacity: 1; } }
+@keyframes hum { 0%, 90%, 100% { opacity: 1; } 91% { opacity: .45; } 92.5% { opacity: 1; } 94% { opacity: .7; } }
+
+/* ===== 12. 글리치 ===== */
+.a12 .stage { background: #0c0e16; }
+.a12 .h { color: #fff; }
+.a12 .h em { color: #82aaff; }
+.a12 .gl { position: relative; display: inline-block; opacity: 0; }
+.a12 .gl::before, .a12 .gl::after { content: attr(data-t); position: absolute; inset: 0; opacity: 0; pointer-events: none; }
+.a12 .gl::before { color: #ff2a6d; }
+.a12 .gl::after  { color: #05d9e8; }
+.a12.play .gl { animation: glIn .5s steps(2) forwards calc(var(--i) * 220ms), glSkew 3.4s infinite calc(var(--i) * 220ms + .2s); }
+.a12.play .gl::before { animation: glA 3.4s infinite calc(var(--i) * 220ms); }
+.a12.play .gl::after  { animation: glB 3.4s infinite calc(var(--i) * 220ms + 40ms); }
+@keyframes glIn { 0% { opacity: 0; } 40% { opacity: 1; } 60% { opacity: .2; } to { opacity: 1; } }
+@keyframes glSkew { 0%, 9%, 100% { transform: none; } 2% { transform: skewX(-10deg); } 4% { transform: skewX(6deg) translateX(2px); } 6% { transform: skewX(-3deg); } }
+@keyframes glA { 0% { opacity: .9; clip-path: inset(10% 0 62% 0); transform: translate(-4px, 0); } 3% { clip-path: inset(58% 0 12% 0); transform: translate(4px, -1px); }
+  6% { clip-path: inset(30% 0 44% 0); transform: translate(-3px, 1px); } 9% { clip-path: inset(82% 0 2% 0); transform: translate(2px, 0); } 11%, 100% { opacity: 0; clip-path: inset(0 0 100% 0); transform: none; } }
+@keyframes glB { 0% { opacity: .9; clip-path: inset(70% 0 8% 0); transform: translate(4px, 1px); } 3% { clip-path: inset(5% 0 75% 0); transform: translate(-4px, 0); }
+  6% { clip-path: inset(45% 0 30% 0); transform: translate(3px, -1px); } 9% { clip-path: inset(20% 0 60% 0); transform: translate(-2px, 0); } 11%, 100% { opacity: 0; clip-path: inset(0 0 100% 0); transform: none; } }
+
+/* ===== 13. 물결 웨이브 ===== */
+.a13 .c { opacity: 0; }
+.a13 em .c { color: var(--accent); }
+.a13.play .c { animation: fadeUp .4s ease forwards calc(var(--i) * 22ms), wave 2.4s ease-in-out infinite calc(var(--i) * 70ms + .6s); }
+.a13.play em .c { animation: fadeUp .4s ease forwards calc(var(--i) * 22ms), wave 2.4s ease-in-out infinite calc(var(--i) * 70ms + .6s), tint 2.4s ease-in-out infinite calc(var(--i) * 70ms + .6s); }
+@keyframes wave { 0%, 50%, 100% { transform: none; } 20% { transform: translateY(-9px); } 35% { transform: translateY(2px); } }
+@keyframes tint { 20% { color: var(--accent-2); } }
+
+/* ===== 14. 컬러 블록 와이프 ===== */
+.a14 .line { display: block; }
+.a14 .blk { position: relative; display: inline-block; }
+.a14 .blk::after { content: ""; position: absolute; inset: 4% -4px; background: var(--c, var(--accent)); transform: scaleX(0); transform-origin: 0 50%; border-radius: 3px; }
+.a14 .tx { opacity: 0; }
+.a14.play .blk::after { animation: wipe 1s cubic-bezier(.77, 0, .175, 1) forwards calc(var(--i) * 230ms); }
+.a14.play .tx { animation: showAt 1s forwards calc(var(--i) * 230ms); }
+@keyframes wipe { 0% { transform: scaleX(0); transform-origin: 0 50%; } 48% { transform: scaleX(1); transform-origin: 0 50%; }
+  52% { transform: scaleX(1); transform-origin: 100% 50%; } 100% { transform: scaleX(0); transform-origin: 100% 50%; } }
+@keyframes showAt { 0%, 49% { opacity: 0; } 50%, 100% { opacity: 1; } }
+
+/* ===== 15. 손글씨 외곽선 드로잉 ===== */
+.a15 svg { width: 100%; max-width: 372px; height: auto; overflow: visible; display: block; }
+.a15 text { font-family: "Pretendard", sans-serif; font-size: 34px; font-weight: 800; letter-spacing: -1px;
+  fill: transparent; stroke: var(--s); stroke-width: 1.2; stroke-linejoin: round; stroke-dasharray: 420; stroke-dashoffset: 420; }
+.a15.play text { animation: draw 2.2s cubic-bezier(.55, .1, .3, 1) forwards calc(var(--i) * 300ms), fillIn .8s ease forwards calc(var(--i) * 300ms + 1.8s); }
+@keyframes draw { to { stroke-dashoffset: 0; } }
+@keyframes fillIn { to { fill: var(--s); stroke-width: 0; } }
+
+/* ===== 16. 3D 틸트 (마우스) ===== */
+.a16 .stage { perspective: 900px; cursor: crosshair; }
+.a16 .h { transform-style: preserve-3d; transform: rotateX(var(--rx)) rotateY(var(--ry)); transition: transform .25s ease-out; }
+.a16 .h .ln { display: block; opacity: 0; translate: 0 18px; text-shadow: 0 10px 18px color-mix(in srgb, var(--accent) 22%, transparent); }
+.a16 .h .ln:nth-child(1) { transform: translateZ(10px); }
+.a16 .h .ln:nth-child(2) { transform: translateZ(55px); }
+.a16 .h .ln:nth-child(3) { transform: translateZ(25px); }
+.a16.play .h { animation: sway 6s ease-in-out infinite 1s; }
+.a16.play .h .ln { animation: lnIn .7s cubic-bezier(.2, .8, .2, 1) forwards; }
+.a16.play .h .ln:nth-child(2) { animation-delay: .15s; } .a16.play .h .ln:nth-child(3) { animation-delay: .3s; }
+.a16 .stage.hover .h { animation: none; }
+@keyframes lnIn { to { opacity: 1; translate: 0 0; } }
+@keyframes sway { 0%, 100% { --rx: 6deg; --ry: -14deg; } 50% { --rx: -5deg; --ry: 14deg; } }
+
+/* ===== 17. 랜덤 초점 줌 ===== */
+.a17 .c { opacity: 0; transform: scale(2.6); filter: blur(12px); }
+.a17.play .c { animation: focusIn .8s cubic-bezier(.2, .8, .2, 1) forwards; animation-delay: calc(var(--r) * 28ms); }
+@keyframes focusIn { to { opacity: 1; transform: none; filter: blur(0); } }
+
+/* ===== 18. 타이핑 · 지우기 반복 ===== */
+.a18 .tw { color: var(--accent); background: var(--accent-soft); border-radius: 6px; padding: 0 .12em; }
+.a18 .tw:empty { padding: 0; }
+
+/* ===== 19. 스포트라이트 (마우스) ===== */
+.a19 .stage { background: #07090f; cursor: none; }
+.a19 .spot { position: relative; --x: -20%; --y: 50%; transition: --r .6s cubic-bezier(.2, .8, .2, 1); }
+.a19 .base { color: rgba(255, 255, 255, .07); }
+.a19 .base em { color: rgba(130, 170, 255, .1); }
+.a19 .lit { position: absolute; inset: 0; color: #fff;
+  -webkit-mask-image: radial-gradient(circle var(--r) at var(--x) var(--y), #000 55%, transparent 100%);
+          mask-image: radial-gradient(circle var(--r) at var(--x) var(--y), #000 55%, transparent 100%); }
+.a19 .lit em { color: #82aaff; text-shadow: 0 0 18px rgba(130, 170, 255, .6); }
+
+/* ===== 20. 파티클 집결 ===== */
+.a20 .stage { padding: 0; cursor: crosshair; }
+.a20 canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+
+/* ===== 21. 슬롯머신 ===== */
+.a21 .slot { display: inline-block; height: 1.32em; overflow: hidden; vertical-align: top; }
+.a21 .reel { display: flex; flex-direction: column; }
+.a21 .reel > span { height: 1.32em; display: flex; justify-content: center; white-space: pre; }
+.a21 .reel > span:not(:last-child) { width: 0; align-self: center; }   /* 칸 너비는 최종 글자 기준 */
+.a21 .reel > span:not(:last-child) { color: var(--text-sub); opacity: .5; }
+.a21 em .reel > span:last-child { color: var(--accent); }
+.a21.play .reel { animation: spin var(--d) cubic-bezier(.15, .85, .25, 1.06) forwards; animation-delay: calc(var(--i) * 30ms); }
+@keyframes spin { to { transform: translateY(calc(var(--n) * -1.32em)); } }
+
+/* ================================================================
+   22 ~ 36 추가 애니메이션
+   ================================================================ */
+@property --lv { syntax: '<length>'; inherits: true; initial-value: 0px; }
+@property --wx { syntax: '<length>'; inherits: true; initial-value: 0px; }
+.ww { display: inline-block; }
+
+/* ===== 22. 흩어진 단어 정렬 ===== */
+.a22 .ww { opacity: 0; transform: translate(var(--tx), var(--ty)) rotate(var(--rot)) scale(.6); }
+.a22.play .ww { animation: settle 1s cubic-bezier(.2, .9, .25, 1.12) forwards; animation-delay: calc(var(--i) * 70ms); }
+@keyframes settle { 30% { opacity: 1; } to { opacity: 1; transform: none; } }
+
+/* ===== 23. 카운트다운 ===== */
+.a23 .count { position: absolute; inset: 0; display: grid; place-items: center; font-size: 96px; font-weight: 900;
+  color: var(--accent); pointer-events: none; font-variant-numeric: tabular-nums; }
+.a23 .count.pop { animation: cd .8s ease forwards; }
+.a23 .h > span { display: inline-block; opacity: 0; }
+.a23.play .h > span { animation: popIn .55s cubic-bezier(.34, 1.56, .64, 1) forwards; animation-delay: calc(var(--i) * 130ms); }
+@keyframes cd { 0% { opacity: 0; transform: scale(2.2); } 30% { opacity: 1; transform: scale(1); } 75% { opacity: 1; } 100% { opacity: 0; transform: scale(.6); } }
+@keyframes popIn { from { opacity: 0; transform: scale(.6); } to { opacity: 1; transform: none; } }
+
+/* ===== 24. 손그림 동그라미 ===== */
+.a24 .h > span { display: inline-block; opacity: 0; transform: translateY(10px); }
+.a24.play .h > span { animation: fadeUp .6s ease forwards; animation-delay: calc(var(--i) * 180ms); }
+.a24 .circ { position: relative; display: inline-block; color: var(--accent); }
+.a24 .circ svg { position: absolute; left: -16%; top: -24%; width: 132%; height: 148%; overflow: visible; pointer-events: none; }
+.a24 .circ path { fill: none; stroke: #e5484d; stroke-width: 3; stroke-linecap: round; vector-effect: non-scaling-stroke;
+  stroke-dasharray: 100; stroke-dashoffset: 100; }
+.a24.play .circ path { animation: draw .9s cubic-bezier(.6, .1, .3, 1) forwards 1.1s; }
+
+/* ===== 25. 큐브 회전 ===== */
+.a25 .cube { display: inline-block; perspective: 400px; vertical-align: bottom; height: 1.32em; width: 3.3em; }
+.a25 .cb { position: relative; display: block; height: 100%; transform-style: preserve-3d;
+  transform: translateZ(-.66em) rotateX(var(--a, 0deg)); transition: transform .8s cubic-bezier(.7, -.3, .3, 1.3); }
+.a25 .cb > span { position: absolute; inset: 0; text-align: center; backface-visibility: hidden; border-radius: 8px;
+  color: var(--accent); background: var(--accent-soft); }
+.a25 .cb > span:nth-child(1) { transform: rotateX(0deg)    translateZ(.66em); }
+.a25 .cb > span:nth-child(2) { transform: rotateX(-90deg)  translateZ(.66em); }
+.a25 .cb > span:nth-child(3) { transform: rotateX(-180deg) translateZ(.66em); }
+.a25 .cb > span:nth-child(4) { transform: rotateX(-270deg) translateZ(.66em); }
+
+/* ===== 26. 타일 디졸브 ===== */
+.a26 .tiles { position: absolute; inset: 0; display: grid; grid-template-columns: repeat(12, 1fr); grid-template-rows: repeat(5, 1fr); pointer-events: none; }
+.a26 .tiles i { background: var(--c); }
+.a26.play .tiles i { animation: tileOut .55s ease forwards; animation-delay: calc(var(--d) * 1ms); }
+@keyframes tileOut { to { opacity: 0; transform: scale(.2) rotate(30deg); } }
+
+/* ===== 27. 셔터 오픈 ===== */
+.a27 .stage::before, .a27 .stage::after { content: ""; position: absolute; left: 0; right: 0; height: 50%; background: var(--text); z-index: 2; }
+.a27 .stage::before { top: 0; } .a27 .stage::after { bottom: 0; }
+.a27 .seam { position: absolute; left: 0; right: 0; top: calc(50% - 1px); height: 2px; background: var(--accent-2); z-index: 3; transform: scaleX(0); }
+.a27 .h { opacity: .3; transform: scale(.9); }
+.a27.play .seam { animation: seam 1.1s ease forwards; }
+.a27.play .stage::before { animation: shutUp .9s cubic-bezier(.77, 0, .175, 1) forwards .55s; }
+.a27.play .stage::after  { animation: shutDown .9s cubic-bezier(.77, 0, .175, 1) forwards .55s; }
+.a27.play .h { animation: zoomSettle 1.2s cubic-bezier(.2, .8, .2, 1) forwards .6s; }
+@keyframes seam { 0% { transform: scaleX(0); } 45% { transform: scaleX(1); opacity: 1; } 100% { transform: scaleX(1); opacity: 0; } }
+@keyframes shutUp { to { transform: translateY(-101%); } }
+@keyframes shutDown { to { transform: translateY(101%); } }
+@keyframes zoomSettle { to { opacity: 1; transform: none; } }
+
+/* ===== 28. 롱 섀도우 ===== */
+.a28 .h { --sh: color-mix(in srgb, var(--accent-2) 40%, var(--bg)); }
+.a28 .h > span { display: inline-block; opacity: 0; }
+.a28.play .h > span { animation: fadeOnly .4s ease forwards calc(var(--i) * 150ms), longShadow 1.1s cubic-bezier(.2, .8, .2, 1) forwards calc(var(--i) * 150ms + .3s); }
+@keyframes fadeOnly { to { opacity: 1; } }
+@keyframes longShadow { to { transform: translate(-5px, -5px);
+  text-shadow: 1px 1px 0 var(--sh), 2px 2px 0 var(--sh), 3px 3px 0 var(--sh), 4px 4px 0 var(--sh), 5px 5px 0 var(--sh), 6px 6px 0 var(--sh),
+    7px 7px 0 var(--sh), 8px 8px 0 var(--sh), 9px 9px 0 var(--sh), 10px 10px 0 var(--sh), 11px 11px 0 var(--sh), 12px 12px 0 var(--sh); } }
+
+/* ===== 29. 물 채우기 ===== */
+.a29 .h { color: transparent; -webkit-text-stroke: 1px #4f7bd9; --lv: 4.4em;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 14'%3E%3Cpath d='M0 7 Q15 0 30 7 T60 7 T90 7 T120 7 V14 H0Z' fill='%234f7bd9'/%3E%3C/svg%3E"), linear-gradient(#4f7bd9, #4f7bd9);
+  background-repeat: repeat-x, no-repeat; background-size: 120px 14px, 100% 100%;
+  background-position: var(--wx) calc(var(--lv) - 13px), 0 var(--lv);
+  -webkit-background-clip: text; background-clip: text; }
+.a29 .h em { color: transparent; }
+.a29.play .h { animation: fillUp 3.2s cubic-bezier(.45, 0, .2, 1) forwards, waveX 1.2s linear infinite; }
+@keyframes fillUp { from { --lv: 4.4em; } to { --lv: -.8em; } }
+@keyframes waveX { to { --wx: 120px; } }
+
+/* ===== 30. 로딩 퍼센트 ===== */
+.a30 .ld { position: absolute; inset: 0; display: grid; place-content: center; justify-items: center; gap: 10px; transition: opacity .4s, transform .4s; }
+.a30 .ld b { font-size: 54px; font-weight: 900; color: var(--accent); font-variant-numeric: tabular-nums; letter-spacing: -2px; }
+.a30 .ld .bar { width: 220px; height: 6px; background: var(--line); border-radius: 9px; overflow: hidden; }
+.a30 .ld .bar i { display: block; height: 100%; width: var(--p, 0%); background: linear-gradient(90deg, var(--accent), var(--accent-2)); }
+.a30.done .ld { opacity: 0; transform: scale(.9); }
+.a30 .h > span { display: inline-block; opacity: 0; transform: translateY(10px); }
+.a30.done .h > span { animation: fadeUp .6s ease forwards; animation-delay: calc(var(--i) * 150ms + .2s); }
+
+/* ===== 31. 돋보기 확대 (마우스) ===== */
+.a31 .stage { cursor: zoom-in; }
+.a31 .c { opacity: 0; transform-origin: 50% 85%; transition: transform .18s ease-out, color .18s; }
+.a31.play .c { animation: fadeOnly .5s ease forwards; animation-delay: calc(var(--i) * 18ms); }
+.a31 .c.hot { color: var(--accent); }
+
+/* ===== 32. 스핀 인 ===== */
+.a32 .c { opacity: 0; transform: rotate(-200deg) scale(0); }
+.a32.play .c { animation: spinIn .7s cubic-bezier(.2, .8, .2, 1.2) forwards; animation-delay: calc(var(--i) * 30ms); }
+@keyframes spinIn { to { opacity: 1; transform: none; } }
+
+/* ===== 33. 매트릭스 레인 ===== */
+.a33 .stage { background: #030805; }
+.a33 canvas { position: absolute; inset: 0; width: 100%; height: 100%; }
+.a33 .h { position: relative; z-index: 1; color: #e3ffe8; opacity: 0; filter: blur(6px);
+  text-shadow: 0 0 8px rgba(70, 255, 130, .7), 0 0 22px rgba(70, 255, 130, .35); transition: opacity 1s, filter 1s; }
+.a33 .h em { color: #5dff8a; }
+.a33 .on .h { opacity: 1; filter: none; }
+
+/* ===== 34. 좌우 교차 슬라이드 ===== */
+.a34 .line { display: block; }
+.a34 .line > span { display: inline-block; opacity: 0; filter: blur(6px); }
+.a34 .line:nth-child(odd)  > span { transform: translateX(-60%) skewX(-18deg); }
+.a34 .line:nth-child(even) > span { transform: translateX(60%) skewX(18deg); }
+.a34.play .line > span { animation: slideX .85s cubic-bezier(.2, .8, .2, 1) forwards; animation-delay: calc(var(--i) * 160ms); }
+@keyframes slideX { to { opacity: 1; filter: blur(0); transform: none; } }
+
+/* ===== 35. 컨페티 ===== */
+.a35 .stage { cursor: pointer; }
+.a35 canvas { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; z-index: 2; }
+.a35 .h > span { display: inline-block; opacity: 0; }
+.a35.play .h > span { animation: popIn .55s cubic-bezier(.34, 1.56, .64, 1) forwards; animation-delay: calc(var(--i) * 130ms); }
+
+/* ===== 36. 가라오케 ===== */
+.a36 .ww { --fill: var(--text); color: transparent;
+  background: linear-gradient(90deg, var(--fill) 50%, color-mix(in srgb, var(--text-sub) 32%, transparent) 50%) 100% 0 / 200% 100% no-repeat;
+  -webkit-background-clip: text; background-clip: text; }
+.a36 em .ww { --fill: var(--accent); }
+.a36.play .ww { animation: sing .42s linear forwards; animation-delay: calc(var(--i) * 360ms + .3s); }
+@keyframes sing { to { background-position: 0 0; } }
+
+/* ================================================================
+   카드 버튼 · 코드 보기 모달
+   ================================================================ */
+.actions { display: flex; gap: 8px; margin-top: 14px; flex-wrap: wrap; }
+.actions button.replay { margin-top: 0; }
+button.code-btn { display: inline-flex; align-items: center; gap: 6px; }
+button.code-btn svg { width: 15px; height: 15px; fill: none; stroke: currentColor; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
+
+.cm-overlay { position: fixed; inset: 0; z-index: 1000; display: grid; place-items: center; padding: 20px;
+  background: rgba(10, 13, 20, .55); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
+  opacity: 0; visibility: hidden; transition: opacity .25s, visibility .25s; }
+.cm-overlay.open { opacity: 1; visibility: visible; }
+.cm { width: min(900px, 100%); height: min(760px, calc(100vh - 40px)); display: flex; flex-direction: column;
+  background: var(--card); color: var(--text); border: 1px solid var(--line); border-radius: 20px; overflow: hidden;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, .3); transform: translateY(16px) scale(.98); transition: transform .3s cubic-bezier(.2, .8, .2, 1); }
+.cm-overlay.open .cm { transform: none; }
+.cm-head { display: flex; align-items: center; gap: 12px; padding: 18px 20px 14px; }
+.cm-head .num { margin-bottom: 2px; }
+.cm-head h3 { font-size: 18px; letter-spacing: -.4px; }
+.cm-close { margin-left: auto; width: 36px; height: 36px; border-radius: 10px; border: 1px solid var(--line); background: var(--card);
+  color: var(--text-sub); font-size: 20px; line-height: 1; cursor: pointer; flex-shrink: 0; }
+.cm-close:hover { color: var(--text); border-color: var(--text-sub); }
+.cm-bar { display: flex; align-items: center; gap: 8px; padding: 0 20px 12px; flex-wrap: wrap; }
+.cm-tabs { display: flex; gap: 4px; padding: 4px; background: var(--bg); border: 1px solid var(--line); border-radius: 12px; }
+.cm-tabs button { font: inherit; font-size: 13px; font-weight: 700; padding: 6px 13px; border: 0; border-radius: 9px; background: none; color: var(--text-sub); cursor: pointer; }
+.cm-tabs button:hover { color: var(--text); }
+.cm-tabs button.on { background: var(--card); color: var(--accent); box-shadow: 0 1px 3px rgba(0, 0, 0, .1); }
+.cm-meta { font-size: 12px; color: var(--text-sub); margin-left: auto; }
+.cm-copy { font: inherit; font-size: 13px; font-weight: 700; padding: 8px 14px; border-radius: 10px; border: 1px solid var(--accent);
+  background: var(--accent); color: #fff; cursor: pointer; display: inline-flex; align-items: center; gap: 6px; transition: background .2s, border-color .2s; }
+.cm-copy.done { background: #1f9d3a; border-color: #1f9d3a; }
+@media (prefers-color-scheme: dark) { .cm-copy { color: #0f1218; } .cm-copy.done { color: #fff; } }
+.cm-body { margin: 0 20px; border-radius: 14px; background: #0f1420; overflow: auto; flex: 1; min-height: 160px;
+  display: grid; grid-template-columns: auto 1fr; font-family: ui-monospace, "SFMono-Regular", Menlo, Consolas, "D2Coding", monospace;
+  font-size: 13px; line-height: 1.65; }
+.cm-body pre { margin: 0; padding: 16px 18px 16px 0; white-space: pre; tab-size: 2; }
+.cm-body .gut { padding: 16px 12px 16px 16px; text-align: right; color: #4b5568; user-select: none; -webkit-user-select: none;
+  border-right: 1px solid #1e2636; margin-right: 16px; position: sticky; left: 0; background: #0f1420; }
+.cm-body code { color: #d6deeb; user-select: text; -webkit-user-select: text; }
+.cm-body code ::selection, .cm-body code::selection { background: rgba(130, 170, 255, .35); }
+.cm-foot { display: flex; gap: 14px; flex-wrap: wrap; padding: 12px 20px 16px; font-size: 12px; color: var(--text-sub); }
+.cm-foot kbd { font-family: inherit; font-size: 11px; font-weight: 700; padding: 2px 6px; border-radius: 5px; border: 1px solid var(--line); border-bottom-width: 2px; background: var(--bg); color: var(--text); }
+/* 구문 강조 */
+.tk-c { color: #637777; font-style: italic; } .tk-s { color: #ecc48d; } .tk-k { color: #c792ea; } .tk-n { color: #f78c6c; }
+.tk-t { color: #7fdbca; } .tk-a { color: #addb67; } .tk-sel { color: #82aaff; } .tk-p { color: #80cbc4; } .tk-at { color: #c792ea; }
+
+.cm-toast { position: fixed; left: 50%; top: 24px; z-index: 1100; transform: translate(-50%, -20px); opacity: 0; pointer-events: none;
+  background: #15171c; color: #fff; font-size: 14px; font-weight: 600; padding: 11px 18px; border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, .25); transition: opacity .25s, transform .25s; }
+.cm-toast.show { opacity: 1; transform: translate(-50%, 0); }
+@media (max-width: 560px) { .cm-meta { display: none; } .cm-copy { margin-left: auto; } .cm-foot { display: none; } .cm-body { margin: 0 12px 12px; } }
+
+@property --r  { syntax: '<length>'; inherits: true; initial-value: 0px; }
+@property --rx { syntax: '<angle>';  inherits: true; initial-value: 0deg; }
+@property --ry { syntax: '<angle>';  inherits: true; initial-value: 0deg; }
+
+.group { grid-column: 1 / -1; display: flex; align-items: center; gap: 12px; margin: 22px 0 2px;
+  font-size: 13px; font-weight: 800; letter-spacing: 1.5px; color: var(--accent); }
+.group::after { content: ""; flex: 1; height: 1px; background: var(--line); }
+.tag.live { background: color-mix(in srgb, #28c840 16%, transparent); color: #1f9d3a; }
+.hint { font-size: 12px; color: var(--text-sub); margin: -8px 0 12px; }
+
+/* 글자 분리 공통 — 단어는 줄바꿈 중 끊기지 않게 묶음 */
+.wd { display: inline-block; white-space: nowrap; }
+.c  { display: inline-block; }
+
+/* ===== 8. 글자 낙하 바운스 ===== */
+.a8 .c { opacity: 0; transform: translateY(-1.4em) scaleY(1.15); }
+.a8.play .c { animation: drop .75s cubic-bezier(.34, 1.56, .64, 1) forwards; animation-delay: calc(var(--i) * 32ms); }
+@keyframes drop { 60% { opacity: 1; } to { opacity: 1; transform: none; } }
+
+/* ===== 9. 그라데이션 흐름 ===== */
+.a9 .h > span { display: inline-block; opacity: 0; transform: translateY(12px);
+  background: linear-gradient(100deg, var(--text) 0%, var(--text) 30%, var(--accent) 42%, var(--accent-2) 50%, #b06bfa 58%, var(--text) 70%, var(--text) 100%) 0 0 / 250% 100%;
+  -webkit-background-clip: text; background-clip: text; color: transparent; }
+.a9 .h > span:nth-of-type(2) { background-image: linear-gradient(100deg, var(--accent) 0%, var(--accent-2) 30%, #b06bfa 50%, var(--accent-2) 70%, var(--accent) 100%); }
+.a9 em { color: transparent; }
+.a9.play .h > span { animation: fadeUp .6s ease forwards calc(var(--i) * 180ms), flow 3.6s linear infinite; }
+@keyframes flow { from { background-position: 100% 0; } to { background-position: -150% 0; } }
+
+/* ===== 10. 3D 플립 ===== */
+.a10 .wd { perspective: 600px; }
+.a10 .c { opacity: 0; transform: rotateX(-95deg); transform-origin: 50% 100%; }
+.a10.play .c { animation: flipIn .7s cubic-bezier(.2, .8, .2, 1) forwards; animation-delay: calc(var(--i) * 38ms); }
+@keyframes flipIn { 40% { opacity: 1; } to { opacity: 1; transform: none; } }
+
+/* ===== 11. 네온사인 ===== */
+.a11 .stage { background: radial-gradient(ellipse at 30% 50%, #1b1030, #07070d 70%); }
+.a11 .h { color: #fff3fc; text-shadow: 0 0 3px #fff, 0 0 10px #ff4fd8, 0 0 24px #ff4fd8, 0 0 46px #a63cff; }
+.a11 .h em { color: #eafcff; text-shadow: 0 0 3px #fff, 0 0 10px #22e3ff, 0 0 24px #22e3ff, 0 0 46px #2a7bff; }
+.a11 .h > span { display: inline-block; opacity: 0; }
+.a11.play .h > span { animation: neonOn 1.4s linear forwards calc(var(--i) * 350ms); }
+.a11.play .h em { animation: hum 4s linear infinite 2.4s; }
+@keyframes neonOn { 0% { opacity: 0; } 8% { opacity: .9; } 11% { opacity: .1; } 18% { opacity: 1; } 21% { opacity: .25; } 30%, 100% { opacity: 1; } }
+@keyframes hum { 0%, 90%, 100% { opacity: 1; } 91% { opacity: .45; } 92.5% { opacity: 1; } 94% { opacity: .7; } }
+
+/* ===== 12. 글리치 ===== */
+.a12 .stage { background: #0c0e16; }
+.a12 .h { color: #fff; }
+.a12 .h em { color: #82aaff; }
+.a12 .gl { position: relative; display: inline-block; opacity: 0; }
+.a12 .gl::before, .a12 .gl::after { content: attr(data-t); position: absolute; inset: 0; opacity: 0; pointer-events: none; }
+.a12 .gl::before { color: #ff2a6d; }
+.a12 .gl::after  { color: #05d9e8; }
+.a12.play .gl { animation: glIn .5s steps(2) forwards calc(var(--i) * 220ms), glSkew 3.4s infinite calc(var(--i) * 220ms + .2s); }
+.a12.play .gl::before { animation: glA 3.4s infinite calc(var(--i) * 220ms); }
+.a12.play .gl::after  { animation: glB 3.4s infinite calc(var(--i) * 220ms + 40ms); }
+@keyframes glIn { 0% { opacity: 0; } 40% { opacity: 1; } 60% { opacity: .2; } to { opacity: 1; } }
+@keyframes glSkew { 0%, 9%, 100% { transform: none; } 2% { transform: skewX(-10deg); } 4% { transform: skewX(6deg) translateX(2px); } 6% { transform: skewX(-3deg); } }
+@keyframes glA { 0% { opacity: .9; clip-path: inset(10% 0 62% 0); transform: translate(-4px, 0); } 3% { clip-path: inset(58% 0 12% 0); transform: translate(4px, -1px); }
+  6% { clip-path: inset(30% 0 44% 0); transform: translate(-3px, 1px); } 9% { clip-path: inset(82% 0 2% 0); transform: translate(2px, 0); } 11%, 100% { opacity: 0; clip-path: inset(0 0 100% 0); transform: none; } }
+@keyframes glB { 0% { opacity: .9; clip-path: inset(70% 0 8% 0); transform: translate(4px, 1px); } 3% { clip-path: inset(5% 0 75% 0); transform: translate(-4px, 0); }
+  6% { clip-path: inset(45% 0 30% 0); transform: translate(3px, -1px); } 9% { clip-path: inset(20% 0 60% 0); transform: translate(-2px, 0); } 11%, 100% { opacity: 0; clip-path: inset(0 0 100% 0); transform: none; } }
+
+/* ===== 13. 물결 웨이브 ===== */
+.a13 .c { opacity: 0; }
+.a13 em .c { color: var(--accent); }
+.a13.play .c { animation: fadeUp .4s ease forwards calc(var(--i) * 22ms), wave 2.4s ease-in-out infinite calc(var(--i) * 70ms + .6s); }
+.a13.play em .c { animation: fadeUp .4s ease forwards calc(var(--i) * 22ms), wave 2.4s ease-in-out infinite calc(var(--i) * 70ms + .6s), tint 2.4s ease-in-out infinite calc(var(--i) * 70ms + .6s); }
+@keyframes wave { 0%, 50%, 100% { transform: none; } 20% { transform: translateY(-9px); } 35% { transform: translateY(2px); } }
+@keyframes tint { 20% { color: var(--accent-2); } }
+
+/* ===== 14. 컬러 블록 와이프 ===== */
+.a14 .line { display: block; }
+.a14 .blk { position: relative; display: inline-block; }
+.a14 .blk::after { content: ""; position: absolute; inset: 4% -4px; background: var(--c, var(--accent)); transform: scaleX(0); transform-origin: 0 50%; border-radius: 3px; }
+.a14 .tx { opacity: 0; }
+.a14.play .blk::after { animation: wipe 1s cubic-bezier(.77, 0, .175, 1) forwards calc(var(--i) * 230ms); }
+.a14.play .tx { animation: showAt 1s forwards calc(var(--i) * 230ms); }
+@keyframes wipe { 0% { transform: scaleX(0); transform-origin: 0 50%; } 48% { transform: scaleX(1); transform-origin: 0 50%; }
+  52% { transform: scaleX(1); transform-origin: 100% 50%; } 100% { transform: scaleX(0); transform-origin: 100% 50%; } }
+@keyframes showAt { 0%, 49% { opacity: 0; } 50%, 100% { opacity: 1; } }
+
+/* ===== 15. 손글씨 외곽선 드로잉 ===== */
+.a15 svg { width: 100%; max-width: 372px; height: auto; overflow: visible; display: block; }
+.a15 text { font-family: "Pretendard", sans-serif; font-size: 34px; font-weight: 800; letter-spacing: -1px;
+  fill: transparent; stroke: var(--s); stroke-width: 1.2; stroke-linejoin: round; stroke-dasharray: 420; stroke-dashoffset: 420; }
+.a15.play text { animation: draw 2.2s cubic-bezier(.55, .1, .3, 1) forwards calc(var(--i) * 300ms), fillIn .8s ease forwards calc(var(--i) * 300ms + 1.8s); }
+@keyframes draw { to { stroke-dashoffset: 0; } }
+@keyframes fillIn { to { fill: var(--s); stroke-width: 0; } }
+
+/* ===== 16. 3D 틸트 (마우스) ===== */
+.a16 .stage { perspective: 900px; cursor: crosshair; }
+.a16 .h { transform-style: preserve-3d; transform: rotateX(var(--rx)) rotateY(var(--ry)); transition: transform .25s ease-out; }
+.a16 .h .ln { display: block; opacity: 0; translate: 0 18px; text-shadow: 0 10px 18px color-mix(in srgb, var(--accent) 22%, transparent); }
+.a16 .h .ln:nth-child(1) { transform: translateZ(10px); }
+.a16 .h .ln:nth-child(2) { transform: translateZ(55px); }
+.a16 .h .ln:nth-child(3) { transform: translateZ(25px); }
+.a16.play .h { animation: sway 6s ease-in-out infinite 1s; }
+.a16.play .h .ln { animation: lnIn .7s cubic-bezier(.2, .8, .2, 1) forwards; }
+.a16.play .h .ln:nth-child(2) { animation-delay: .15s; } .a16.play .h .ln:nth-child(3) { animation-delay: .3s; }
+.a16 .stage.hover .h { animation: none; }
+@keyframes lnIn { to { opacity: 1; translate: 0 0; } }
+@keyframes sway { 0%, 100% { --rx: 6deg; --ry: -14deg; } 50% { --rx: -5deg; --ry: 14deg; } }
+
+/* ===== 17. 랜덤 초점 줌 ===== */
+.a17 .c { opacity: 0; transform: scale(2.6); filter: blur(12px); }
+.a17.play .c { animation: focusIn .8s cubic-bezier(.2, .8, .2, 1) forwards; animation-delay: calc(var(--r) * 28ms); }
+@keyframes focusIn { to { opacity: 1; transform: none; filter: blur(0); } }
+
+/* ===== 18. 타이핑 · 지우기 반복 ===== */
+.a18 .tw { color: var(--accent); background: var(--accent-soft); border-radius: 6px; padding: 0 .12em; }
+.a18 .tw:empty { padding: 0; }
+
+/* ===== 19. 스포트라이트 (마우스) ===== */
+.a19 .stage { background: #07090f; cursor: none; }
+.a19 .spot { position: relative; --x: -20%; --y: 50%; transition: --r .6s cubic-bezier(.2, .8, .2, 1); }
+.a19 .base { color: rgba(255, 255, 255, .07); }
+.a19 .base em { color: rgba(130, 170, 255, .1); }
+.a19 .lit { position: absolute; inset: 0; color: #fff;
+  -webkit-mask-image: radial-gradient(circle var(--r) at var(--x) var(--y), #000 55%, transparent 100%);
+          mask-image: radial-gradient(circle var(--r) at var(--x) var(--y), #000 55%, transparent 100%); }
+.a19 .lit em { color: #82aaff; text-shadow: 0 0 18px rgba(130, 170, 255, .6); }
+
+/* ===== 20. 파티클 집결 ===== */
+.a20 .stage { padding: 0; cursor: crosshair; }
+.a20 canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+
+/* ===== 21. 슬롯머신 ===== */
+.a21 .slot { display: inline-block; height: 1.32em; overflow: hidden; vertical-align: top; }
+.a21 .reel { display: flex; flex-direction: column; }
+.a21 .reel > span { height: 1.32em; display: flex; justify-content: center; white-space: pre; }
+.a21 .reel > span:not(:last-child) { width: 0; align-self: center; }   /* 칸 너비는 최종 글자 기준 */
+.a21 .reel > span:not(:last-child) { color: var(--text-sub); opacity: .5; }
+.a21 em .reel > span:last-child { color: var(--accent); }
+.a21.play .reel { animation: spin var(--d) cubic-bezier(.15, .85, .25, 1.06) forwards; animation-delay: calc(var(--i) * 30ms); }
+@keyframes spin { to { transform: translateY(calc(var(--n) * -1.32em)); } }
+
+/* ================================================================
+   22 ~ 36 추가 애니메이션
+   ================================================================ */
+@property --lv { syntax: '<length>'; inherits: true; initial-value: 0px; }
+@property --wx { syntax: '<length>'; inherits: true; initial-value: 0px; }
+.ww { display: inline-block; }
+
+/* ===== 22. 흩어진 단어 정렬 ===== */
+.a22 .ww { opacity: 0; transform: translate(var(--tx), var(--ty)) rotate(var(--rot)) scale(.6); }
+.a22.play .ww { animation: settle 1s cubic-bezier(.2, .9, .25, 1.12) forwards; animation-delay: calc(var(--i) * 70ms); }
+@keyframes settle { 30% { opacity: 1; } to { opacity: 1; transform: none; } }
+
+/* ===== 23. 카운트다운 ===== */
+.a23 .count { position: absolute; inset: 0; display: grid; place-items: center; font-size: 96px; font-weight: 900;
+  color: var(--accent); pointer-events: none; font-variant-numeric: tabular-nums; }
+.a23 .count.pop { animation: cd .8s ease forwards; }
+.a23 .h > span { display: inline-block; opacity: 0; }
+.a23.play .h > span { animation: popIn .55s cubic-bezier(.34, 1.56, .64, 1) forwards; animation-delay: calc(var(--i) * 130ms); }
+@keyframes cd { 0% { opacity: 0; transform: scale(2.2); } 30% { opacity: 1; transform: scale(1); } 75% { opacity: 1; } 100% { opacity: 0; transform: scale(.6); } }
+@keyframes popIn { from { opacity: 0; transform: scale(.6); } to { opacity: 1; transform: none; } }
+
+/* ===== 24. 손그림 동그라미 ===== */
+.a24 .h > span { display: inline-block; opacity: 0; transform: translateY(10px); }
+.a24.play .h > span { animation: fadeUp .6s ease forwards; animation-delay: calc(var(--i) * 180ms); }
+.a24 .circ { position: relative; display: inline-block; color: var(--accent); }
+.a24 .circ svg { position: absolute; left: -16%; top: -24%; width: 132%; height: 148%; overflow: visible; pointer-events: none; }
+.a24 .circ path { fill: none; stroke: #e5484d; stroke-width: 3; stroke-linecap: round; vector-effect: non-scaling-stroke;
+  stroke-dasharray: 100; stroke-dashoffset: 100; }
+.a24.play .circ path { animation: draw .9s cubic-bezier(.6, .1, .3, 1) forwards 1.1s; }
+
+/* ===== 25. 큐브 회전 ===== */
+.a25 .cube { display: inline-block; perspective: 400px; vertical-align: bottom; height: 1.32em; width: 3.3em; }
+.a25 .cb { position: relative; display: block; height: 100%; transform-style: preserve-3d;
+  transform: translateZ(-.66em) rotateX(var(--a, 0deg)); transition: transform .8s cubic-bezier(.7, -.3, .3, 1.3); }
+.a25 .cb > span { position: absolute; inset: 0; text-align: center; backface-visibility: hidden; border-radius: 8px;
+  color: var(--accent); background: var(--accent-soft); }
+.a25 .cb > span:nth-child(1) { transform: rotateX(0deg)    translateZ(.66em); }
+.a25 .cb > span:nth-child(2) { transform: rotateX(-90deg)  translateZ(.66em); }
+.a25 .cb > span:nth-child(3) { transform: rotateX(-180deg) translateZ(.66em); }
+.a25 .cb > span:nth-child(4) { transform: rotateX(-270deg) translateZ(.66em); }
+
+/* ===== 26. 타일 디졸브 ===== */
+.a26 .tiles { position: absolute; inset: 0; display: grid; grid-template-columns: repeat(12, 1fr); grid-template-rows: repeat(5, 1fr); pointer-events: none; }
+.a26 .tiles i { background: var(--c); }
+.a26.play .tiles i { animation: tileOut .55s ease forwards; animation-delay: calc(var(--d) * 1ms); }
+@keyframes tileOut { to { opacity: 0; transform: scale(.2) rotate(30deg); } }
+
+/* ===== 27. 셔터 오픈 ===== */
+.a27 .stage::before, .a27 .stage::after { content: ""; position: absolute; left: 0; right: 0; height: 50%; background: var(--text); z-index: 2; }
+.a27 .stage::before { top: 0; } .a27 .stage::after { bottom: 0; }
+.a27 .seam { position: absolute; left: 0; right: 0; top: calc(50% - 1px); height: 2px; background: var(--accent-2); z-index: 3; transform: scaleX(0); }
+.a27 .h { opacity: .3; transform: scale(.9); }
+.a27.play .seam { animation: seam 1.1s ease forwards; }
+.a27.play .stage::before { animation: shutUp .9s cubic-bezier(.77, 0, .175, 1) forwards .55s; }
+.a27.play .stage::after  { animation: shutDown .9s cubic-bezier(.77, 0, .175, 1) forwards .55s; }
+.a27.play .h { animation: zoomSettle 1.2s cubic-bezier(.2, .8, .2, 1) forwards .6s; }
+@keyframes seam { 0% { transform: scaleX(0); } 45% { transform: scaleX(1); opacity: 1; } 100% { transform: scaleX(1); opacity: 0; } }
+@keyframes shutUp { to { transform: translateY(-101%); } }
+@keyframes shutDown { to { transform: translateY(101%); } }
+@keyframes zoomSettle { to { opacity: 1; transform: none; } }
+
+/* ===== 28. 롱 섀도우 ===== */
+.a28 .h { --sh: color-mix(in srgb, var(--accent-2) 40%, var(--bg)); }
+.a28 .h > span { display: inline-block; opacity: 0; }
+.a28.play .h > span { animation: fadeOnly .4s ease forwards calc(var(--i) * 150ms), longShadow 1.1s cubic-bezier(.2, .8, .2, 1) forwards calc(var(--i) * 150ms + .3s); }
+@keyframes fadeOnly { to { opacity: 1; } }
+@keyframes longShadow { to { transform: translate(-5px, -5px);
+  text-shadow: 1px 1px 0 var(--sh), 2px 2px 0 var(--sh), 3px 3px 0 var(--sh), 4px 4px 0 var(--sh), 5px 5px 0 var(--sh), 6px 6px 0 var(--sh),
+    7px 7px 0 var(--sh), 8px 8px 0 var(--sh), 9px 9px 0 var(--sh), 10px 10px 0 var(--sh), 11px 11px 0 var(--sh), 12px 12px 0 var(--sh); } }
+
+/* ===== 29. 물 채우기 ===== */
+.a29 .h { color: transparent; -webkit-text-stroke: 1px #4f7bd9; --lv: 4.4em;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 14'%3E%3Cpath d='M0 7 Q15 0 30 7 T60 7 T90 7 T120 7 V14 H0Z' fill='%234f7bd9'/%3E%3C/svg%3E"), linear-gradient(#4f7bd9, #4f7bd9);
+  background-repeat: repeat-x, no-repeat; background-size: 120px 14px, 100% 100%;
+  background-position: var(--wx) calc(var(--lv) - 13px), 0 var(--lv);
+  -webkit-background-clip: text; background-clip: text; }
+.a29 .h em { color: transparent; }
+.a29.play .h { animation: fillUp 3.2s cubic-bezier(.45, 0, .2, 1) forwards, waveX 1.2s linear infinite; }
+@keyframes fillUp { from { --lv: 4.4em; } to { --lv: -.8em; } }
+@keyframes waveX { to { --wx: 120px; } }
+
+/* ===== 30. 로딩 퍼센트 ===== */
+.a30 .ld { position: absolute; inset: 0; display: grid; place-content: center; justify-items: center; gap: 10px; transition: opacity .4s, transform .4s; }
+.a30 .ld b { font-size: 54px; font-weight: 900; color: var(--accent); font-variant-numeric: tabular-nums; letter-spacing: -2px; }
+.a30 .ld .bar { width: 220px; height: 6px; background: var(--line); border-radius: 9px; overflow: hidden; }
+.a30 .ld .bar i { display: block; height: 100%; width: var(--p, 0%); background: linear-gradient(90deg, var(--accent), var(--accent-2)); }
+.a30.done .ld { opacity: 0; transform: scale(.9); }
+.a30 .h > span { display: inline-block; opacity: 0; transform: translateY(10px); }
+.a30.done .h > span { animation: fadeUp .6s ease forwards; animation-delay: calc(var(--i) * 150ms + .2s); }
+
+/* ===== 31. 돋보기 확대 (마우스) ===== */
+.a31 .stage { cursor: zoom-in; }
+.a31 .c { opacity: 0; transform-origin: 50% 85%; transition: transform .18s ease-out, color .18s; }
+.a31.play .c { animation: fadeOnly .5s ease forwards; animation-delay: calc(var(--i) * 18ms); }
+.a31 .c.hot { color: var(--accent); }
+
+/* ===== 32. 스핀 인 ===== */
+.a32 .c { opacity: 0; transform: rotate(-200deg) scale(0); }
+.a32.play .c { animation: spinIn .7s cubic-bezier(.2, .8, .2, 1.2) forwards; animation-delay: calc(var(--i) * 30ms); }
+@keyframes spinIn { to { opacity: 1; transform: none; } }
+
+/* ===== 33. 매트릭스 레인 ===== */
+.a33 .stage { background: #030805; }
+.a33 canvas { position: absolute; inset: 0; width: 100%; height: 100%; }
+.a33 .h { position: relative; z-index: 1; color: #e3ffe8; opacity: 0; filter: blur(6px);
+  text-shadow: 0 0 8px rgba(70, 255, 130, .7), 0 0 22px rgba(70, 255, 130, .35); transition: opacity 1s, filter 1s; }
+.a33 .h em { color: #5dff8a; }
+.a33 .on .h { opacity: 1; filter: none; }
+
+/* ===== 34. 좌우 교차 슬라이드 ===== */
+.a34 .line { display: block; }
+.a34 .line > span { display: inline-block; opacity: 0; filter: blur(6px); }
+.a34 .line:nth-child(odd)  > span { transform: translateX(-60%) skewX(-18deg); }
+.a34 .line:nth-child(even) > span { transform: translateX(60%) skewX(18deg); }
+.a34.play .line > span { animation: slideX .85s cubic-bezier(.2, .8, .2, 1) forwards; animation-delay: calc(var(--i) * 160ms); }
+@keyframes slideX { to { opacity: 1; filter: blur(0); transform: none; } }
+
+/* ===== 35. 컨페티 ===== */
+.a35 .stage { cursor: pointer; }
+.a35 canvas { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; z-index: 2; }
+.a35 .h > span { display: inline-block; opacity: 0; }
+.a35.play .h > span { animation: popIn .55s cubic-bezier(.34, 1.56, .64, 1) forwards; animation-delay: calc(var(--i) * 130ms); }
+
+/* ===== 36. 가라오케 ===== */
+.a36 .ww { --fill: var(--text); color: transparent;
+  background: linear-gradient(90deg, var(--fill) 50%, color-mix(in srgb, var(--text-sub) 32%, transparent) 50%) 100% 0 / 200% 100% no-repeat;
+  -webkit-background-clip: text; background-clip: text; }
+.a36 em .ww { --fill: var(--accent); }
+.a36.play .ww { animation: sing .42s linear forwards; animation-delay: calc(var(--i) * 360ms + .3s); }
+@keyframes sing { to { background-position: 0 0; } }
+
+/* ================================================================
+   카드 버튼 · 코드 보기 모달
+   ================================================================ */
+.actions { display: flex; gap: 8px; margin-top: 14px; flex-wrap: wrap; }
+.actions button.replay { margin-top: 0; }
+button.code-btn { display: inline-flex; align-items: center; gap: 6px; }
+button.code-btn svg { width: 15px; height: 15px; fill: none; stroke: currentColor; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
+
+.cm-overlay { position: fixed; inset: 0; z-index: 1000; display: grid; place-items: center; padding: 20px;
+  background: rgba(10, 13, 20, .55); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
+  opacity: 0; visibility: hidden; transition: opacity .25s, visibility .25s; }
+.cm-overlay.open { opacity: 1; visibility: visible; }
+.cm { width: min(900px, 100%); height: min(760px, calc(100vh - 40px)); display: flex; flex-direction: column;
+  background: var(--card); color: var(--text); border: 1px solid var(--line); border-radius: 20px; overflow: hidden;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, .3); transform: translateY(16px) scale(.98); transition: transform .3s cubic-bezier(.2, .8, .2, 1); }
+.cm-overlay.open .cm { transform: none; }
+.cm-head { display: flex; align-items: center; gap: 12px; padding: 18px 20px 14px; }
+.cm-head .num { margin-bottom: 2px; }
+.cm-head h3 { font-size: 18px; letter-spacing: -.4px; }
+.cm-close { margin-left: auto; width: 36px; height: 36px; border-radius: 10px; border: 1px solid var(--line); background: var(--card);
+  color: var(--text-sub); font-size: 20px; line-height: 1; cursor: pointer; flex-shrink: 0; }
+.cm-close:hover { color: var(--text); border-color: var(--text-sub); }
+.cm-bar { display: flex; align-items: center; gap: 8px; padding: 0 20px 12px; flex-wrap: wrap; }
+.cm-tabs { display: flex; gap: 4px; padding: 4px; background: var(--bg); border: 1px solid var(--line); border-radius: 12px; }
+.cm-tabs button { font: inherit; font-size: 13px; font-weight: 700; padding: 6px 13px; border: 0; border-radius: 9px; background: none; color: var(--text-sub); cursor: pointer; }
+.cm-tabs button:hover { color: var(--text); }
+.cm-tabs button.on { background: var(--card); color: var(--accent); box-shadow: 0 1px 3px rgba(0, 0, 0, .1); }
+.cm-meta { font-size: 12px; color: var(--text-sub); margin-left: auto; }
+.cm-copy { font: inherit; font-size: 13px; font-weight: 700; padding: 8px 14px; border-radius: 10px; border: 1px solid var(--accent);
+  background: var(--accent); color: #fff; cursor: pointer; display: inline-flex; align-items: center; gap: 6px; transition: background .2s, border-color .2s; }
+.cm-copy.done { background: #1f9d3a; border-color: #1f9d3a; }
+@media (prefers-color-scheme: dark) { .cm-copy { color: #0f1218; } .cm-copy.done { color: #fff; } }
+.cm-body { margin: 0 20px; border-radius: 14px; background: #0f1420; overflow: auto; flex: 1; min-height: 160px;
+  display: grid; grid-template-columns: auto 1fr; font-family: ui-monospace, "SFMono-Regular", Menlo, Consolas, "D2Coding", monospace;
+  font-size: 13px; line-height: 1.65; }
+.cm-body pre { margin: 0; padding: 16px 18px 16px 0; white-space: pre; tab-size: 2; }
+.cm-body .gut { padding: 16px 12px 16px 16px; text-align: right; color: #4b5568; user-select: none; -webkit-user-select: none;
+  border-right: 1px solid #1e2636; margin-right: 16px; position: sticky; left: 0; background: #0f1420; }
+.cm-body code { color: #d6deeb; user-select: text; -webkit-user-select: text; }
+.cm-body code ::selection, .cm-body code::selection { background: rgba(130, 170, 255, .35); }
+.cm-foot { display: flex; gap: 14px; flex-wrap: wrap; padding: 12px 20px 16px; font-size: 12px; color: var(--text-sub); }
+.cm-foot kbd { font-family: inherit; font-size: 11px; font-weight: 700; padding: 2px 6px; border-radius: 5px; border: 1px solid var(--line); border-bottom-width: 2px; background: var(--bg); color: var(--text); }
+/* 구문 강조 */
+.tk-c { color: #637777; font-style: italic; } .tk-s { color: #ecc48d; } .tk-k { color: #c792ea; } .tk-n { color: #f78c6c; }
+.tk-t { color: #7fdbca; } .tk-a { color: #addb67; } .tk-sel { color: #82aaff; } .tk-p { color: #80cbc4; } .tk-at { color: #c792ea; }
+
+.cm-toast { position: fixed; left: 50%; top: 24px; z-index: 1100; transform: translate(-50%, -20px); opacity: 0; pointer-events: none;
+  background: #15171c; color: #fff; font-size: 14px; font-weight: 600; padding: 11px 18px; border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, .25); transition: opacity .25s, transform .25s; }
+.cm-toast.show { opacity: 1; transform: translate(-50%, 0); }
+@media (max-width: 560px) { .cm-meta { display: none; } .cm-copy { margin-left: auto; } .cm-foot { display: none; } .cm-body { margin: 0 12px 12px; } }

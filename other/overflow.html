@@ -10,7 +10,7 @@
 <link rel="stylesheet" href="../css/overflow.css">
 <link rel="icon" href="../img/favicon.jpg" type="image/x-icon">
 </head>
-<body oncontextmenu="return false" ondragstart="return false">
+<body>
 
 <!-- ===== Header ===== -->
 <header id="header">
@@ -54,6 +54,9 @@
 <!-- 이미지 확대 보기 / 맨 위로 -->
 <div class="lightbox" id="lightbox"><img id="lightboxImg" alt=""></div>
 <button class="to-top" id="toTop" aria-label="맨 위로">↑</button>
+
+<!-- 보호 안내 토스트 -->
+<div class="guard-toast" id="guardToast" role="status" aria-live="polite"><span class="ico">🔒</span><span id="guardMsg"></span></div>
 
 <script>
   /* ============================================================
@@ -165,6 +168,76 @@
     entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('show'); io.unobserve(e.target); } });
   }, { threshold: 0.1 });
   document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+<script>
+  /* ============================================================
+     콘텐츠 보호 (index.html과 동일)
+     - 우클릭 · 드래그 · 텍스트 선택 · 복사 방지
+     - 개발자 도구 / 소스 보기 / 페이지 저장 단축키 차단
+     - Tab · 방향키 · 스페이스 · ESC(확대 사진 닫기) · 새로고침 등은 그대로 사용 가능
+     ※ 일반 방문자의 무단 복사를 막는 "억제" 장치입니다. 브라우저 메뉴나
+        자바스크립트 끄기 등으로는 우회할 수 있습니다.
+     ============================================================ */
+  (() => {
+    const toast = document.getElementById('guardToast');
+    const msg = document.getElementById('guardMsg');
+    let hideTimer = null;
+    const notify = text => {
+      if (!toast) return;
+      msg.textContent = text;
+      toast.classList.add('show');
+      clearTimeout(hideTimer);
+      hideTimer = setTimeout(() => toast.classList.remove('show'), 1800);
+    };
+    const isEditable = el => el && el.closest && el.closest('input, textarea, [contenteditable="true"]');
+
+    // 1) 우클릭 메뉴 (확대한 사진 위 포함)
+    document.addEventListener('contextmenu', e => {
+      if (isEditable(e.target)) return;
+      e.preventDefault();
+      notify(e.target.tagName === 'IMG' ? '사진은 저장할 수 없습니다' : '콘텐츠 보호를 위해 우클릭이 제한됩니다');
+    });
+
+    // 2) 드래그 (사진 · 링크 · 텍스트)
+    document.addEventListener('dragstart', e => { if (!isEditable(e.target)) e.preventDefault(); });
+
+    // 3) 텍스트 선택
+    document.addEventListener('selectstart', e => { if (!isEditable(e.target)) e.preventDefault(); });
+
+    // 4) 복사 · 잘라내기
+    ['copy', 'cut'].forEach(type => document.addEventListener(type, e => {
+      if (isEditable(e.target)) return;
+      e.preventDefault();
+      notify('콘텐츠 보호를 위해 복사가 제한됩니다');
+    }));
+
+    // 5) 개발자 도구 · 소스 보기 · 저장 · 전체 선택 단축키 (그 외 키는 막지 않음)
+    document.addEventListener('keydown', e => {
+      const k = (e.key || '').toLowerCase();
+      const mod = e.ctrlKey || e.metaKey;              // Windows: Ctrl / Mac: Cmd
+      const devtools =
+        k === 'f12' ||
+        (mod && e.shiftKey && ['i', 'j', 'c', 'k'].includes(k)) ||
+        (e.metaKey && e.altKey && ['i', 'j', 'c', 'u'].includes(k));
+      const source = mod && k === 'u';
+      const save   = mod && k === 's';
+      const selAll = mod && k === 'a' && !isEditable(e.target);
+
+      if (devtools || source || save || selAll) {
+        e.preventDefault();
+        e.stopPropagation();
+        notify(devtools ? '개발자 도구는 사용할 수 없습니다'
+             : source   ? '소스 보기는 제한됩니다'
+             : save     ? '페이지 저장은 제한됩니다'
+             :            '콘텐츠 보호를 위해 선택이 제한됩니다');
+      }
+    }, true);
+
+    // 6) 콘솔을 연 사람에게 보이는 안내 메시지
+    console.log('%c잠깐!', 'color:#1f3a68;font-size:28px;font-weight:800;');
+    console.log('%c이 사이트의 콘텐츠는 저작권 보호를 받습니다. 협업 문의는 jaehyuk7767@naver.com 으로 연락 주세요.',
+                'font-size:13px;color:#5b6170;');
+  })();
 </script>
 </body>
 </html>
